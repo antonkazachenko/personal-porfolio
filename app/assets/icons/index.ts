@@ -1,0 +1,14 @@
+export { default as ArrowIcon } from './arrow.svg';
+export { default as CertificationIcon } from './certification.svg';
+export { default as CloudIcon } from './cloud.svg';
+export { default as FranceIcon } from './france.svg';
+export { default as GithubIcon } from './github.svg';
+export { default as LinkedinIcon } from './linkedin.svg';
+export { default as MoonIcon } from './moon.svg';
+export { default as RussiaIcon } from './russia.svg';
+export { default as SFUIcon } from './SFU.svg';
+export { default as SphereIcon } from './sphere.svg';
+export { default as SunIcon } from './sun.svg';
+export { default as UKIcon } from './uk.svg';
+export { default as UniIcon } from './uni.svg';
+export { default as WebIcon } from './web.svg';
