@@ -5,6 +5,24 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-poppins-black: Poppins Black;
+  --font-poppins-black-italic: Poppins Black Italic;
+  --font-poppins-bold: Poppins Bold;
+  --font-poppins-bold-italic: Poppins Bold Italic;
+  --font-poppins-extra-bold: Poppins ExtraBold;
+  --font-poppins-extra-bold-italic: Poppins ExtraBold Italic;
+  --font-poppins-extra-light: Poppins Extra Light;
+  --font-poppins-extra-light-italic: Poppins Extra Light Italic;
+  --font-poppins-italic: Poppins Italic;
+  --font-poppins-light: Poppins Light;
+  --font-poppins-light-italic: Poppins Light Italic;
+  --font-poppins-medium: Poppins Medium;
+  --font-poppins-medium-italic: Poppins Medium Italic;
+  --font-poppins-regular: Poppins Regular;
+  --font-poppins-semi-bold: Poppins SemiBold;
+  --font-poppins-semi-bold-italic: Poppins SemiBold Italic;
+  --font-poppins-thin: Poppins Thin;
+  --font-poppins-thin-italic: Poppins Thin Italic;
 }
 
 @media (prefers-color-scheme: dark) {

@@ -1,16 +1,27 @@
 import ThemeSwitcher from './ThemeSwitcher';
+import {GithubIcon, LinkedinIcon} from "@/app/assets/icons";
+import App from "@/app/components/LangDropdown";
+import LangDropdown from "@/app/components/LangDropdown";
 
 export default function Header() {
   return (
-    <header style={{ display: 'flex', justifyContent: 'space-between', padding: '1rem' }}>
-      <div>
-        {/* Logo or other header items */}
-        <h1>My Website</h1>
+    <header className="header">
+      <div className="left-menu">
+        <ThemeSwitcher/>
+        <LangDropdown />
       </div>
-      <div>
-        {/* Theme Switcher */}
-        <ThemeSwitcher />
+      <ul className="menu-list">
+        <li>Skills</li>
+        <li>Experience</li>
+        <li>Projects</li>
+        <li>Education</li>
+        <li>Contacts</li>
+      </ul>
+      <div className="right-menu">
+        <GithubIcon/>
+        <LinkedinIcon/>
       </div>
     </header>
-  );
+  )
+    ;
 }

@@ -25,7 +25,7 @@ export default function ThemeSwitcher() {
         layout
         transition={spring}
         style={{
-          backgroundColor: isDarkMode ? '#F5F5F5' : '#111111',
+          backgroundColor: isDarkMode ? '#111111' : '#F5F5F5',
         }}
       />
 

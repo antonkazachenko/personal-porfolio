@@ -1,7 +1,7 @@
 .switch {
-    width: 100px;
-    height: 50px;
-    background-color: #F5F5F5;
+    width: 70px;
+    height: 30px;
+    background-color: #111111;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -9,26 +9,32 @@
     padding: 5px;
     position: relative;
     cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 5px rgba(200, 200, 200, 0.5);
 }
 
 .switch[data-ison="true"] {
-    background-color: #111111; /* Dark mode background */
+    background-color: #F5F5F5;
 }
 
 .handle {
-    width: 40px;
-    height: 40px;
+    width: 25px;
+    height: 25px;
     border-radius: 50%;
     position: absolute;
-    left: 5px; /* Start at the left */
-    transition: left 0.3s ease;
+    left: 5px;
+    z-index: 3;
+    transition: left 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #111111;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
 }
 
 .switch[data-ison="true"] .handle {
-    left: calc(100% - 45px); /* Move the handle to the right when in light mode */
+    left: calc(100% - 28px);
+    background-color: #F5F5F5;
 }
 
 .icon-container {
@@ -38,20 +44,54 @@
     align-items: center;
     justify-content: center;
     position: absolute;
-    z-index: 1; /* Ensure icons are on top of the handle */
+    z-index: 1;
 }
 
 .moon-icon {
-    left: 10px; /* Always on the left side */
-    z-index: 2; /* Ensures that it's always visible */
+    left: 5px;
+    z-index: 2;
 }
 
 .sun-icon {
-    right: 10px; /* Always on the right side */
-    z-index: 2; /* Ensures that it's always visible */
+    right: 5px;
+    z-index: 2;
 }
 
 .icon {
     width: 20px;
     height: 20px;
 }
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    width: 83%;
+    margin: 0 auto;
+}
+
+.menu-list {
+    font-size: 20px;
+    font-family: var(--font-poppins-regular), sans-serif;
+    display: flex;
+    gap: 80px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.left-menu {
+    width: 170px;
+    display: flex;
+    gap: 60px;
+}
+
+.right-menu {
+    display: flex;
+    gap: 30px;
+}
+
+.menu {
+    width: 40px;
+}
+
