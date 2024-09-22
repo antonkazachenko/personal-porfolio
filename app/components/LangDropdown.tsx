@@ -3,6 +3,7 @@
 import "./styles.css";
 import { useState } from "react";
 import { motion, Variants } from "framer-motion";
+import {ArrowIcon} from "@/app/assets/icons";
 
 const itemVariants: Variants = {
   open: {
@@ -32,7 +33,7 @@ export default function LangDropdown() {
     <motion.nav
       initial={false}
       animate={isOpen ? "open" : "closed"}
-      className="menu"
+      className="menu lang-dropdown"
     >
       <motion.button
         whileTap={{ scale: 0.97 }}
@@ -47,9 +48,7 @@ export default function LangDropdown() {
           transition={{ duration: 0.2 }}
           style={{ originY: 0.55 }}
         >
-          <svg width="15" height="15" viewBox="0 0 20 20">
-            <path d="M0 7 L 20 7 L 10 16" />
-          </svg>
+          <ArrowIcon />
         </motion.div>
       </motion.button>
       <motion.ul
@@ -73,14 +72,15 @@ export default function LangDropdown() {
             }
           }
         }}
-        style={{ pointerEvents: isOpen ? "auto" : "none" }}
+        style={{pointerEvents: isOpen ? "auto" : "none"}}
+        className="lang-dropdown-menu"
       >
         {items.map((item) => (
           <motion.li
             key={item}
             variants={itemVariants}
             onClick={() => handleSelect(item)}
-            style={{ cursor: "pointer" }}
+            style={{cursor: "pointer"}}
           >
             {item}
           </motion.li>

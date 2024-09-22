@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Header from "@/app/components/Header";
 import {ReactNode} from "react";
 
 const PoppinsBlack = localFont({
@@ -108,7 +107,6 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <html>
       <body>
-        <Header/>
         <main>{children}</main>
       </body>
     </html>
