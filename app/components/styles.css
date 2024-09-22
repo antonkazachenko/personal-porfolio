@@ -251,3 +251,97 @@
     line-height: normal;
     width: 70%;
 }
+
+.main-page {
+    height: 100vh;
+    margin-bottom: 40px;
+}
+
+/* SkillsSection.css or your main CSS file */
+.skills-section {
+    padding: 40px;
+    color: white;
+    position: relative;
+    text-align: center;
+}
+
+.section-header {
+    color: #F5F5F5;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: var(--font-poppins-semi-bold), sans-serif; /* Ensure you have this font or change it to your preferred one */
+    font-size: 40px;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 10; /* Ensures it's on top */
+    margin-bottom: 40px; /* Adjust spacing as needed */
+}
+
+.section-header-bg {
+    position: absolute;
+    left: 50%;
+    top: 15%;
+    transform: translate(-50%, -50%);
+    -webkit-text-stroke-width: 1.5px; /* Increased stroke width */
+    -webkit-text-stroke-color: rgba(245, 245, 245, 0.5); /* Increased opacity for a brighter effect */
+    color: transparent;
+    font-family: var(--font-poppins-semi-bold), sans-serif;
+    font-size: 80px;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
+    opacity: 0.2; /* Increased opacity for more visibility */
+    pointer-events: none; /* Ensures it doesn’t interfere with other elements */
+    z-index: 1;
+}
+
+.categories-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+
+.category {
+    display: flex;
+    padding: 40px;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    border-radius: 30px;
+    background: rgba(245, 245, 245, 0.05);
+    width: 340px;
+    color: #F5F5F5;
+    font-family: var(--font-poppins-light), serif;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.active-category {
+    border: 1px solid #0EAB00;
+}
+
+.skills-icons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+.skill-icon {
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.skill-icon img {
+    height: 40px;
+    width: 40px;
+}
+
