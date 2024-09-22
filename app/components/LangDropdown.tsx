@@ -3,7 +3,7 @@
 import "./styles.css";
 import { useState } from "react";
 import { motion, Variants } from "framer-motion";
-import {ArrowIcon} from "@/app/assets/icons";
+import {ArrowIcon} from "@/app/public/icons";
 
 const itemVariants: Variants = {
   open: {

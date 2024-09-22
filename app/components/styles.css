@@ -66,7 +66,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 80px 9.375% 1rem;
+    padding: 40px 9.375% 1rem;
     width: 100%;
     margin: 0 auto;
 }
@@ -75,7 +75,7 @@
 .menu-list {
     color: #F5F5F5;
     text-align: center;
-    font-family: var(--font-poppins-regular), sans-serif;
+    font-family: var(--font-poppins-light), sans-serif;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
@@ -132,7 +132,7 @@
     color: #F5F5F5;
     leading-trim: both;
     text-edge: cap;
-    font-family: Poppins, serif;
+    font-family: var(--font-poppins-light), serif;
     font-size: 20px;
     font-style: normal;
     font-weight: 300;
@@ -187,4 +187,67 @@
     transition: fill 0.3s ease, filter 0.3s ease;
 }
 
+.profile-picture-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px; /* Adjust size to accommodate increased padding */
+    height: 300px; /* Adjust size to accommodate increased padding */
+    border-radius: 50%;
+    background: linear-gradient(0deg, #0EAB00, #0EAB00); /* Green border */
+    padding: 20px; /* Increased padding for a thicker green border */
+    box-shadow: 0 0 20px #0EAB00; /* Adjust glowing effect if needed */
+}
 
+.profile-picture {
+    border-radius: 50%; /* Ensure the image remains circular */
+    background-color: #000; /* Match this to your page background */
+    object-fit: cover;
+    width: 100%; /* Make sure the image takes the full container */
+    height: 100%; /* Make sure the image takes the full container */
+    padding: 10px; /* This creates the gap between the image and the green circle */
+}
+
+.hero-content {
+    display: flex;
+    margin-top: 120px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-title {
+    color: #F5F5F5;
+    text-align: center;
+    margin-top: 40px;
+    font-family: var(--font-poppins-semi-bold), serif;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+.hero-subtitle {
+    color: #0EAB00;
+    text-align: center;
+    margin-top: 10px;
+    font-family: var(--font-poppins-semi-bold), serif;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+.hero-description {
+    color: rgba(245, 245, 245, 0.80);
+    text-align: center;
+    margin-top: 30px;
+    font-family: var(--font-poppins-light), serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    width: 70%;
+}

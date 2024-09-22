@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { SunIcon, MoonIcon } from "@/app/assets/icons";
+import { SunIcon, MoonIcon } from "@/app/public/icons";
 import "./styles.css";
 
 export default function ThemeSwitcher() {
