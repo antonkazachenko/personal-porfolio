@@ -266,27 +266,39 @@
 
 /* SkillsSection.css or your main CSS file */
 .skills-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     position: relative;
-    text-align: center;
     padding: 60px 0; /* Adjust padding as needed */
+    text-align: center;
+}
+
+.skills-header-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .section-header-bg {
     position: absolute;
-    left: 50%;
-    top: 5%; /* Set to the top of the container */
-    transform: translate(-50%, 0); /* Center horizontally */
-    -webkit-text-stroke-width: 1px; /* Increase stroke width for more saturation */
-    -webkit-text-stroke-color: rgba(245, 245, 245, 0.8); /* Increase opacity for more saturation */
+    -webkit-text-stroke-width: 2px; /* Increase stroke width for more saturation */
+    -webkit-text-stroke-color: rgba(245, 245, 245, 0.8); /* Increase opacity */
     color: transparent;
     font-family: var(--font-poppins-semi-bold), sans-serif;
-    font-size: 80px; /* Adjust size to match your design */
+    font-size: 80px; /* Adjust size to ensure it stays on one line */
     font-weight: 800;
     line-height: 1;
     text-transform: uppercase;
-    opacity: 0.2; /* Increase this value slightly for more visibility */
+    opacity: 0.2; /* Maintain subtle visibility */
     pointer-events: none; /* Prevent interference */
+    white-space: nowrap; /* Prevent text from wrapping */
     z-index: 1; /* Behind the foreground text */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); /* Center horizontally and vertically */
 }
 
 .section-header {
@@ -299,6 +311,7 @@
     z-index: 2; /* Ensure it's above the background text */
     margin: 0; /* Remove margins for perfect alignment */
 }
+
 
 .categories-container {
     display: flex;
