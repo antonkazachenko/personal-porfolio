@@ -1,31 +1,9 @@
 import React from 'react';
-import {AtomIcon, CloudIcon, WebIcon} from "@/app/public/icons";
+import skillsData from "@/app/data/skillsData";
 
-const skillsData = [
-  {
-    category: "Software Dev",
-    tabIcon: WebIcon,
-    skills: [
-      { name: "Next.js", icon: "nextjs-icon.png" },
-      { name: "HTML5", icon: "html5-icon.png" },
-      { name: "SQL", icon: "sql-icon.png" },
-      { name: "Rust", icon: "rust-icon.png" },
-      { name: "React Native", icon: "react-native-icon.png" },
-    ],
-  },
-  {
-    category: "Cloud & DevOps",
-    tabIcon: CloudIcon,
-    skills: [],
-  },
-  {
-    category: "Data Science",
-    tabIcon: AtomIcon,
-    skills: [],
-  },
-];
 
-const SkillsSection = () => {
+
+const   SkillsSection = () => {
   return (
     <div className="skills-section">
       {/* Background text */}
@@ -44,9 +22,11 @@ const SkillsSection = () => {
       </div>
 
       <div className="skills-icons">
-        {skillsData[0].skills.map((skill, index) => (
+        {skillsData[0].skills.map((SkillComponent, index) => (
           <div key={index} className="skill-icon">
-            <img src={`/icons/${skill.icon}`} alt={skill.name} />
+            <div key={index} className="skill-icon">
+              <SkillComponent />
+            </div>
           </div>
         ))}
       </div>

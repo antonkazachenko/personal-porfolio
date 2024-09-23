@@ -1,6 +1,7 @@
 .switch {
     width: 70px;
     height: 30px;
+    margin-top: 5px;
     background-color: #111111;
     display: flex;
     justify-content: space-between;
@@ -66,9 +67,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 40px 9.375% 1rem;
+    padding: 3.7vh 8.3vw 0;
     width: 100%;
     margin: 0 auto;
+}
+
+@media screen and (max-width: 1440px) {
+    .header {
+        padding: 3.7vh 3.7vw 0;
+    }
 }
 
 
@@ -210,7 +217,7 @@
 
 .hero-content {
     display: flex;
-    margin-top: 120px;
+    margin-top: 11vh;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -219,7 +226,7 @@
 .hero-title {
     color: #F5F5F5;
     text-align: center;
-    margin-top: 40px;
+    margin-top: 3.7vh;
     font-family: var(--font-poppins-semi-bold), serif;
     font-size: 40px;
     font-style: normal;
@@ -231,7 +238,7 @@
 .hero-subtitle {
     color: #0EAB00;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 1vh;
     font-family: var(--font-poppins-semi-bold), serif;
     font-size: 30px;
     font-style: normal;
@@ -243,7 +250,7 @@
 .hero-description {
     color: rgba(245, 245, 245, 0.80);
     text-align: center;
-    margin-top: 30px;
+    margin-top: 2.7vh;
     font-family: var(--font-poppins-light), serif;
     font-size: 20px;
     font-style: normal;
@@ -268,7 +275,7 @@
 .section-header {
     color: #F5F5F5;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    font-family: var(--font-poppins-semi-bold), sans-serif; /* Ensure you have this font or change it to your preferred one */
+    font-family: var(--font-poppins-semi-bold), sans-serif; /* Ensure you have this font or change it to your prferred one */
     font-size: 40px;
     font-weight: 600;
     line-height: normal;
@@ -281,7 +288,7 @@
 .section-header-bg {
     position: absolute;
     left: 50%;
-    top: 15%;
+    top: 5.5%;
     transform: translate(-50%, -50%);
     -webkit-text-stroke-width: 1.5px; /* Increased stroke width */
     -webkit-text-stroke-color: rgba(245, 245, 245, 0.5); /* Increased opacity for a brighter effect */
@@ -299,7 +306,7 @@
 .categories-container {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 75px;
     margin-top: 60px;
     margin-bottom: 30px;
 }
@@ -312,7 +319,7 @@
     gap: 30px;
     border-radius: 30px;
     background: rgba(245, 245, 245, 0.05);
-    width: 340px;
+    height: 125px;
     color: #F5F5F5;
     font-family: var(--font-poppins-light), serif;
     font-size: 30px;
@@ -328,7 +335,7 @@
 .skills-icons {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 20px;
+    gap: 100px 120px;
     justify-items: center;
 }
 
@@ -338,10 +345,5 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.skill-icon img {
-    height: 40px;
-    width: 40px;
 }
 
