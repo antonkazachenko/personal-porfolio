@@ -6,9 +6,9 @@ import skillsData from "@/app/data/skillsData";
 const   SkillsSection = () => {
   return (
     <div className="skills-section">
-      <div class="skills-header-container">
-        <h1 class="section-header-bg">MY SKILLS</h1>
-        <h2 class="section-header">MY SKILLS</h2>
+      <div className="skills-header-container">
+        <h1 className="section-header-bg">MY SKILLS</h1>
+        <h2 className="section-header">MY SKILLS</h2>
       </div>
 
       <div className="categories-container">

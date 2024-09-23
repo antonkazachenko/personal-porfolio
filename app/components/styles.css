@@ -326,10 +326,9 @@
     padding: 20px 30px; /* Adjust padding for a more compact look */
     justify-content: center;
     align-items: center;
-    gap: 15px; /* Adjust gap between icon and text */
+    gap: 30px; /* Adjust gap between icon and text */
     border-radius: 15px; /* Adjust border-radius */
     background: rgba(245, 245, 245, 0.05);
-    height: 125px;
     color: #F5F5F5;
     font-family: var(--font-poppins-light), serif;
     font-size: 20px; /* Adjust font size */
@@ -345,9 +344,11 @@
 }
 
 .skills-icons {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 100px 120px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0 8.3vw;
+    gap: 9.2vw 6.25vh;
     justify-items: center;
     margin-top: 40px; /* Adjust top margin */
 }
@@ -355,6 +356,8 @@
 .skill-icon {
     padding: 10px;
     border-radius: 8px;
+    height: 100px;
+    width: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
