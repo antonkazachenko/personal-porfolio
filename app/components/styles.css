@@ -284,7 +284,7 @@
 
 .section-header-bg {
     position: absolute;
-    -webkit-text-stroke-width: 2px; /* Increase stroke width for more saturation */
+    -webkit-text-stroke-width: 1px; /* Increase stroke width for more saturation */
     -webkit-text-stroke-color: rgba(245, 245, 245, 0.8); /* Increase opacity */
     color: transparent;
     font-family: var(--font-poppins-semi-bold), sans-serif;
@@ -371,3 +371,21 @@
     align-items: center;
 }
 
+.language-list {
+    display: flex;
+    gap: 10vw;
+    margin-top: 5.5vh;
+}
+
+.language-list h3 {
+    color: #F5F5F5;
+    font-family: var(--font-poppins-regular), serif;
+    font-size: 30px;
+    margin-top: 1.8vh;
+}
+
+.language-list p {
+    color: rgba(245, 245, 245, 0.80);
+    font-family: var(--font-poppins-light), serif;
+    margin-top: 1vh;
+}
