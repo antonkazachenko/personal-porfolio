@@ -66,4 +66,5 @@ export { default as ScikitLearnIcon } from './data_science/scikit_learn.svg';
 export { default as SciPyIcon } from './data_science/scipy.svg';
 export { default as SQLiteIcon } from './data_science/sqlite.svg';
 export { default as TensorFlowIcon } from './data_science/tensorflow.svg';
+export { default as TabIcon } from './AK.svg';
 

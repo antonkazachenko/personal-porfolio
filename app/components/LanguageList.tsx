@@ -7,13 +7,13 @@ const LanguageList = () => {
       <div>
         <UKIcon/>
         <h3>English</h3>
-        <p>Native (C2)</p>
+        <p>Bilingual (C2)</p>
       </div>
 
       <div>
         <RussiaIcon/>
         <h3>Russian</h3>
-        <p>Native (C2)</p>
+        <p>Bilingual (C2)</p>
       </div>
 
       <div>

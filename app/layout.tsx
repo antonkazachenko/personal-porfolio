@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import {ReactNode} from "react";
+import Head from "next/head";
 
 // const PoppinsBlack = localFont({
 //   src: "./fonts/Poppins-Black.ttf",
@@ -105,11 +106,14 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <html className={`${PoppinsRegular.variable} ${PoppinsBold.variable} ${PoppinsItalic.variable} ${PoppinsSemiBold.variable} ${PoppinsLight.variable}`}>
-      <body>
-        <main>{children}</main>
-      </body>
+    <html
+      className={`${PoppinsRegular.variable} ${PoppinsBold.variable} ${PoppinsItalic.variable} ${PoppinsSemiBold.variable} ${PoppinsLight.variable}`}>
+    <Head>
+      <link rel="icon" href="/icons/AK.svg" type="image/svg+xml" />
+    </Head>
+    <body>
+    <main>{children}</main>
+    </body>
     </html>
   );
 }
-

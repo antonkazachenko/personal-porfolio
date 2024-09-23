@@ -3,7 +3,6 @@
 import React, { useState, forwardRef, ForwardedRef } from 'react';
 import skillsData from "@/app/data/skillsData";
 
-// Correct the props type to allow for the ref
 const SkillsSection = forwardRef<HTMLDivElement, object>((props, ref: ForwardedRef<HTMLDivElement>) => {
   const [activeCategoryIndex, setActiveCategoryIndex] = useState(0);
 
@@ -40,7 +39,6 @@ const SkillsSection = forwardRef<HTMLDivElement, object>((props, ref: ForwardedR
   );
 });
 
-// Set the display name for the forwardRef component
 SkillsSection.displayName = "SkillsSection";
 
 export default SkillsSection;

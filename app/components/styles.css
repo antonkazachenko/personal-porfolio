@@ -389,3 +389,125 @@
     font-family: var(--font-poppins-light), serif;
     margin-top: 1vh;
 }
+
+.experience-timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+    padding: 20px 0;
+}
+
+.timeline-line {
+    position: absolute;
+    width: 2px;
+    background-color: #0EAB00;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
+}
+
+.experience-item {
+    display: flex;
+    position: relative;
+    width: 80%;
+    justify-content: space-between;
+    align-items: flex-start;
+    z-index: 1;
+}
+
+.timeline-date {
+    position: absolute;
+    background-color: #111111;
+    border: 1px solid #0EAB00;
+    color: #0EAB00;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    z-index: 2;
+}
+
+.experience-card {
+    display: flex;
+    gap: 20px;
+    background-color: #222222;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 45%;
+    transition: transform 0.3s, box-shadow 0.3s;
+    z-index: 1;
+}
+
+.left-card {
+    margin-right: auto;
+}
+
+.right-card {
+    margin-left: auto;
+}
+
+.experience-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(245, 245, 245, 0.4);
+}
+
+.experience-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    object-fit: contain;
+}
+
+.experience-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.experience-role {
+    font-size: 18px;
+    font-weight: bold;
+    color: #F5F5F5;
+    margin: 0;
+}
+
+.experience-duration {
+    font-size: 14px;
+    color: #0EAB00;
+    margin: 5px 0;
+}
+
+.experience-description {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.experience-description li {
+    font-size: 14px;
+    color: #b3b3b3;
+    margin: 5px 0;
+}
+
+
+@media screen and (max-width: 768px) {
+    .experience-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .experience-logo {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+
