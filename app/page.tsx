@@ -6,7 +6,7 @@ import Hero from "@/app/components/Hero";
 import SkillsSection from "@/app/components/SkillsSection";
 
 export default function Home() {
-  const skillsSectionRef = useRef(null);
+  const skillsSectionRef = useRef<HTMLDivElement | null>(null);
 
   const scrollToSkills = () => {
     if (skillsSectionRef.current) {

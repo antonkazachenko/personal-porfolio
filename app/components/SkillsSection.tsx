@@ -3,7 +3,8 @@
 import React, { useState, forwardRef, ForwardedRef } from 'react';
 import skillsData from "@/app/data/skillsData";
 
-const SkillsSection = forwardRef<HTMLDivElement, Record<string, never>>((_, ref: ForwardedRef<HTMLDivElement>) => {
+// Correct the props type to allow for the ref
+const SkillsSection = forwardRef<HTMLDivElement, object>((props, ref: ForwardedRef<HTMLDivElement>) => {
   const [activeCategoryIndex, setActiveCategoryIndex] = useState(0);
 
   return (
