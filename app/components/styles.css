@@ -303,7 +303,7 @@
 .categories-container {
     display: flex;
     justify-content: center;
-    gap: 60px; /* Adjust gap between categories */
+    gap: 75px;
     margin-top: 60px;
     margin-bottom: 30px;
 }
@@ -316,7 +316,7 @@
     gap: 15px; /* Adjust gap between icon and text */
     border-radius: 15px; /* Adjust border-radius */
     background: rgba(245, 245, 245, 0.05);
-    height: auto; /* Make height adaptive */
+    height: 125px;
     color: #F5F5F5;
     font-family: var(--font-poppins-light), serif;
     font-size: 20px; /* Adjust font size */
@@ -333,8 +333,8 @@
 
 .skills-icons {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Adjust icon sizes */
-    gap: 60px 80px; /* Adjust gap between icons */
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 100px 120px;
     justify-items: center;
     margin-top: 40px; /* Adjust top margin */
 }
@@ -345,6 +345,5 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add hover effect */
 }
 
