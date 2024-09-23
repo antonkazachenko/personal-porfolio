@@ -266,84 +266,85 @@
 
 /* SkillsSection.css or your main CSS file */
 .skills-section {
-    padding: 40px;
-    color: white;
     position: relative;
     text-align: center;
-}
-
-.section-header {
-    color: #F5F5F5;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    font-family: var(--font-poppins-semi-bold), sans-serif; /* Ensure you have this font or change it to your prferred one */
-    font-size: 40px;
-    font-weight: 600;
-    line-height: normal;
-    text-transform: uppercase;
-    position: relative;
-    z-index: 10; /* Ensures it's on top */
-    margin-bottom: 40px; /* Adjust spacing as needed */
+    padding: 60px 0; /* Adjust padding as needed */
 }
 
 .section-header-bg {
     position: absolute;
     left: 50%;
-    top: 5.5%;
-    transform: translate(-50%, -50%);
-    -webkit-text-stroke-width: 1.5px; /* Increased stroke width */
-    -webkit-text-stroke-color: rgba(245, 245, 245, 0.5); /* Increased opacity for a brighter effect */
+    top: 5%; /* Set to the top of the container */
+    transform: translate(-50%, 0); /* Center horizontally */
+    -webkit-text-stroke-width: 1px; /* Increase stroke width for more saturation */
+    -webkit-text-stroke-color: rgba(245, 245, 245, 0.8); /* Increase opacity for more saturation */
     color: transparent;
     font-family: var(--font-poppins-semi-bold), sans-serif;
-    font-size: 80px;
-    font-weight: 600;
-    line-height: normal;
+    font-size: 80px; /* Adjust size to match your design */
+    font-weight: 800;
+    line-height: 1;
     text-transform: uppercase;
-    opacity: 0.2; /* Increased opacity for more visibility */
-    pointer-events: none; /* Ensures it doesn’t interfere with other elements */
-    z-index: 1;
+    opacity: 0.2; /* Increase this value slightly for more visibility */
+    pointer-events: none; /* Prevent interference */
+    z-index: 1; /* Behind the foreground text */
+}
+
+.section-header {
+    color: #F5F5F5;
+    font-family: var(--font-poppins-semi-bold), sans-serif;
+    font-size: 40px; /* Adjust as needed */
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 2; /* Ensure it's above the background text */
+    margin: 0; /* Remove margins for perfect alignment */
 }
 
 .categories-container {
     display: flex;
     justify-content: center;
-    gap: 75px;
+    gap: 60px; /* Adjust gap between categories */
     margin-top: 60px;
     margin-bottom: 30px;
 }
 
 .category {
     display: flex;
-    padding: 40px;
+    padding: 20px 30px; /* Adjust padding for a more compact look */
     justify-content: center;
     align-items: center;
-    gap: 30px;
-    border-radius: 30px;
+    gap: 15px; /* Adjust gap between icon and text */
+    border-radius: 15px; /* Adjust border-radius */
     background: rgba(245, 245, 245, 0.05);
-    height: 125px;
+    height: auto; /* Make height adaptive */
     color: #F5F5F5;
     font-family: var(--font-poppins-light), serif;
-    font-size: 30px;
+    font-size: 20px; /* Adjust font size */
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add hover effect */
 }
 
 .active-category {
-    border: 1px solid #0EAB00;
+    border: 1px solid #0EAB00; /* Highlight active category */
 }
 
 .skills-icons {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 100px 120px;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Adjust icon sizes */
+    gap: 60px 80px; /* Adjust gap between icons */
     justify-items: center;
+    margin-top: 40px; /* Adjust top margin */
 }
 
 .skill-icon {
-    padding: 15px;
+    padding: 10px;
     border-radius: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add hover effect */
 }
 
