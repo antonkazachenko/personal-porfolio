@@ -2,7 +2,11 @@ import ThemeSwitcher from './ThemeSwitcher';
 import { GithubIcon, LinkedinIcon } from "@/app/public/icons";
 import LangDropdown from "@/app/components/LangDropdown";
 
-export default function Header() {
+interface HeaderProps {
+  onScrollToSkills: () => void;
+}
+
+const Header: React.FC<HeaderProps> = ({ onScrollToSkills }) => {
   return (
     <header className="header">
       <div className="left-menu">
@@ -10,7 +14,7 @@ export default function Header() {
         <LangDropdown />
       </div>
       <ul className="menu-list">
-        <li>Skills</li>
+        <li onClick={onScrollToSkills}>Skills</li>
         <li>Experience</li>
         <li>Projects</li>
         <li>Education</li>
@@ -31,3 +35,5 @@ export default function Header() {
     </header>
   );
 }
+
+export default Header;

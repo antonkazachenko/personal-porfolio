@@ -42,7 +42,7 @@ import {
 
 const skillsData = [
   {
-    category: "Software Dev",
+    category: "Software Development",
     tabIcon: WebIcon,
     skills: [
       AngularIcon,

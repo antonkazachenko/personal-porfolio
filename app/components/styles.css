@@ -336,11 +336,19 @@
     font-weight: 400;
     line-height: normal;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add hover effect */
+    transition: box-shadow 0.45s ease, border 0.45s ease, background-color 0.45s ease, color 0.45s ease; /* Transition properties for smooth changes */
+    border: 1px solid transparent; /* Ensure consistent border style */
+}
+
+.category:hover {
+    box-shadow: 0 0 5px 0 rgba(255, 255, 255, 0.30);
 }
 
 .active-category {
     border: 1px solid #0EAB00; /* Highlight active category */
+    box-shadow: 0 0 5px 0 rgba(255, 255, 255, 0.30); /* Ensure active has the same shadow */
+    transition: box-shadow 0.45s ease, border 0.45s ease, background-color 0.45s ease, color 0.45s ease; /* Ensure transitions match */
+    background-color: rgba(245, 245, 245, 0.05); /* Ensure consistent background color */
 }
 
 .skills-icons {
