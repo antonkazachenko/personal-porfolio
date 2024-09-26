@@ -1,27 +1,20 @@
 "use client";
 
-import React, { forwardRef, ForwardedRef } from 'react';
+import React, {forwardRef, ForwardedRef, ReactElement} from 'react';
+import {CJSFIcon, CopperleafIcon, SFUIcon} from "@/app/public/icons";
 
 interface Experience {
   company: string;
   role: string;
   duration: string;
   description: string[];
-  logo: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  logo: ReactElement<any, any>;
+  theme: string;
 }
 
 const experiences: Experience[] = [
   {
-    company: "SFU",
-    role: "Community Advisor",
-    duration: "Dec 2023 - Present",
-    description: [
-      "Cultivated a positive, educational community experience for residents.",
-      "Facilitated academic and social integration among residents.",
-    ],
-    logo: "/images/sfu_logo.png",
-  },
-  {
     company: "Copperleaf",
     role: "Software Developer",
     duration: "May 2024 - Present",
@@ -30,28 +23,48 @@ const experiences: Experience[] = [
       "Frontend Developer.",
       "Design System Team.",
     ],
-    logo: "/images/copperleaf_logo.png",
+    logo: <CopperleafIcon />,
+    theme: "white",
   },
   {
     company: "SFU",
-    role: "Community Advisor",
+    role: "Research Assistant",
     duration: "Dec 2023 - Present",
     description: [
-      "Cultivated a positive, educational community experience for residents.",
-      "Facilitated academic and social integration among residents.",
+      "• Collaborated with a PhD student to implement and experiment with advanced data structures.",
+      "• Presented findings and results to academic peers for feedback and further refinement.",
+      "• Contributed to research projects closely aligned with course topics, ensuring practical integration with theoretical knowledge.",
+      "• Assisted in developing algorithms and optimizing code for enhanced efficiency.",
+      "• Conducted in-depth analysis and performance testing of various data structures for practical applications.",
     ],
-    logo: "/images/sfu_logo.png",
+    logo: <SFUIcon />,
+    theme: "red",
   },
   {
-    company: "Copperleaf",
-    role: "Software Developer",
+    company: "Microsoft Teals Program",
+    role: "Teaching Assistant",
     duration: "May 2024 - Present",
     description: [
-      "Summer & Fall 2024.",
-      "Frontend Developer.",
-      "Design System Team.",
+      "• Led interactive Python programming sessions for 9th-grade students, encouraging enthusiasm for coding and problem-solving.",
+      "• Established and upheld a learning environment that celebrates diversity and inclusion, ensuring all students feel valued and supported.",
+      "• Evaluated student progress through regular assessments and feedback, adapting teaching methods to meet diverse learning needs.",
+      "• Assisted students with individual challenges in understanding course material, providing targeted support to enhance learning outcomes.",
     ],
-    logo: "/images/copperleaf_logo.png",
+    logo: <SFUIcon />,
+    theme: "yellow",
+  },
+  {
+    company: "CJSF 90.1",
+    role: "Mobile Application Developer",
+    duration: "Sep 2023 - May 2024",
+    description: [
+      "• Enhanced the responsiveness and user-friendliness of the user interface, achieving a 30% improvement in overall user engagement.",
+      "• Improved the efficiency of state management with the React Context API, resulting in a 40% increase in application performance.",
+      "• Successfully resolved adaptivity-related bugs, enhancing app performance and user experience by 50%.",
+      "• Increased user engagement by 25% through the implementation of a robust 'favorites' feature, enhancing the overall usability of the app.",
+    ],
+    logo: <CJSFIcon />,
+    theme: "white",
   },
 ];
 
@@ -69,8 +82,10 @@ const ExperienceSection = forwardRef<HTMLDivElement, object>((props, ref: Forwar
             <div className="timeline-date">
               <span>{exp.duration}</span>
             </div>
-            <div className={`experience-card ${index % 2 === 0 ? 'left-card' : 'right-card'}`}>
-              <img src={exp.logo} alt={`${exp.company} logo`} className="experience-logo" />
+            <div className={`experience-card ${index % 2 === 0 ? 'right-card' : 'left-card'} border-${exp.theme}`}>
+              <div className={`experience-logo ${exp.theme}`}>
+                {exp.logo}
+              </div>
               <div className="experience-content">
                 <h3 className="experience-role">{exp.role}</h3>
                 <p className="experience-duration">{exp.duration}</p>

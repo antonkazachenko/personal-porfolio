@@ -6,7 +6,7 @@ export { default as GithubIcon } from './github.svg';
 export { default as LinkedinIcon } from './linkedin.svg';
 export { default as MoonIcon } from './moon.svg';
 export { default as RussiaIcon } from './russia.svg';
-export { default as SFUIcon } from './SFU.svg';
+export { default as SFUIcon } from './sfu.svg';
 export { default as SunIcon } from './sun.svg';
 export { default as UKIcon } from './uk.svg';
 export { default as UniIcon } from './uni.svg';
@@ -67,4 +67,7 @@ export { default as SciPyIcon } from './data_science/scipy.svg';
 export { default as SQLiteIcon } from './data_science/sqlite.svg';
 export { default as TensorFlowIcon } from './data_science/tensorflow.svg';
 export { default as TabIcon } from './AK.svg';
+export { default as MicrosoftIcon } from './microsoft.svg';
+export { default as CJSFIcon } from './cjsf.svg';
+export { default as CopperleafIcon } from './copperleaf.svg';
 

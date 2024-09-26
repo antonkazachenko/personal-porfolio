@@ -413,7 +413,7 @@
 .experience-item {
     display: flex;
     position: relative;
-    width: 80%;
+    width: 70vw;
     justify-content: space-between;
     align-items: flex-start;
     z-index: 1;
@@ -442,7 +442,7 @@
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    width: 45%;
+    width: 33%;
     transition: transform 0.3s, box-shadow 0.3s;
     z-index: 1;
 }
@@ -508,6 +508,18 @@
         width: 40px;
         height: 40px;
     }
+}
+
+.border-white {
+    border: 1px solid #F5F5F5;
+}
+
+.border-red {
+    border: 1px solid #DB0632;
+}
+
+.border-yellow {
+    border: 1px solid #FFB909;
 }
 
 
