@@ -1,4 +1,4 @@
-import {FranceIcon, RussiaIcon, UKIcon} from "@/app/public/icons";
+import {GermanIcon, RussiaIcon, UKIcon} from "@/app/public/icons";
 
 
 const LanguageList = () => {
@@ -17,8 +17,8 @@ const LanguageList = () => {
       </div>
 
       <div>
-        <FranceIcon/>
-        <h3>French</h3>
+        <GermanIcon/>
+        <h3>German</h3>
         <p>Intermediate (B1)</p>
       </div>
     </div>

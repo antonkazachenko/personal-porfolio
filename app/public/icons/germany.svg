@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+	 width="140" height="100" viewBox="0 0 140 100" fill="none">
+	<desc>Flag of Germany with rounded corners (140 × 100 px)</desc>
+	<defs>
+		<clipPath id="roundedCornersGermany">
+			<!-- match the same rx you used on the Russian/British flags -->
+			<rect width="140" height="100" x="0" y="0" rx="30" fill="white"/>
+		</clipPath>
+	</defs>
+	<g clip-path="url(#roundedCornersGermany)">
+		<!-- three equal horizontal stripes -->
+		<rect width="140" height="33.3333" y="0"      fill="#000"/>
+		<rect width="140" height="33.3333" y="33.3333" fill="#D00"/>
+		<rect width="140" height="33.3334" y="66.6667" fill="#FFCE00"/>
+	</g>
+</svg>
