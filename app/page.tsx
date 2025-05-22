@@ -6,6 +6,7 @@ import Hero from "@/app/components/Hero";
 import SkillsSection from "@/app/components/SkillsSection";
 import LanguageSection from "@/app/components/LanguageSection";
 import ExperienceSection from "@/app/components/ExperienceSection";
+import RightsSection from "@/app/components/RightsSection";
 
 export default function Home() {
   const skillsSectionRef = useRef<HTMLDivElement | null>(null);
@@ -32,6 +33,7 @@ export default function Home() {
       <SkillsSection ref={skillsSectionRef} />
       <ExperienceSection ref={experienceSectionRef} />
       <LanguageSection />
+      <RightsSection />
     </>
   );
 }
