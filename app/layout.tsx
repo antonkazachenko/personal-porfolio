@@ -59,11 +59,11 @@ const PoppinsLight = localFont({
 //   variable: "--font-poppins-light-italic",
 //   weight: "100 900",
 // });
-// const PoppinsMedium = localFont({
-//   src: "./fonts/Poppins-Medium.ttf",
-//   variable: "--font-poppins-medium",
-//   weight: "100 900",
-// });
+const PoppinsMedium = localFont({
+  src: "./fonts/Poppins-Medium.ttf",
+  variable: "--font-poppins-medium",
+  weight: "100 900",
+});
 // const PoppinsMediumItalic = localFont({
 //   src: "./fonts/Poppins-MediumItalic.ttf",
 //   variable: "--font-poppins-medium-italic",
@@ -107,7 +107,14 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   return (
     <html
-      className={`${PoppinsRegular.variable} ${PoppinsBold.variable} ${PoppinsItalic.variable} ${PoppinsSemiBold.variable} ${PoppinsLight.variable}`}>
+      className=
+        {`${PoppinsRegular.variable} 
+        ${PoppinsBold.variable}
+        ${PoppinsItalic.variable}
+        ${PoppinsSemiBold.variable} 
+        ${PoppinsLight.variable}
+        ${PoppinsMedium.variable}`}
+    >
     <Head>
       <link rel="icon" href="/icons/AK.svg" type="image/svg+xml" />
     </Head>

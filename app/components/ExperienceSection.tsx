@@ -1,7 +1,7 @@
 "use client";
 
 import React, {forwardRef, ForwardedRef, ReactElement} from 'react';
-import {CJSFIcon, CopperleafIcon, SFUIcon} from "@/app/public/icons";
+import {CJSFIcon, CopperleafIcon, SFUIcon} from "@/public/icons";
 
 interface Experience {
   company: string;

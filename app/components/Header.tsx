@@ -1,5 +1,5 @@
 import ThemeSwitcher from './ThemeSwitcher';
-import { GithubIcon, LinkedinIcon } from "@/app/public/icons";
+import { GithubIcon, LinkedinIcon } from "@/public/icons";
 import LangDropdown from "@/app/components/LangDropdown";
 
 interface HeaderProps {

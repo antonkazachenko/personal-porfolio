@@ -1,4 +1,4 @@
-import {GermanIcon, RussiaIcon, UKIcon} from "@/app/public/icons";
+import {GermanIcon, RussiaIcon, UKIcon} from "@/public/icons";
 
 
 const LanguageList = () => {

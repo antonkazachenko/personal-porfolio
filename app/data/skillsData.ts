@@ -38,7 +38,7 @@ import {
   SQLiteIcon, TensorFlowIcon, TerraformIcon,
   TypeScriptIcon,
   WebIcon
-} from "@/app/public/icons";
+} from "@/public/icons";
 
 const skillsData = [
   {

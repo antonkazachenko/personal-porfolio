@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import profilePic from '@/app/public/images/linkedin_pfp.png';
+import profilePic from '@/public/images/linkedin_pfp.png';
 
 export default function ProfilePicture() {
   return (

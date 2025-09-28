@@ -137,8 +137,6 @@
     display: flex;
     align-items: center;
     color: #F5F5F5;
-    leading-trim: both;
-    text-edge: cap;
     font-family: var(--font-poppins-light), serif;
     font-size: 20px;
     font-style: normal;
@@ -536,3 +534,34 @@
     line-height: 130%;
 }
 
+.reference-card {
+    border-radius: 30px;
+    border: 1px solid #0A66C2;
+    background: rgba(245, 245, 245, 0.05);
+    backdrop-filter: blur(40px);
+    padding: 40px;
+}
+
+.reference-text {
+    color: rgba(245, 245, 245, 0.80);
+    font-family: var(--font-poppins-light), serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 160%
+}
+
+.reference-header {
+    color: #F5F5F5;
+    font-family: var(--font-poppins-medium), serif;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.reference-avatar {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+}

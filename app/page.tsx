@@ -7,6 +7,7 @@ import SkillsSection from "@/app/components/SkillsSection";
 import LanguageSection from "@/app/components/LanguageSection";
 import ExperienceSection from "@/app/components/ExperienceSection";
 import RightsSection from '@/app/components/RightsSection';
+import ReferencesCarousel from "@/app/components/ReferencesSection";
 
 export default function Home() {
   const skillsSectionRef = useRef<HTMLDivElement | null>(null);
@@ -33,6 +34,7 @@ export default function Home() {
         </div>
         <SkillsSection ref={skillsSectionRef} />
         <ExperienceSection ref={experienceSectionRef} />
+        <ReferencesCarousel />
         <LanguageSection />
       </div>
       <RightsSection />
