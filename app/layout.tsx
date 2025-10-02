@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import {ReactNode} from "react";
-import Head from "next/head";
 
 // const PoppinsBlack = localFont({
 //   src: "./fonts/Poppins-Black.ttf",
@@ -98,6 +97,13 @@ const PoppinsSemiBold = localFont({
 export const metadata: Metadata = {
   title: "Anton Kazachenko",
   description: "Anton Kazachenko's portfolio",
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      // optional legacy fallback:
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+  },
 };
 
 interface LayoutProps {
@@ -115,9 +121,7 @@ export default function Layout({ children }: LayoutProps) {
         ${PoppinsLight.variable}
         ${PoppinsMedium.variable}`}
     >
-    <Head>
       <link rel="icon" href="/icons/AK.svg" type="image/svg+xml" />
-    </Head>
     <body>
     <main>{children}</main>
     </body>
