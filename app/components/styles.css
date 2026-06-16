@@ -406,14 +406,15 @@
     align-items: center;
     gap: 80px;
     padding: 20px 0;
+    margin-top: 60px;
 }
 
 .timeline-line {
     position: absolute;
     width: 2px;
-    background-color: #0EAB00;
+    /* Gradient + top/height are set inline from the component so the line runs
+       from the first date badge to a short stub below the last one. */
     top: 0;
-    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
     z-index: 0;
@@ -430,14 +431,16 @@
 
 .timeline-date {
     position: absolute;
-    background-color: #111111;
-    border: 1px solid #0EAB00;
-    color: #0EAB00;
-    padding: 5px 10px;
-    border-radius: 15px;
-    font-size: 12px;
+    background-color: rgba(245, 245, 245, 0.05);
+    backdrop-filter: blur(11.25px);
+    border: 1px solid var(--exp-color, #F5F5F5);
+    color: #F5F5F5;
+    padding: 7.5px 15px;
+    border-radius: 22.5px;
+    font-family: var(--font-poppins-regular), serif;
+    font-size: 11px;
+    text-transform: uppercase;
     top: 50%;
-    transform: translateY(-50%);
     left: 50%;
     transform: translate(-50%, -50%);
     white-space: nowrap;
@@ -446,12 +449,13 @@
 
 .experience-card {
     display: flex;
-    gap: 20px;
-    background-color: #222222;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    width: 33%;
+    flex-direction: column;
+    background-color: rgba(245, 245, 245, 0.05);
+    backdrop-filter: blur(11.25px);
+    border: 0.75px solid var(--exp-color, #F5F5F5);
+    padding: 30px;
+    border-radius: 30px;
+    width: 40%;
     transition: transform 0.3s, box-shadow 0.3s;
     z-index: 1;
 }
@@ -466,44 +470,112 @@
 
 .experience-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 0 15px rgba(245, 245, 245, 0.4);
+    box-shadow: 0 0 20px var(--exp-color, rgba(245, 245, 245, 0.4));
+}
+
+.experience-card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 .experience-logo {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
+    border-radius: 8px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.experience-logo svg,
+.experience-logo img {
+    width: 100%;
+    height: 100%;
     border-radius: 8px;
     object-fit: contain;
 }
 
-.experience-content {
+.experience-heading {
     display: flex;
     flex-direction: column;
+    flex: 1;
+    min-width: 0;
 }
 
-.experience-role {
-    font-size: 18px;
-    font-weight: bold;
-    color: #F5F5F5;
+.experience-company {
+    font-family: var(--font-poppins-light), serif;
+    font-size: 9px;
+    text-transform: uppercase;
+    color: rgba(245, 245, 245, 0.6);
     margin: 0;
 }
 
-.experience-duration {
-    font-size: 14px;
-    color: #0EAB00;
-    margin: 5px 0;
+.experience-role {
+    font-family: var(--font-poppins-light), serif;
+    font-size: 18px;
+    color: #F5F5F5;
+    margin: 2px 0 0;
+}
+
+.experience-toggle {
+    background: none;
+    border: none;
+    color: #F5F5F5;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    align-self: flex-start;
+}
+
+.experience-collapsible {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease;
+}
+
+.experience-collapsible.expanded {
+    grid-template-rows: 1fr;
+}
+
+.experience-collapsible-inner {
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.experience-collapsible.expanded .experience-collapsible-inner {
+    opacity: 1;
 }
 
 .experience-description {
     list-style-type: none;
     padding: 0;
-    margin: 0;
+    margin: 15px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .experience-description li {
-    font-size: 14px;
-    color: #b3b3b3;
-    margin: 5px 0;
+    position: relative;
+    padding-left: 16px;
+    font-family: var(--font-poppins-light), serif;
+    font-size: 12px;
+    line-height: 1.8;
+    color: #F5F5F5;
+}
+
+.experience-description li::before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: 0.9em;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background-color: #F5F5F5;
 }
 
 

@@ -71,4 +71,5 @@ export { default as TabIcon } from './AK.svg';
 export { default as MicrosoftIcon } from './microsoft.svg';
 export { default as CJSFIcon } from './cjsf.svg';
 export { default as CopperleafIcon } from './copperleaf.svg';
+export { default as GDSCIcon } from './gdsc.svg';
 
