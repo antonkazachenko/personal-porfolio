@@ -2,6 +2,7 @@ export { default as ArrowIcon } from './arrow.svg';
 export { default as CertificationIcon } from './certification.svg';
 export { default as CloudIcon } from './cloud.svg';
 export { default as GermanIcon } from './germany.svg';
+export { default as FrenchIcon } from './france.svg';
 export { default as GithubIcon } from './github.svg';
 export { default as LinkedinIcon } from './linkedin.svg';
 export { default as MoonIcon } from './moon.svg';
