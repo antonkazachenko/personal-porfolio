@@ -8,6 +8,7 @@ import LanguageSection from "@/app/components/LanguageSection";
 import ExperienceSection from "@/app/components/ExperienceSection";
 import RightsSection from '@/app/components/RightsSection';
 import ReferencesCarousel from "@/app/components/ReferencesSection";
+import ProjectsSection from "@/app/components/ProjectsSection";
 import Footer from "@/app/components/Footer";
 
 export default function Home() {
@@ -35,6 +36,7 @@ export default function Home() {
         </div>
         <SkillsSection ref={skillsSectionRef} />
         <ExperienceSection ref={experienceSectionRef} />
+        <ProjectsSection />
         <ReferencesCarousel />
         <LanguageSection />
         <Footer />
