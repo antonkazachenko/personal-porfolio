@@ -21,26 +21,25 @@ export default function EducationSection() {
             </div>
             <div>
               <p className="education-institution">Simon Fraser University</p>
-              <h3 className="education-degree">Bachelor of Science · Computing Science</h3>
+              <h3 className="education-degree">BSc with Distinction · Computing Science</h3>
             </div>
           </div>
 
           <p className="education-description">
-            Final-year Computing Science student at Simon Fraser University, specializing in algorithms, AI, and software development.
+            Computing Science graduate from Simon Fraser University, specializing in algorithms, AI, and software development.
           </p>
 
           <ul className="education-list">
-            <li>GPA 3.6+</li>
-            <li>
-              Awarded the President&apos;s Honour Roll for Fall 2023, a testament to my dedication to academic excellence with a 4.0+ GPA.
-            </li>
+            <li>GPA 3.57</li>
+            <li>President&apos;s Honour Roll (4.0+ GPA): Fall 2023</li>
+            <li>Dean&apos;s Honour Roll (3.5+ GPA): Spring 2025, Summer 2025, Fall 2025</li>
           </ul>
         </div>
 
         {/* Right: campus image */}
         <div className="education-card-image">
           <img
-            src="https://www.sfu.ca/content/sfu/about/campuses/burnaby/jcr:content/main_content/sfuimage_1042267041.img.640.high.jpg/1415748686000.jpg"
+            src="/images/sfu.jpg"
             alt="Simon Fraser University campus"
             className="education-campus-img"
             onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
