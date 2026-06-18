@@ -107,6 +107,7 @@ const DEFAULT_REFERENCES: ReferenceItem[] = [
 // -------------------------------------------------------------
 export default function ReferencesCarousel({ items = DEFAULT_REFERENCES }: { items?: ReferenceItem[] }) {
   const [index, setIndex] = useState(0);
+  const [dir, setDir] = useState<1 | -1>(1);
   const [windowWidth, setWindowWidth] = useState(0);
   const safeItems = useMemo(() => (Array.isArray(items) ? items : []), [items]);
 
@@ -132,7 +133,7 @@ export default function ReferencesCarousel({ items = DEFAULT_REFERENCES }: { ite
   }, [perSlide]);
 
   const go = useCallback(
-    (dir: 1 | -1) => setIndex((i) => getNextIndex(chunks.length, i, dir)),
+    (d: 1 | -1) => { setDir(d); setIndex((i) => getNextIndex(chunks.length, i, d)); },
     [chunks.length]
   );
 
@@ -164,8 +165,14 @@ export default function ReferencesCarousel({ items = DEFAULT_REFERENCES }: { ite
 
   const currentChunk = chunks[index] ?? [];
 
+  const slideVariants = {
+    initial: (d: 1 | -1) => ({ opacity: 0, x: d * 40 }),
+    animate: { opacity: 1, x: 0 },
+    exit: (d: 1 | -1) => ({ opacity: 0, x: d * -40 }),
+  };
+
   const ReferenceCard = ({ item }: { item: ReferenceItem }) => (
-    <article className={`relative reference-card h-full flex flex-col justify-between ${perSlide === 1 ? 'w-1/2 mx-auto' : 'w-full'}`}>
+    <article className={`relative reference-card h-full flex flex-col justify-start ${perSlide === 1 ? 'w-1/2 mx-auto' : 'w-full'}`}>
       <div className="flex items-start gap-4 w-full">
         <div>
           <img
@@ -243,12 +250,14 @@ export default function ReferencesCarousel({ items = DEFAULT_REFERENCES }: { ite
           </button>
 
           <div className="overflow-hidden w-full px-16">
-            <AnimatePresence mode="wait">
+            <AnimatePresence mode="wait" custom={dir}>
               <motion.div
                 key={`ref-${index}-${perSlide}`}
-                initial={{ opacity: 0, x: 40 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -40 }}
+                custom={dir}
+                variants={slideVariants}
+                initial="initial"
+                animate="animate"
+                exit="exit"
                 transition={{ duration: 0.35 }}
                 className={`grid gap-8 ${perSlide === 2 ? 'grid-cols-2' : 'grid-cols-1'}`}
               >

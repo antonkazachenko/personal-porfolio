@@ -586,6 +586,14 @@
     margin: 2px 0 0;
 }
 
+.experience-about {
+    font-family: var(--font-poppins-light), serif;
+    font-size: 11px;
+    line-height: 1.6;
+    color: rgba(245, 245, 245, 0.55);
+    margin: 4px 0 0;
+}
+
 .experience-toggle {
     background: none;
     border: none;

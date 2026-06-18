@@ -9,6 +9,7 @@ interface Experience {
   company: string;
   role: string;
   duration: string;
+  about?: string;
   description: string[];
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   logo: ReactElement<any, any>;
@@ -35,6 +36,7 @@ const experiences: Experience[] = [
       "Owned frontend feature development in Angular, architecting microfrontends for independent deployment and consistent UI across teams.",
       "Integrated with Databricks to query and ingest large-scale datasets for downstream analytics.",
     ],
+    about: "Infoblox is a cloud-first networking company specializing in DNS, DHCP, and IP address management (DDI) and cybersecurity.",
     logo: <Image src="/infoblox_logo.png" alt="Infoblox" width={45} height={45} />,
     theme: "green",
   },
@@ -42,6 +44,7 @@ const experiences: Experience[] = [
     company: "SFU Google Developer Student Club (GDSC)",
     role: "Guest Mentor",
     duration: "Mar 2026",
+    about: "GDSC is a Google-supported student community at SFU.",
     description: [
       "Helped students navigate through getting their first internship.",
     ],
@@ -52,6 +55,7 @@ const experiences: Experience[] = [
     company: "IFS Copperleaf · Internship",
     role: "Software Developer Intern",
     duration: "May 2024 - Dec 2024",
+    about: "IFS Copperleaf is an enterprise SaaS company providing AI-driven asset investment planning and decision analytics for critical infrastructure.",
     description: [
       "Contributed to the development of a scalable design system using Angular and TypeScript, building reusable components to improve UI consistency across the company's applications.",
       "Assisted in implementing state management solutions using NgRx and integrated RxJS for reactive programming to handle asynchronous operations and streamline data-fetching workflows.",
@@ -84,6 +88,7 @@ const experiences: Experience[] = [
       "Evaluated student progress through regular assessments and feedback, adapting teaching methods to meet diverse learning needs.",
       "Assisted students with individual challenges in understanding course material, providing targeted support to enhance learning outcomes.",
     ],
+    about: "Microsoft TEALS is a volunteer-run program that partners with high schools to build sustainable computer science programs through industry professional support.",
     logo: <MicrosoftIcon />,
     theme: "yellow",
   },
@@ -97,6 +102,7 @@ const experiences: Experience[] = [
       "Successfully resolved adaptivity-related bugs, enhancing app performance and user experience by 50%.",
       "Increased user engagement by 25% through the implementation of a robust 'favorites' feature, enhancing the overall usability of the app.",
     ],
+    about: "CJSF 90.1 FM is the independent campus and community radio station of Simon Fraser University, broadcasting music, news, and culture.",
     logo: <CJSFIcon />,
     theme: "white",
   },
@@ -191,6 +197,7 @@ const ExperienceSection = forwardRef<HTMLDivElement, object>((props, ref: Forwar
                   <div className="experience-heading">
                     <p className="experience-company">{exp.company}</p>
                     <h3 className="experience-role">{exp.role}</h3>
+                    {exp.about && <p className="experience-about">{exp.about}</p>}
                   </div>
                   {hasDetails && (
                     <span className="experience-toggle" aria-hidden="true">
