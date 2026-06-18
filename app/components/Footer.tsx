@@ -5,7 +5,14 @@ import { User, Mail, Phone } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/public/icons";
 import "./styles.css";
 
-const Footer = () => {
+interface FooterProps {
+  onScrollToSkills: () => void;
+  onScrollToExperience: () => void;
+  onScrollToProjects: () => void;
+  onScrollToEducation: () => void;
+}
+
+const Footer = ({ onScrollToSkills, onScrollToExperience, onScrollToProjects, onScrollToEducation }: FooterProps) => {
   // TODO: wire up actual email sending. Stubbed for now.
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -58,10 +65,10 @@ const Footer = () => {
 
           <div className="footer-column">
             <h4 className="footer-column-title">Pages</h4>
-            <a className="footer-page-link" href="#skills">Skills</a>
-            <a className="footer-page-link" href="#experience">Experience</a>
-            <a className="footer-page-link" href="#projects">Projects</a>
-            <a className="footer-page-link" href="#education">Education</a>
+            <button className="footer-page-link" onClick={onScrollToSkills}>Skills</button>
+            <button className="footer-page-link" onClick={onScrollToExperience}>Experience</button>
+            <button className="footer-page-link" onClick={onScrollToProjects}>Projects</button>
+            <button className="footer-page-link" onClick={onScrollToEducation}>Education</button>
           </div>
 
           <div className="footer-socials">

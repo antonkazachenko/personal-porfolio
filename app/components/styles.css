@@ -1019,6 +1019,14 @@
     gap: 8px;
 }
 
+button.footer-page-link {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    text-align: left;
+}
+
 .footer-page-link:hover,
 .footer-contact-link:hover {
     color: #0EAB00;

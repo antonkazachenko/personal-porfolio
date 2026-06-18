@@ -42,7 +42,14 @@ export default function Home() {
         <div ref={educationSectionRef}><EducationSection /></div>
         <ReferencesCarousel />
         <LanguageSection />
-        <div ref={contactsSectionRef}><Footer /></div>
+        <div ref={contactsSectionRef}>
+          <Footer
+            onScrollToSkills={scrollTo(skillsSectionRef)}
+            onScrollToExperience={scrollTo(experienceSectionRef)}
+            onScrollToProjects={scrollTo(projectsSectionRef)}
+            onScrollToEducation={scrollTo(educationSectionRef)}
+          />
+        </div>
       </div>
       <RightsSection />
     </>
