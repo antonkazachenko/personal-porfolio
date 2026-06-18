@@ -12,7 +12,7 @@ interface Experience {
   description: string[];
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   logo: ReactElement<any, any>;
-  theme: "white" | "red" | "yellow" | "green" | "blue";
+  theme: "white" | "red" | "yellow" | "green" | "blue" | "purple";
 }
 
 const themeColors: Record<Experience["theme"], string> = {
@@ -21,6 +21,7 @@ const themeColors: Record<Experience["theme"], string> = {
   yellow: "#FFB909",
   green: "#0EAB00",
   blue: "#4285F4",
+  purple: "#9205af",
 };
 
 const experiences: Experience[] = [
@@ -41,13 +42,15 @@ const experiences: Experience[] = [
     company: "SFU Google Developer Student Club (GDSC)",
     role: "Guest Mentor",
     duration: "Mar 2026",
-    description: [],
+    description: [
+      "Helped students navigate through getting their first internship.",
+    ],
     logo: <GDSCIcon />,
     theme: "blue",
   },
   {
-    company: "Copperleaf · Internship",
-    role: "Software Developer",
+    company: "IFS Copperleaf · Internship",
+    role: "Software Developer Intern",
     duration: "May 2024 - Dec 2024",
     description: [
       "Contributed to the development of a scalable design system using Angular and TypeScript, building reusable components to improve UI consistency across the company's applications.",
@@ -55,7 +58,7 @@ const experiences: Experience[] = [
       "Supported fullstack development for a mission-critical visual regression testing platform using Prisma with NestJS and PostgreSQL in a Docker environment, refining SQL migration scripts and leveraging pgAdmin for effective database management."
     ],
     logo: <CopperleafIcon />,
-    theme: "white",
+    theme: "purple",
   },
   {
     company: "SFU · Permanent Part-time",
@@ -100,7 +103,7 @@ const experiences: Experience[] = [
 ];
 
 const ExperienceSection = forwardRef<HTMLDivElement, object>((props, ref: ForwardedRef<HTMLDivElement>) => {
-  const [expanded, setExpanded] = useState<boolean[]>(() => experiences.map(() => true));
+  const [expanded, setExpanded] = useState<boolean[]>(() => experiences.map((_, i) => i === 0));
 
   const toggle = (index: number) => {
     setExpanded((prev) => prev.map((value, i) => (i === index ? !value : value)));
