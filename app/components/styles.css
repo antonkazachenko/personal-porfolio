@@ -125,54 +125,75 @@
 .lang-dropdown {
     position: relative;
     display: inline-block;
-    font-size: 16px;
-    color: #b3b3b3;
 }
 
-.lang-dropdown button {
+.lang-dropdown-trigger {
     background: none;
     border: none;
-    padding: 5px 10px;
     cursor: pointer;
     display: flex;
     align-items: center;
+    gap: 6px;
     color: #F5F5F5;
     font-family: var(--font-poppins-light), serif;
     font-size: 20px;
-    font-style: normal;
     font-weight: 300;
     line-height: normal;
-    gap: 10px;
+    padding: 4px 0;
+}
+
+.lang-dropdown-trigger:hover {
+    opacity: 0.8;
+}
+
+.lang-dropdown-chevron {
+    transition: transform 0.2s ease;
+    opacity: 0.7;
+}
+
+.lang-dropdown-chevron--open {
+    transform: rotate(180deg);
 }
 
 .lang-dropdown-menu {
     position: absolute;
-    top: calc(100% + 2px);
+    top: calc(100% + 8px);
     left: 0;
     margin: 0;
-    padding: 0;
-    background-color: #111;
-    border-radius: 4px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    z-index: 10;
+    padding: 4px 0;
+    list-style: none;
+    background-color: #1a1a1a;
+    border: 0.75px solid rgba(245, 245, 245, 0.15);
+    border-radius: 10px;
     min-width: 100%;
+    z-index: 50;
+    opacity: 0;
+    transform: translateY(-6px);
+    pointer-events: none;
+    transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.lang-dropdown-menu--open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
 }
 
 .lang-dropdown-menu li {
-    padding: 5px 10px;
-    color: #b3b3b3;
+    padding: 7px 16px;
+    color: rgba(245, 245, 245, 0.75);
+    font-family: var(--font-poppins-light), serif;
     font-size: 16px;
     cursor: pointer;
-    text-align: left;
+    white-space: nowrap;
+    transition: color 0.15s ease, background-color 0.15s ease;
+    border-radius: 6px;
+    margin: 0 4px;
 }
 
 .lang-dropdown-menu li:hover {
-    background-color: #333;
-    color: #fff;
-}
-
-.lang-dropdown-menu li:not(:last-child) {
-    border-bottom: 1px solid #222;
+    color: #F5F5F5;
+    background-color: rgba(245, 245, 245, 0.08);
 }
 
 .icon-wrapper {
@@ -597,7 +618,22 @@
     }
 }
 
+@media screen and (max-width: 1024px) {
+    .experience-timeline {
+        gap: 50px;
+    }
+    .experience-item {
+        width: 85vw;
+    }
+}
+
 @media screen and (max-width: 768px) {
+    .experience-timeline {
+        gap: 36px;
+    }
+    .experience-item {
+        width: 92vw;
+    }
     .experience-card {
         flex-direction: column;
         align-items: center;

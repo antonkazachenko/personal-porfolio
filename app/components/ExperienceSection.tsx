@@ -109,30 +109,37 @@ const ExperienceSection = forwardRef<HTMLDivElement, object>((props, ref: Forwar
     setExpanded((prev) => prev.map((value, i) => (i === index ? !value : value)));
   };
 
-  // The vertical line should run from the first date badge to just past the last
-  // one (a small stub below it) — no line above the first badge. Card heights are
-  // dynamic (collapsing/images), so measure the badge centres rather than guess.
+  // Render one line segment between each consecutive badge pair, each with a
+  // 20px gap from both badge edges so the line never overlaps any bubble.
   const timelineRef = useRef<HTMLDivElement>(null);
-  const firstDateRef = useRef<HTMLDivElement>(null);
-  const lastDateRef = useRef<HTMLDivElement>(null);
-  const [lineMetrics, setLineMetrics] = useState<{ top: number; height: number } | null>(null);
+  const dateRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [lineSegments, setLineSegments] = useState<{ top: number; height: number; gradient: string }[]>([]);
 
   useEffect(() => {
     const timeline = timelineRef.current;
     if (!timeline) return;
 
-    const STUB = 70; // length of the line that hangs below the last badge
+    const BADGE_GAP = 20;
     const compute = () => {
       const t = timelineRef.current;
-      const first = firstDateRef.current;
-      const last = lastDateRef.current;
-      if (!t || !first || !last) return;
+      if (!t) return;
       const tRect = t.getBoundingClientRect();
-      const fRect = first.getBoundingClientRect();
-      const lRect = last.getBoundingClientRect();
-      const top = fRect.top + fRect.height / 2 - tRect.top;
-      const lastCenter = lRect.top + lRect.height / 2 - tRect.top;
-      setLineMetrics({ top, height: lastCenter - top + STUB });
+      const segments: { top: number; height: number; gradient: string }[] = [];
+      for (let i = 0; i < experiences.length - 1; i++) {
+        const curr = dateRefs.current[i];
+        const next = dateRefs.current[i + 1];
+        if (!curr || !next) continue;
+        const currRect = curr.getBoundingClientRect();
+        const nextRect = next.getBoundingClientRect();
+        const top = currRect.bottom - tRect.top + BADGE_GAP;
+        const bottom = nextRect.top - tRect.top - BADGE_GAP;
+        segments.push({
+          top,
+          height: Math.max(0, bottom - top),
+          gradient: `linear-gradient(180deg, ${themeColors[experiences[i].theme]}, ${themeColors[experiences[i + 1].theme]})`,
+        });
+      }
+      setLineSegments(segments);
     };
 
     compute();
@@ -145,15 +152,6 @@ const ExperienceSection = forwardRef<HTMLDivElement, object>((props, ref: Forwar
     };
   }, []);
 
-  // Build the timeline gradient from each card's theme colour, top to bottom,
-  // so it always stays in sync with the experiences list.
-  const lineGradient = `linear-gradient(180deg, ${experiences
-    .map((exp, i) => {
-      const stop = experiences.length > 1 ? (i / (experiences.length - 1)) * 100 : 0;
-      return `${themeColors[exp.theme]} ${Math.round(stop)}%`;
-    })
-    .join(", ")})`;
-
   return (
     <div className="experience-section" ref={ref}>
       <div className="skills-header-container">
@@ -161,26 +159,23 @@ const ExperienceSection = forwardRef<HTMLDivElement, object>((props, ref: Forwar
         <h2 className="section-header">EXPERIENCE</h2>
       </div>
       <div className="experience-timeline" ref={timelineRef}>
-        <div
-          className="timeline-line"
-          style={
-            lineMetrics
-              ? { background: lineGradient, top: `${lineMetrics.top}px`, height: `${lineMetrics.height}px` }
-              : { background: lineGradient, opacity: 0 }
-          }
-        ></div>
+        {lineSegments.map((seg, i) => (
+          <div
+            key={i}
+            className="timeline-line"
+            style={{ background: seg.gradient, top: `${seg.top}px`, height: `${seg.height}px` }}
+          />
+        ))}
         {experiences.map((exp, index) => {
           const isExpanded = expanded[index];
           const hasDetails = exp.description.length > 0;
-          const dateRef =
-            index === 0 ? firstDateRef : index === experiences.length - 1 ? lastDateRef : undefined;
           return (
             <div
               className="experience-item"
               key={index}
               style={{ "--exp-color": themeColors[exp.theme] } as CSSProperties}
             >
-              <div className="timeline-date" ref={dateRef}>
+              <div className="timeline-date" ref={(el) => { dateRefs.current[index] = el; }}>
                 <span>{exp.duration}</span>
               </div>
               <div

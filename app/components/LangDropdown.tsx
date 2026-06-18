@@ -1,91 +1,44 @@
 'use client';
 
-import "./styles.css";
-import { useState } from "react";
-import { motion, Variants } from "framer-motion";
-import {ArrowIcon} from "@/public/icons";
+import { useEffect, useRef, useState } from 'react';
+import { ChevronDown } from 'lucide-react';
 
-const itemVariants: Variants = {
-  open: {
-    opacity: 1,
-    y: 0,
-    transition: { type: "spring", stiffness: 300, damping: 24 }
-  },
-  closed: { opacity: 0, y: 20, transition: { duration: 0.2 } }
-};
-
-// Define the priority order
-const priorityOrder = ["En", "De", "Fr", "It"];
+const LANGUAGES = ['En', 'De', 'Fr', 'It'];
 
 export default function LangDropdown() {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedItem, setSelectedItem] = useState<string>("En");
+  const [selected, setSelected] = useState('En');
+  const ref = useRef<HTMLDivElement>(null);
 
-  // Filter out the selected item to get the remaining items in priority order
-  const items = priorityOrder.filter(item => item !== selectedItem);
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
-  const handleSelect = (item: string) => {
-    setSelectedItem(item); // Update the selected item
-    setIsOpen(false); // Close the menu
-  };
+  const options = LANGUAGES.filter(l => l !== selected);
 
   return (
-    <motion.nav
-      initial={false}
-      animate={isOpen ? "open" : "closed"}
-      className="menu lang-dropdown"
-    >
-      <motion.button
-        whileTap={{ scale: 0.97 }}
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        {selectedItem}
-        <motion.div
-          variants={{
-            open: { rotate: 180 },
-            closed: { rotate: 0 }
-          }}
-          transition={{ duration: 0.2 }}
-          style={{ originY: 0.55 }}
-        >
-          <ArrowIcon />
-        </motion.div>
-      </motion.button>
-      <motion.ul
-        variants={{
-          open: {
-            clipPath: "inset(0% 0% 0% 0% round 10px)",
-            transition: {
-              type: "spring",
-              bounce: 0,
-              duration: 0.7,
-              delayChildren: 0.3,
-              staggerChildren: 0.05
-            }
-          },
-          closed: {
-            clipPath: "inset(10% 50% 90% 50% round 10px)",
-            transition: {
-              type: "spring",
-              bounce: 0,
-              duration: 0.3
-            }
-          }
-        }}
-        style={{pointerEvents: isOpen ? "auto" : "none"}}
-        className="lang-dropdown-menu"
-      >
-        {items.map((item) => (
-          <motion.li
-            key={item}
-            variants={itemVariants}
-            onClick={() => handleSelect(item)}
-            style={{cursor: "pointer"}}
-          >
-            {item}
-          </motion.li>
+    <div className="lang-dropdown" ref={ref}>
+      <button className="lang-dropdown-trigger" onClick={() => setIsOpen(o => !o)}>
+        {selected}
+        <ChevronDown
+          size={14}
+          className={`lang-dropdown-chevron ${isOpen ? 'lang-dropdown-chevron--open' : ''}`}
+        />
+      </button>
+
+      <ul className={`lang-dropdown-menu ${isOpen ? 'lang-dropdown-menu--open' : ''}`}>
+        {options.map(lang => (
+          <li key={lang} onClick={() => { setSelected(lang); setIsOpen(false); }}>
+            {lang}
+          </li>
         ))}
-      </motion.ul>
-    </motion.nav>
+      </ul>
+    </div>
   );
 }
