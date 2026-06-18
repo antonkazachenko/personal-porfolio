@@ -57,7 +57,7 @@ const DEFAULT_REFERENCES: ReferenceItem[] = [
     position: 'Senior Lead Software Developer @ IFS Copperleaf',
     avatar: '/images/references/matt.jpeg',
     quote:
-      "It has been a privilege to have Anton as part of our team during his 8-month co-op term from May to December 2024. Throughout his tenure, Anton showcased a remarkable inclination towards learning and mastering new technologies, making significant contributions particularly in our visual regression platform and Design System components. Tony’s strong problem-solving skills, quick learning ability, and his passion for software engineering were evident in the quality of his work and his interactions with the team. I am confident that with his enthusiasm and commitment, Anton is poised for a successful career in software development.",
+      "It has been a privilege to have Anton as part of our team during his 8-month co-op term from May to December 2024. Throughout his tenure, Anton showcased a remarkable inclination towards learning and mastering new technologies, making significant contributions particularly in our visual regression platform and Design System components. Tony's strong problem-solving skills, quick learning ability, and his passion for software engineering were evident in the quality of his work and his interactions with the team. I am confident that with his enthusiasm and commitment, Anton is poised for a successful career in software development.",
     link: 'https://www.linkedin.com/in/matthew-ridderikhoff-45a17a151',
   },
   {
@@ -107,11 +107,33 @@ const DEFAULT_REFERENCES: ReferenceItem[] = [
 // -------------------------------------------------------------
 export default function ReferencesCarousel({ items = DEFAULT_REFERENCES }: { items?: ReferenceItem[] }) {
   const [index, setIndex] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(0);
   const safeItems = useMemo(() => (Array.isArray(items) ? items : []), [items]);
 
+  useEffect(() => {
+    const update = () => setWindowWidth(window.innerWidth);
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
+
+  const perSlide = windowWidth >= 1280 ? 2 : 1;
+
+  const chunks = useMemo<ReferenceItem[][]>(() => {
+    const result: ReferenceItem[][] = [];
+    for (let i = 0; i < safeItems.length; i += perSlide) {
+      result.push(safeItems.slice(i, i + perSlide));
+    }
+    return result;
+  }, [safeItems, perSlide]);
+
+  useEffect(() => {
+    setIndex(0);
+  }, [perSlide]);
+
   const go = useCallback(
-    (dir: 1 | -1) => setIndex((i) => getNextIndex(safeItems.length, i, dir)),
-    [safeItems.length]
+    (dir: 1 | -1) => setIndex((i) => getNextIndex(chunks.length, i, dir)),
+    [chunks.length]
   );
 
   const AUTO_INTERVAL = 100000000;
@@ -119,20 +141,13 @@ export default function ReferencesCarousel({ items = DEFAULT_REFERENCES }: { ite
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowLeft') {
-        go(-1);
-        resetAutoTimer();
-      }
-      if (e.key === 'ArrowRight') {
-        go(1);
-        resetAutoTimer();
-      }
+      if (e.key === 'ArrowLeft') { go(-1); resetAutoTimer(); }
+      if (e.key === 'ArrowRight') { go(1); resetAutoTimer(); }
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
   }, [go]);
 
-// Auto-switch with resettable timer
   useEffect(() => {
     startAutoTimer();
     return () => stopAutoTimer();
@@ -140,34 +155,65 @@ export default function ReferencesCarousel({ items = DEFAULT_REFERENCES }: { ite
 
   function startAutoTimer() {
     stopAutoTimer();
-    timerRef.current = setInterval(() => {
-      go(1);
-    }, AUTO_INTERVAL);
+    timerRef.current = setInterval(() => { go(1); }, AUTO_INTERVAL);
   }
-
   function stopAutoTimer() {
-    if (timerRef.current) {
-      clearInterval(timerRef.current);
-      timerRef.current = null;
-    }
+    if (timerRef.current) { clearInterval(timerRef.current); timerRef.current = null; }
   }
+  function resetAutoTimer() { startAutoTimer(); }
 
-  function resetAutoTimer() {
-    startAutoTimer();
-  }
+  const currentChunk = chunks[index] ?? [];
 
-
-  const ref = safeItems[index];
+  const ReferenceCard = ({ item }: { item: ReferenceItem }) => (
+    <article className={`relative reference-card h-full flex flex-col justify-between ${perSlide === 1 ? 'w-1/2 mx-auto' : 'w-full'}`}>
+      <div className="flex items-start gap-4 w-full">
+        <div>
+          <img
+            src={getAvatarSrc(item.avatar)}
+            onError={(e) => {
+              const img = e.currentTarget as HTMLImageElement;
+              img.onerror = null;
+              img.src = PLACEHOLDER_AVATAR;
+            }}
+            alt={`${item.name} avatar`}
+            width={80}
+            height={80}
+            className="reference-avatar"
+            loading="lazy"
+          />
+        </div>
+        <div className="flex-1 mt-1">
+          <div className="flex items-center justify-between gap-2">
+            <h4 className="reference-header">{item.name}</h4>
+            {item.link && (
+              <a
+                href="https://www.linkedin.com/in/antonkazachenko/details/recommendations/?detailScreenTabIndex=0"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-sky-600/80 text-white hover:bg-sky-500"
+                aria-label="Open reference link"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M11 1.06641L1 11.0664" stroke="#F5F5F5" strokeWidth="1.09779" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M11 7.93359V0.933594H4" stroke="#F5F5F5" strokeWidth="1.09779" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </a>
+            )}
+          </div>
+          <p className="reference-text">{item.position}</p>
+        </div>
+      </div>
+      <p className="mt-6 reference-text">&ldquo;{item.quote}&rdquo;</p>
+    </article>
+  );
 
   return (
     <section className="relative w-full py-20">
-      {/* Title */}
       <div className="skills-header-container">
         <h1 className="section-header-bg">References</h1>
         <h2 className="section-header">References</h2>
       </div>
 
-      {/* Carousel */}
       <div className="container mx-auto px-4 h-[600px] flex items-center">
         <div className="relative w-full">
           {/* Left */}
@@ -177,9 +223,9 @@ export default function ReferencesCarousel({ items = DEFAULT_REFERENCES }: { ite
             className="absolute -left-2 lg:-left-6 top-1/2 z-10 -translate-y-1/2"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="62" height="62" viewBox="0 0 62 62" fill="none">
-              <path d="M31 61C47.5685 61 61 47.5685 61 31C61 14.4315 47.5685 1 31 1C14.4315 1 1 14.4315 1 31C1 47.5685 14.4315 61 31 61Z" stroke="#F5F5F5" stroke-opacity="0.6" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M18.5 31H43.5" stroke="#F5F5F5" stroke-opacity="0.6" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M28.5 21L18.5 31L28.5 41" stroke="#F5F5F5" stroke-opacity="0.6" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M31 61C47.5685 61 61 47.5685 61 31C61 14.4315 47.5685 1 31 1C14.4315 1 1 14.4315 1 31C1 47.5685 14.4315 61 31 61Z" stroke="#F5F5F5" strokeOpacity="0.6" strokeWidth="0.75" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M18.5 31H43.5" stroke="#F5F5F5" strokeOpacity="0.6" strokeWidth="0.75" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M28.5 21L18.5 31L28.5 41" stroke="#F5F5F5" strokeOpacity="0.6" strokeWidth="0.75" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </button>
 
@@ -190,71 +236,24 @@ export default function ReferencesCarousel({ items = DEFAULT_REFERENCES }: { ite
             className="absolute -right-2 lg:-right-6 top-1/2 z-10 -translate-y-1/2"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="62" height="62" viewBox="0 0 62 62" fill="none">
-              <path d="M31 61C14.4315 61 1 47.5685 1 31C1 14.4315 14.4315 1 31 1C47.5685 1 61 14.4315 61 31C61 47.5685 47.5685 61 31 61Z" stroke="#F5F5F5" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M43.5001 31H18.5001" stroke="#F5F5F5" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M33.5001 21L43.5001 31L33.5001 41" stroke="#F5F5F5" stroke-width="0.75" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M31 61C14.4315 61 1 47.5685 1 31C1 14.4315 14.4315 1 31 1C47.5685 1 61 14.4315 61 31C61 47.5685 47.5685 61 31 61Z" stroke="#F5F5F5" strokeWidth="0.75" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M43.5001 31H18.5001" stroke="#F5F5F5" strokeWidth="0.75" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M33.5001 21L43.5001 31L33.5001 41" stroke="#F5F5F5" strokeWidth="0.75" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </button>
 
-          {/* Slides (exactly ONE card per slide) */}
-          <div className="overflow-hidden w-full">
+          <div className="overflow-hidden w-full px-16">
             <AnimatePresence mode="wait">
               <motion.div
-                key={`ref-${index}`}
+                key={`ref-${index}-${perSlide}`}
                 initial={{ opacity: 0, x: 40 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -40 }}
                 transition={{ duration: 0.35 }}
-                className="grid grid-cols-1 gap-8"
+                className={`grid gap-8 ${perSlide === 2 ? 'grid-cols-2' : 'grid-cols-1'}`}
               >
-                {ref ? (
-                  <article key={ref.name} className="relative reference-card w-1/2 mx-auto h-full flex flex-col justify-between">
-                    {/* Badge / Avatar */}
-                    <div className="flex items-start gap-4 w-full">
-                      {/* Avatar */}
-                      <div>
-                        <img
-                          src={getAvatarSrc(ref.avatar)}
-                          onError={(e) => {
-                            const img = e.currentTarget as HTMLImageElement;
-                            img.onerror = null;
-                            img.src = PLACEHOLDER_AVATAR;
-                          }}
-                          alt={`${ref.name} avatar`}
-                          width={80}
-                          height={80}
-                          className="reference-avatar"
-                          loading="lazy"
-                        />
-                      </div>
-
-                      {/* Name + Position */}
-                      <div className="flex-1 mt-1">
-                        <div className="flex items-center justify-between gap-2">
-                          <h4 className="reference-header">{ref.name}</h4>
-                          {ref.link && (
-                            <a
-                              href="https://www.linkedin.com/in/antonkazachenko/details/recommendations/?detailScreenTabIndex=0"
-                              target="_blank"
-                              rel="noreferrer"
-                              className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-sky-600/80 text-white hover:bg-sky-500"
-                              aria-label="Open reference link"
-                            >
-                              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
-                                <path d="M11 1.06641L1 11.0664" stroke="#F5F5F5" stroke-width="1.09779" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M11 7.93359V0.933594H4" stroke="#F5F5F5" stroke-width="1.09779" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                              </svg>
-                            </a>
-                          )}
-                        </div>
-                        <p className="reference-text">{ref.position}</p>
-                      </div>
-                    </div>
-
-
-                    {/* Quote */}
-                    <p className="mt-6 reference-text">“{ref.quote}”</p>
-                  </article>
+                {currentChunk.length > 0 ? (
+                  currentChunk.map((r) => <ReferenceCard key={r.name} item={r} />)
                 ) : (
                   <p className="text-white/60">No references available.</p>
                 )}

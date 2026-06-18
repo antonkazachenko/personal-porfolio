@@ -183,7 +183,12 @@ const ExperienceSection = forwardRef<HTMLDivElement, object>((props, ref: Forwar
               <div className="timeline-date" ref={dateRef}>
                 <span>{exp.duration}</span>
               </div>
-              <div className={`experience-card ${index % 2 === 0 ? 'right-card' : 'left-card'}`}>
+              <div
+                className={`experience-card ${index % 2 === 0 ? 'right-card' : 'left-card'} ${hasDetails ? 'experience-card--clickable' : ''}`}
+                onClick={() => hasDetails && toggle(index)}
+                role={hasDetails ? 'button' : undefined}
+                aria-expanded={hasDetails ? isExpanded : undefined}
+              >
                 <div className="experience-card-header">
                   <div className="experience-logo">
                     {exp.logo}
@@ -193,13 +198,7 @@ const ExperienceSection = forwardRef<HTMLDivElement, object>((props, ref: Forwar
                     <h3 className="experience-role">{exp.role}</h3>
                   </div>
                   {hasDetails && (
-                    <button
-                      type="button"
-                      className="experience-toggle"
-                      onClick={() => toggle(index)}
-                      aria-expanded={isExpanded}
-                      aria-label={isExpanded ? "Collapse" : "Expand"}
-                    >
+                    <span className="experience-toggle" aria-hidden="true">
                       <ChevronUp
                         size={18}
                         style={{
@@ -207,7 +206,7 @@ const ExperienceSection = forwardRef<HTMLDivElement, object>((props, ref: Forwar
                           transition: "transform 0.25s ease",
                         }}
                       />
-                    </button>
+                    </span>
                   )}
                 </div>
                 {hasDetails && (

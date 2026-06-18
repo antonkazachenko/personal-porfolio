@@ -5,9 +5,18 @@ import LangDropdown from "@/app/components/LangDropdown";
 interface HeaderProps {
   onScrollToSkills: () => void;
   onScrollToExperience: () => void;
+  onScrollToProjects: () => void;
+  onScrollToEducation: () => void;
+  onScrollToContacts: () => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ onScrollToSkills, onScrollToExperience }) => {
+const Header: React.FC<HeaderProps> = ({
+  onScrollToSkills,
+  onScrollToExperience,
+  onScrollToProjects,
+  onScrollToEducation,
+  onScrollToContacts,
+}) => {
   return (
     <header className="header">
       <div className="left-menu">
@@ -17,9 +26,9 @@ const Header: React.FC<HeaderProps> = ({ onScrollToSkills, onScrollToExperience 
       <ul className="menu-list">
         <li onClick={onScrollToSkills}>Skills</li>
         <li onClick={onScrollToExperience}>Experience</li>
-        <li>Projects</li>
-        <li>Education</li>
-        <li>Contacts</li>
+        <li onClick={onScrollToProjects}>Projects</li>
+        <li onClick={onScrollToEducation}>Education</li>
+        <li onClick={onScrollToContacts}>Contacts</li>
       </ul>
       <div className="right-menu">
         <div className="icon-wrapper">
