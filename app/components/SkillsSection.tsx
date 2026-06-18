@@ -29,9 +29,15 @@ const SkillsSection = forwardRef<HTMLDivElement, object>((props, ref: ForwardedR
 
       {/* Display Skills of the Active Category */}
       <div className="skills-icons">
-        {skillsData[activeCategoryIndex].skills.map((SkillComponent, index) => (
-          <div key={index} className="skill-icon">
-            <SkillComponent />
+        {skillsData[activeCategoryIndex].skills.map((skill, index) => (
+          <div key={index} className="skill-icon-wrapper">
+            <div className="skill-icon">
+              <skill.icon />
+            </div>
+            <div className="skill-tooltip">
+              <span className="skill-tooltip-name">{skill.name}</span>
+              <span className="skill-tooltip-desc">{skill.description}</span>
+            </div>
           </div>
         ))}
       </div>
