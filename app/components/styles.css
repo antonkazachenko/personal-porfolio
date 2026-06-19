@@ -866,6 +866,52 @@
   border-radius: 22px;
 }
 
+.education-certificates {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 997px;
+  margin: 24px auto 0;
+}
+
+.education-cert-card {
+  display: flex;
+  flex-direction: column;
+  border: 0.75px solid rgba(245, 245, 245, 0.15);
+  border-radius: 22px;
+  background: rgba(245, 245, 245, 0.05);
+  overflow: hidden;
+}
+
+.education-cert-image {
+  height: 150px;
+  margin: 16px 16px 0;
+  border-radius: 14px;
+  border: 1px solid rgba(245, 245, 245, 0.1);
+  background: rgba(245, 245, 245, 0.08);
+}
+
+.education-cert-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+}
+
+.education-cert-name {
+  font-family: var(--font-poppins-regular), serif;
+  font-size: 15px;
+  color: #F5F5F5;
+  margin: 0;
+}
+
+.education-cert-source {
+  font-family: var(--font-poppins-light), serif;
+  font-size: 12px;
+  color: rgba(245, 245, 245, 0.7);
+  margin: 2px 0 0;
+}
+
 /* ===== ProjectsSection ===== */
 .projects-section {
   padding: 60px 0;
@@ -1141,15 +1187,34 @@ button.footer-page-link {
 }
 
 @media screen and (max-width: 768px) {
+    .footer {
+        margin-top: 40px;
+        padding-bottom: 40px;
+    }
+
     .footer-content {
         flex-direction: column;
-        gap: 40px;
+        gap: 32px;
+    }
+
+    .footer-form {
+        max-width: none;
+        width: 100%;
+        gap: 32px;
+    }
+
+    /* Full-width Send button on mobile per the design */
+    .footer-submit {
+        width: 100%;
+        align-self: stretch;
+        text-align: center;
+        padding: 14px 22.5px;
     }
 
     .footer-info {
+        flex-direction: column;
         justify-content: flex-start;
-        gap: 40px;
-        flex-wrap: wrap;
+        gap: 28px;
     }
 }
 
@@ -1398,6 +1463,9 @@ button.footer-page-link {
         top: 0;
         z-index: 50;
         height: 64px;
+        /* Break out of the container's 16px gutter so the bar is full-bleed,
+           then re-apply the 16px as inner padding */
+        margin: 0 -16px;
         padding: 0 16px;
         background: rgba(10, 10, 10, 0.9);
         backdrop-filter: blur(8px);
@@ -1481,7 +1549,6 @@ button.footer-page-link {
         gap: 10px;
         margin-top: 24px;
         margin-bottom: 24px;
-        padding: 0 16px;
         width: 100%;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
@@ -1514,7 +1581,6 @@ button.footer-page-link {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 20px 8px;
-        padding: 0 8px;
         margin-top: 24px;
     }
 
@@ -1655,7 +1721,7 @@ button.footer-page-link {
     .projects-carousel-wrapper {
         overflow: visible;
         margin-top: 24px;
-        padding: 0 16px;
+        padding: 0;
     }
 
     /* Vertical stack instead of horizontal carousel */
@@ -1702,5 +1768,102 @@ button.footer-page-link {
     .projects-show-more:hover {
         background: #0eab00;
         color: #f5f5f5;
+    }
+}
+
+/* ===================== Mobile education ===================== */
+@media screen and (max-width: 768px) {
+    .education-section {
+        padding: 40px 0;
+    }
+
+    /* Stack the degree card: text on top, campus image full-width below */
+    .education-card {
+        flex-direction: column;
+        margin-top: 24px;
+        min-height: 0;
+        border-color: rgba(245, 245, 245, 0.1);
+    }
+
+    .education-card-body {
+        padding: 20px;
+    }
+
+    .education-logo {
+        width: 40px;
+        height: 40px;
+    }
+
+    .education-institution {
+        color: #0eab00;
+    }
+
+    .education-degree {
+        font-size: 16px;
+    }
+
+    .education-card-image {
+        width: 100%;
+        padding: 0 16px 16px;
+    }
+
+    .education-campus-img {
+        width: 100%;
+        height: 160px;
+    }
+
+    /* Certificates stack single-column */
+    .education-certificates {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-top: 20px;
+    }
+
+    .education-cert-image {
+        height: 160px;
+    }
+}
+
+/* ===================== Mobile references + languages ===================== */
+@media screen and (max-width: 768px) {
+    .reference-card {
+        padding: 24px;
+    }
+
+    /* Languages: vertical list, flag on the left of each row */
+    .language-list {
+        flex-direction: column;
+        gap: 14px;
+        margin-top: 24px;
+        width: 100%;
+    }
+
+    .language-list > div {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        column-gap: 16px;
+        align-items: center;
+        text-align: left;
+        width: 100%;
+        padding: 16px;
+        border-radius: 16px;
+        border: 1px solid rgba(245, 245, 245, 0.1);
+        background: rgba(245, 245, 245, 0.05);
+    }
+
+    .language-list > div > svg {
+        grid-row: span 2;
+        width: 44px;
+        height: auto;
+    }
+
+    .language-list h3 {
+        font-size: 18px;
+        margin: 0;
+    }
+
+    .language-list p {
+        font-size: 13px;
+        margin: 2px 0 0;
     }
 }

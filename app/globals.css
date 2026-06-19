@@ -18,3 +18,17 @@ body {
     text-wrap: balance;
   }
 }
+
+/* Consistent side gutters for every section on mobile */
+@media screen and (max-width: 768px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  /* Avoid double gutters where a container is nested inside another (References) */
+  .container .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

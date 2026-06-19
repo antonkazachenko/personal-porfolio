@@ -172,7 +172,7 @@ export default function ReferencesCarousel({ items = DEFAULT_REFERENCES }: { ite
   };
 
   const ReferenceCard = ({ item }: { item: ReferenceItem }) => (
-    <article className={`relative reference-card h-full flex flex-col justify-start ${perSlide === 1 ? 'w-1/2 mx-auto' : 'w-full'}`}>
+    <article className={`relative reference-card h-full flex flex-col justify-start ${perSlide === 1 ? 'w-full md:w-1/2 md:mx-auto' : 'w-full'}`}>
       <div className="flex items-start gap-4 w-full">
         <div>
           <img
@@ -221,7 +221,7 @@ export default function ReferencesCarousel({ items = DEFAULT_REFERENCES }: { ite
         <h2 className="section-header">References</h2>
       </div>
 
-      <div className="container mx-auto px-4 h-[600px] flex items-center">
+      <div className="container mx-auto px-4 h-auto py-10 md:py-0 md:h-[600px] flex items-center">
         <div className="relative w-full">
           {/* Left */}
           <button
@@ -229,7 +229,7 @@ export default function ReferencesCarousel({ items = DEFAULT_REFERENCES }: { ite
             onClick={() => { go(-1); resetAutoTimer(); }}
             className="absolute -left-2 lg:-left-6 top-1/2 z-10 -translate-y-1/2"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" width="62" height="62" viewBox="0 0 62 62" fill="none">
+            <svg xmlns="http://www.w3.org/2000/svg" width="62" height="62" viewBox="0 0 62 62" fill="none" className="w-9 h-9 md:w-[62px] md:h-[62px]">
               <path d="M31 61C47.5685 61 61 47.5685 61 31C61 14.4315 47.5685 1 31 1C14.4315 1 1 14.4315 1 31C1 47.5685 14.4315 61 31 61Z" stroke="#F5F5F5" strokeOpacity="0.6" strokeWidth="0.75" strokeLinecap="round" strokeLinejoin="round"/>
               <path d="M18.5 31H43.5" stroke="#F5F5F5" strokeOpacity="0.6" strokeWidth="0.75" strokeLinecap="round" strokeLinejoin="round"/>
               <path d="M28.5 21L18.5 31L28.5 41" stroke="#F5F5F5" strokeOpacity="0.6" strokeWidth="0.75" strokeLinecap="round" strokeLinejoin="round"/>
@@ -242,14 +242,14 @@ export default function ReferencesCarousel({ items = DEFAULT_REFERENCES }: { ite
             onClick={() => { go(1); resetAutoTimer(); }}
             className="absolute -right-2 lg:-right-6 top-1/2 z-10 -translate-y-1/2"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" width="62" height="62" viewBox="0 0 62 62" fill="none">
+            <svg xmlns="http://www.w3.org/2000/svg" width="62" height="62" viewBox="0 0 62 62" fill="none" className="w-9 h-9 md:w-[62px] md:h-[62px]">
               <path d="M31 61C14.4315 61 1 47.5685 1 31C1 14.4315 14.4315 1 31 1C47.5685 1 61 14.4315 61 31C61 47.5685 47.5685 61 31 61Z" stroke="#F5F5F5" strokeWidth="0.75" strokeLinecap="round" strokeLinejoin="round"/>
               <path d="M43.5001 31H18.5001" stroke="#F5F5F5" strokeWidth="0.75" strokeLinecap="round" strokeLinejoin="round"/>
               <path d="M33.5001 21L43.5001 31L33.5001 41" stroke="#F5F5F5" strokeWidth="0.75" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </button>
 
-          <div className="overflow-hidden w-full px-16">
+          <div className="overflow-hidden w-full px-10 md:px-16">
             <AnimatePresence mode="wait" custom={dir}>
               <motion.div
                 key={`ref-${index}-${perSlide}`}
