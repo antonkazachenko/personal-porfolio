@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { WebIcon, CloudIcon, AtomIcon } from '@/public/icons';
 
@@ -61,9 +61,30 @@ const ProjectCard = ({ project }: { project: Project }) => {
 
 export default function ProjectsSection() {
   const [activeFilter, setActiveFilter] = useState<Category>('Software Development');
+  const [isMobile, setIsMobile] = useState(false);
+  const [showAll, setShowAll] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 768px)');
+    const update = () => setIsMobile(mq.matches);
+    update();
+    mq.addEventListener('change', update);
+    return () => mq.removeEventListener('change', update);
+  }, []);
+
+  const selectFilter = (label: Category) => {
+    setActiveFilter(label);
+    setShowAll(false);
+  };
+
   const filtered = projects.filter(p => p.category === activeFilter);
-  const shouldAnimate = filtered.length > 3;
-  const carouselItems = shouldAnimate ? [...filtered, ...filtered] : filtered;
+  // On mobile the carousel becomes a vertical stack, so skip the duplicate-and-scroll animation.
+  const shouldAnimate = filtered.length > 3 && !isMobile;
+  // On mobile, show only the first 3 until "Show more" is clicked.
+  const collapsedOnMobile = isMobile && !showAll;
+  const baseItems = collapsedOnMobile ? filtered.slice(0, 3) : filtered;
+  const carouselItems = shouldAnimate ? [...filtered, ...filtered] : baseItems;
+  const showMoreButton = isMobile && filtered.length > 3;
 
   return (
     <section className="projects-section">
@@ -77,7 +98,7 @@ export default function ProjectsSection() {
           <div
             key={f.label}
             className={`category ${activeFilter === f.label ? 'active-category' : ''}`}
-            onClick={() => setActiveFilter(f.label)}
+            onClick={() => selectFilter(f.label)}
           >
             {f.icon}
             <span>{f.label}</span>
@@ -92,6 +113,16 @@ export default function ProjectsSection() {
           ))}
         </div>
       </div>
+
+      {showMoreButton && (
+        <button
+          type="button"
+          className="projects-show-more"
+          onClick={() => setShowAll(v => !v)}
+        >
+          {showAll ? 'Show less' : 'Show more'}
+        </button>
+      )}
     </section>
   );
 }
