@@ -1308,3 +1308,252 @@ button.footer-page-link {
         height: 280px;
     }
 }
+
+/* ===================== Mobile header + hero ===================== */
+/* Mobile-only elements are hidden on desktop by default */
+.mobile-logo {
+    display: none;
+    align-items: center;
+}
+
+.mobile-logo-badge {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-poppins-bold), sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: #f5f5f5;
+}
+
+.mobile-logo-dot {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #0eab00;
+    border: 2px solid #0a0a0a;
+}
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: #f5f5f5;
+    cursor: pointer;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-drawer-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 40;
+}
+
+.mobile-drawer {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    z-index: 45;
+    display: flex;
+    flex-direction: column;
+    background: #0a0a0a;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 8px 16px 16px;
+}
+
+.mobile-drawer-link {
+    background: none;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    text-align: left;
+    color: #f5f5f5;
+    font-family: var(--font-poppins-light), sans-serif;
+    font-size: 18px;
+    padding: 14px 0;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.mobile-drawer-link:hover {
+    color: #0eab00;
+}
+
+@media screen and (max-width: 768px) {
+    /* Header becomes a compact top bar with the nav behind a hamburger */
+    .header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        height: 64px;
+        padding: 0 16px;
+        background: rgba(10, 10, 10, 0.9);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .mobile-logo {
+        display: flex;
+    }
+
+    /* Theme switcher + centered nav are not part of the mobile design */
+    .header .switch {
+        display: none;
+    }
+
+    .menu-list {
+        display: none;
+    }
+
+    .left-menu {
+        gap: 8px;
+    }
+
+    .right-menu {
+        gap: 16px;
+        align-items: center;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    /* Hero: single column, scaled down */
+    .main-page {
+        height: auto;
+        min-height: calc(100vh - 64px);
+    }
+
+    .profile-picture-container {
+        width: 200px;
+        height: 200px;
+        padding: 10px;
+    }
+
+    .hero-title {
+        font-size: 28px;
+        letter-spacing: 1.4px;
+        margin-top: 24px;
+    }
+
+    .hero-subtitle {
+        font-size: 18px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+        width: 90%;
+        margin-top: 16px;
+    }
+}
+
+/* ===================== Mobile skills ===================== */
+@media screen and (max-width: 768px) {
+    /* Shared: drop the oversized ghost heading and shrink section titles */
+    .section-header-bg {
+        display: none;
+    }
+
+    .section-header {
+        font-size: 26px;
+    }
+
+    .skills-section {
+        padding: 40px 0;
+    }
+
+    /* Category pills: horizontally scrollable, no wrap */
+    .categories-container {
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        gap: 10px;
+        margin-top: 24px;
+        margin-bottom: 24px;
+        padding: 0 16px;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .categories-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    .category {
+        flex-shrink: 0;
+        padding: 8px 18px;
+        gap: 0;
+        border-radius: 999px;
+        font-size: 14px;
+        white-space: nowrap;
+    }
+
+    .category svg {
+        display: none;
+    }
+
+    .active-category {
+        color: #0EAB00;
+    }
+
+    /* Skill grid: 4 columns; the hover tooltip becomes a static label */
+    .skills-icons {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px 8px;
+        padding: 0 8px;
+        margin-top: 24px;
+    }
+
+    .skill-icon-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+    }
+
+    .skill-icon {
+        width: 56px;
+        height: 56px;
+        padding: 0;
+        background: rgba(245, 245, 245, 0.05);
+        border-radius: 14px;
+    }
+
+    .skill-icon svg {
+        width: 26px;
+        height: 26px;
+    }
+
+    .skill-tooltip {
+        position: static;
+        transform: none;
+        opacity: 1;
+        background: none;
+        border: none;
+        padding: 0;
+        pointer-events: auto;
+    }
+
+    .skill-tooltip-name {
+        font-weight: 400;
+        color: rgba(245, 245, 245, 0.8);
+    }
+
+    .skill-tooltip-desc {
+        display: none;
+    }
+}
