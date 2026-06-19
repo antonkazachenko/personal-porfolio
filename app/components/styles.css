@@ -1557,3 +1557,91 @@ button.footer-page-link {
         display: none;
     }
 }
+
+/* In-card duration line (mobile only; desktop shows it in the center badge) */
+.experience-card-date {
+    display: none;
+    font-family: var(--font-poppins-light), serif;
+    font-size: 11px;
+    color: rgba(245, 245, 245, 0.6);
+    margin: 2px 0 0;
+}
+
+/* ===================== Mobile experience ===================== */
+@media screen and (max-width: 768px) {
+    .experience-timeline {
+        margin-top: 24px;
+        gap: 20px;
+        align-items: stretch;
+    }
+
+    /* Hide the desktop centered gradient segments and center date badges */
+    .experience-timeline .timeline-line {
+        display: none;
+    }
+
+    .timeline-date {
+        display: none;
+    }
+
+    /* Vertical rail down the left edge */
+    .experience-timeline::before {
+        content: "";
+        position: absolute;
+        left: 5px;
+        top: 6px;
+        bottom: 6px;
+        width: 1.5px;
+        background: rgba(245, 245, 245, 0.15);
+        z-index: 0;
+    }
+
+    .experience-item {
+        display: block;
+        position: relative;
+        width: 100%;
+        padding-left: 40px;
+    }
+
+    /* Green dot sitting on the rail, aligned with the card logo */
+    .experience-item::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 26px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #0eab00;
+        border: 2px solid #0a0a0a;
+        z-index: 1;
+    }
+
+    .experience-card,
+    .left-card,
+    .right-card {
+        width: 100%;
+        margin: 0;
+        padding: 20px;
+        border-color: rgba(245, 245, 245, 0.1);
+    }
+
+    .experience-logo {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* Green accent per the mobile design */
+    .experience-company {
+        color: #0eab00;
+    }
+
+    /* Show the in-card date, hide the long company blurb */
+    .experience-card-date {
+        display: block;
+    }
+
+    .experience-about {
+        display: none;
+    }
+}

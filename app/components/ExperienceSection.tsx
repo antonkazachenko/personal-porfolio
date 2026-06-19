@@ -197,6 +197,7 @@ const ExperienceSection = forwardRef<HTMLDivElement, object>((props, ref: Forwar
                   <div className="experience-heading">
                     <p className="experience-company">{exp.company}</p>
                     <h3 className="experience-role">{exp.role}</h3>
+                    <p className="experience-card-date">{exp.duration}</p>
                     {exp.about && <p className="experience-about">{exp.about}</p>}
                   </div>
                   {hasDetails && (
