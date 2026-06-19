@@ -1,0 +1,177 @@
+'use client';
+
+import React from 'react';
+import Link from 'next/link';
+import { User, Mail, Phone } from 'lucide-react';
+import { ReactIcon, ReduxIcon, CypressIcon, JestIcon, GithubIcon, LinkedinIcon } from '@/public/icons';
+import ThemeSwitcher from '@/app/components/ThemeSwitcher';
+import LangDropdown from '@/app/components/LangDropdown';
+import RightsSection from '@/app/components/RightsSection';
+import '@/app/components/styles.css';
+
+const PROJECT_COLOR = '#9205af';
+
+const FEATURES = [
+  {
+    title: 'JWT Authentication',
+    description:
+      'Secure user registration and login backed by JSON Web Tokens, with protected routes that redirect unauthenticated users.',
+  },
+  {
+    title: 'Real-time Orders',
+    description:
+      'Live order status updates delivered via a WebSocket connection so users always see the current state of their order.',
+  },
+  {
+    title: 'Drag & Drop Builder',
+    description:
+      'Interactive burger constructor with drag-and-drop ingredient selection, letting users freely compose any burger they want.',
+  },
+  {
+    title: 'State Management',
+    description:
+      'Centralised global state handled by Redux, with React Context API used for lightweight local state sharing across component trees.',
+  },
+];
+
+export default function ReactBurgerPage() {
+  return (
+    <>
+      <div className="container mx-auto">
+        {/* Header */}
+        <header className="header">
+          <div className="left-menu">
+            <ThemeSwitcher />
+            <LangDropdown />
+          </div>
+          <ul className="menu-list">
+            <li><Link href="/">Skills</Link></li>
+            <li><Link href="/">Experience</Link></li>
+            <li><Link href="/">Projects</Link></li>
+            <li><Link href="/">Education</Link></li>
+            <li><Link href="/">Contacts</Link></li>
+          </ul>
+          <div className="right-menu">
+            <div className="icon-wrapper">
+              <a href="https://github.com/antonkazachenko" target="_blank" rel="noopener noreferrer">
+                <GithubIcon />
+              </a>
+            </div>
+            <div className="icon-wrapper">
+              <a href="https://linkedin.com/in/antonkazachenko" target="_blank" rel="noopener noreferrer">
+                <LinkedinIcon />
+              </a>
+            </div>
+          </div>
+        </header>
+
+        {/* Hero */}
+        <section className="project-page-hero">
+          <h1 className="project-page-title">React Burger</h1>
+          <p className="project-page-subtitle">
+            A full-stack burger-ordering SPA built with React, featuring drag-and-drop ingredient
+            selection, real-time order tracking, and JWT-secured accounts.
+          </p>
+
+          {/* Video / GIF stub */}
+          <div className="project-video-stub" style={{ borderColor: PROJECT_COLOR }}>
+            <div className="project-video-play">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <path d="M4 2L14 9L4 16V2Z" fill="#111111" />
+              </svg>
+            </div>
+          </div>
+        </section>
+
+        {/* Tech strip */}
+        <div className="project-tech-strip">
+          <p className="project-tech-label">Tools &amp; Technologies Used</p>
+          <div className="project-tech-icons">
+            <div className="project-tech-icon"><ReactIcon /></div>
+            <div className="project-tech-icon"><ReduxIcon /></div>
+            <div className="project-tech-icon"><CypressIcon /></div>
+            <div className="project-tech-icon"><JestIcon /></div>
+            <span className="project-tech-badge">React Context API</span>
+            <span className="project-tech-badge">WebSockets</span>
+            <span className="project-tech-badge">JWTs</span>
+          </div>
+        </div>
+
+        {/* Key Features */}
+        <section className="project-features-section">
+          <div className="skills-header-container">
+            <h1 className="section-header-bg">KEY FEATURES</h1>
+            <h2 className="section-header">KEY FEATURES</h2>
+          </div>
+          <div className="project-features-grid">
+            {FEATURES.map((f) => (
+              <div
+                key={f.title}
+                className="project-feature-card"
+                style={{ borderColor: PROJECT_COLOR }}
+              >
+                <h3 className="project-feature-title">{f.title}</h3>
+                <p className="project-feature-desc">{f.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Footer */}
+        <footer className="footer">
+          <div className="footer-content">
+            <div className="footer-contact">
+              <h3 className="footer-heading">Have any project in mind?</h3>
+              <p className="footer-subheading">I&apos;m available for freelancing</p>
+              <form className="footer-form" onSubmit={(e) => e.preventDefault()}>
+                <div className="footer-field">
+                  <User className="footer-field-icon" size={18} />
+                  <input type="text" name="fullName" placeholder="Full Name" />
+                </div>
+                <div className="footer-field">
+                  <Mail className="footer-field-icon" size={18} />
+                  <input type="email" name="email" placeholder="Email" />
+                </div>
+                <textarea className="footer-message" name="message" placeholder="Message" rows={4} />
+                <button type="submit" className="footer-submit">Submit</button>
+              </form>
+            </div>
+
+            <div className="footer-info">
+              <div className="footer-column">
+                <h4 className="footer-column-title">Contacts</h4>
+                <a className="footer-contact-link" href="tel:+17789280654">
+                  <Phone size={16} />
+                  <span>778-928-0654</span>
+                </a>
+                <a className="footer-contact-link" href="mailto:aka184@sfu.ca">
+                  <Mail size={16} />
+                  <span>aka184@sfu.ca</span>
+                </a>
+              </div>
+
+              <div className="footer-column">
+                <h4 className="footer-column-title">Pages</h4>
+                <Link href="/" className="footer-page-link">Skills</Link>
+                <Link href="/" className="footer-page-link">Experience</Link>
+                <Link href="/" className="footer-page-link">Projects</Link>
+                <Link href="/" className="footer-page-link">Education</Link>
+              </div>
+
+              <div className="footer-socials">
+                <a href="https://github.com/antonkazachenko" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                  <GithubIcon />
+                </a>
+                <a href="https://linkedin.com/in/antonkazachenko" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                  <LinkedinIcon />
+                </a>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+
+      <RightsSection />
+    </>
+  );
+}

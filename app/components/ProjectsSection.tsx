@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { WebIcon, CloudIcon, AtomIcon } from '@/public/icons';
 
 type Category = 'Software Development' | 'Cloud & DevOps' | 'Data Science';
@@ -10,10 +11,11 @@ interface Project {
   subtitle: string;
   color: string;
   category: Category;
+  href?: string;
 }
 
 const projects: Project[] = [
-  { name: 'React Burger', subtitle: 'React Application', color: '#9205af', category: 'Software Development' },
+  { name: 'React Burger', subtitle: 'React Application', color: '#9205af', category: 'Software Development', href: '/projects/react-burger' },
   { name: 'Go Todo List', subtitle: 'Go Application', color: '#00b8be', category: 'Software Development' },
   { name: 'Go #3', subtitle: 'Go Application', color: '#00b8be', category: 'Software Development' },
   { name: 'Go4', subtitle: 'Go Application', color: '#00b8be', category: 'Software Development' },
@@ -41,18 +43,21 @@ const ArrowButton = ({ color }: { color: string }) => (
   </div>
 );
 
-const ProjectCard = ({ project }: { project: Project }) => (
-  <div className="project-card" style={{ '--project-color': project.color } as React.CSSProperties}>
-    <div className="project-card-image" />
-    <div className="project-card-footer">
-      <div>
-        <p className="project-card-name">{project.name}</p>
-        <p className="project-card-subtitle">{project.subtitle}</p>
+const ProjectCard = ({ project }: { project: Project }) => {
+  const inner = (
+    <div className="project-card" style={{ '--project-color': project.color } as React.CSSProperties}>
+      <div className="project-card-image" />
+      <div className="project-card-footer">
+        <div>
+          <p className="project-card-name">{project.name}</p>
+          <p className="project-card-subtitle">{project.subtitle}</p>
+        </div>
+        <ArrowButton color={project.color} />
       </div>
-      <ArrowButton color={project.color} />
     </div>
-  </div>
-);
+  );
+  return project.href ? <Link href={project.href}>{inner}</Link> : inner;
+};
 
 export default function ProjectsSection() {
   const [activeFilter, setActiveFilter] = useState<Category>('Software Development');
