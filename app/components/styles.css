@@ -1371,13 +1371,22 @@ button.footer-page-link {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 16px;
+    gap: 30px;
+}
+
+.project-page-hero-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-width: 1120px;
+    width: 100%;
 }
 
 .project-page-title {
     color: #F5F5F5;
     font-family: var(--font-poppins-semi-bold), sans-serif;
-    font-size: 40px;
+    font-size: 64px;
     font-weight: 600;
     text-transform: uppercase;
     text-align: center;
@@ -1386,19 +1395,63 @@ button.footer-page-link {
 
 .project-page-subtitle {
     color: rgba(245, 245, 245, 0.80);
-    font-family: var(--font-poppins-regular), sans-serif;
+    font-family: var(--font-poppins-light), sans-serif;
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 300;
     text-align: center;
-    max-width: 760px;
+    width: 100%;
     line-height: 1.6;
     margin: 0;
 }
 
+.project-ctas {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.project-cta-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 29px;
+    background: rgba(8, 8, 8, 0.65);
+    border: 1px solid rgba(245, 245, 245, 0.14);
+    border-radius: 30px;
+    color: #F5F5F5;
+    font-family: var(--font-poppins-light), sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 0.35px;
+    line-height: 21px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.project-cta-btn:hover {
+    border-color: #0EAB00;
+    color: #0EAB00;
+}
+
+.project-cta-btn svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+}
+
+/* Make stroke-based mobile icons follow the button's text color */
+.project-cta-btn svg path {
+    stroke: currentColor;
+    stroke-opacity: 1;
+}
+
 .project-video-stub {
-    margin-top: 20px;
+    margin-top: 30px;
     width: 100%;
-    height: 500px;
+    height: 900px;
     border: 2px solid;
     border-radius: 30px;
     background: rgba(245, 245, 245, 0.03);
@@ -1433,14 +1486,14 @@ button.footer-page-link {
 }
 
 .project-tech-label {
-    color: rgba(245, 245, 245, 0.80);
+    color: #F5F5F5;
     font-family: var(--font-poppins-regular), sans-serif;
     font-size: 20px;
     text-align: center;
     margin: 0;
 }
 
-.project-tech-icons {
+.project-tech-container {
     width: 100vw;
     position: relative;
     left: 50%;
@@ -1449,29 +1502,140 @@ button.footer-page-link {
     border-top: 1px solid #1C1C21;
     border-bottom: 1px solid #1C1C21;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 60px;
-    padding: 30px 40px;
+    padding: 40px 162px;
+    box-sizing: border-box;
+}
+
+.project-tech-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+    flex-wrap: wrap;
+}
+
+.project-tech-badges {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
     flex-wrap: wrap;
 }
 
 .project-tech-icon {
-    width: 80px;
+    width: 100px;
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.project-tech-badge {
-    color: rgba(245, 245, 245, 0.80);
-    font-family: var(--font-poppins-light), sans-serif;
+.project-tech-icon svg {
+    max-width: 100px;
+    max-height: 50px;
+    width: auto;
+    height: auto;
+}
+
+/* ===== TechBadge component ===== */
+.tech-badge {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 7px 21px 7px 7px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
+}
+
+.tech-badge-bg {
+    position: absolute;
+    inset: 0;
+    background: #111113;
+    border-radius: 16px;
+    pointer-events: none;
+}
+
+.tech-badge-icon-box {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    flex-shrink: 0;
+    overflow: hidden;
+    background: #0a0a0c;
+}
+
+.tech-badge-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 38px;
+    height: 38px;
+    opacity: 0.15;
+    pointer-events: none;
+}
+
+.tech-badge-glow {
+    position: absolute;
+    top: 37px;
+    left: 4px;
+    width: 30px;
+    height: 1px;
+    opacity: 0.4;
+    filter: blur(1px);
+    pointer-events: none;
+}
+
+.tech-badge-icon {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.9);
+    filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.12));
+}
+
+.tech-badge-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.tech-badge-icon-box-shadow {
+    position: absolute;
+    inset: 0;
+    border-radius: 10px;
+    pointer-events: none;
+    box-shadow: inset 0px 1px 2px 0px rgba(255, 255, 255, 0.04);
+}
+
+.tech-badge-label {
+    position: relative;
+    font-family: var(--font-poppins-medium), sans-serif;
     font-size: 15px;
-    border: 1px solid rgba(245, 245, 245, 0.2);
-    border-radius: 8px;
-    padding: 6px 14px;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 0.375px;
+    line-height: 22.5px;
     white-space: nowrap;
+}
+
+.tech-badge-outer-shadow {
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    pointer-events: none;
+    box-shadow: inset 0px 1px 1px 0px rgba(255, 255, 255, 0.02);
 }
 
 .project-features-section {
@@ -1513,11 +1677,30 @@ button.footer-page-link {
 }
 
 @media screen and (max-width: 768px) {
+    .project-page-title {
+        font-size: 32px;
+    }
+
+    .project-page-hero {
+        gap: 20px;
+    }
+
+    .project-page-hero-text {
+        gap: 14px;
+    }
+
+    .project-cta-btn {
+        padding: 11px 22px;
+        font-size: 13px;
+    }
+
     .project-features-grid {
         grid-template-columns: 1fr;
     }
+
     .project-video-stub {
         height: 280px;
+        margin-top: 10px;
     }
 }
 

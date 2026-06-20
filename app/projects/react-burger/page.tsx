@@ -2,11 +2,12 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { User, Mail, Phone } from 'lucide-react';
-import { ReactIcon, ReduxIcon, CypressIcon, JestIcon, GithubIcon, LinkedinIcon } from '@/public/icons';
+import { User, Mail, Phone, Globe, Share2, Zap, Key } from 'lucide-react';
+import { ReactIcon, ReduxIcon, CypressIcon, JestIcon, GithubIcon, LinkedinIcon, GithubMobileIcon, LinkedinMobileIcon } from '@/public/icons';
 import ThemeSwitcher from '@/app/components/ThemeSwitcher';
 import LangDropdown from '@/app/components/LangDropdown';
 import RightsSection from '@/app/components/RightsSection';
+import TechBadge from '@/app/components/TechBadge';
 import '@/app/components/styles.css';
 
 const PROJECT_COLOR = '#9205af';
@@ -67,11 +68,43 @@ export default function ReactBurgerPage() {
 
         {/* Hero */}
         <section className="project-page-hero">
-          <h1 className="project-page-title">React Burger</h1>
-          <p className="project-page-subtitle">
-            A full-stack burger-ordering SPA built with React, featuring drag-and-drop ingredient
-            selection, real-time order tracking, and JWT-secured accounts.
-          </p>
+          <div className="project-page-hero-text">
+            <h1 className="project-page-title">React Burger</h1>
+            <p className="project-page-subtitle">
+              A full-stack burger-ordering SPA built with React, featuring drag-and-drop ingredient
+              selection, real-time order tracking, and JWT-secured accounts.
+            </p>
+          </div>
+
+          <div className="project-ctas">
+            <a
+              href="https://antonkazachenko.github.io/react-burger"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="project-cta-btn"
+            >
+              Live
+              <Globe size={15} />
+            </a>
+            <a
+              href="https://github.com/antonkazachenko/react-burger"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="project-cta-btn"
+            >
+              GitHub
+              <GithubMobileIcon />
+            </a>
+            <a
+              href="https://www.linkedin.com/feed/update/urn:li:activity:7376336948799614976/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="project-cta-btn"
+            >
+              LinkedIn Post
+              <LinkedinMobileIcon />
+            </a>
+          </div>
 
           {/* Video / GIF stub */}
           <div className="project-video-stub" style={{ borderColor: PROJECT_COLOR }}>
@@ -86,14 +119,18 @@ export default function ReactBurgerPage() {
         {/* Tech strip */}
         <div className="project-tech-strip">
           <p className="project-tech-label">Tools &amp; Technologies Used</p>
-          <div className="project-tech-icons">
-            <div className="project-tech-icon"><ReactIcon /></div>
-            <div className="project-tech-icon"><ReduxIcon /></div>
-            <div className="project-tech-icon"><CypressIcon /></div>
-            <div className="project-tech-icon"><JestIcon /></div>
-            <span className="project-tech-badge">React Context API</span>
-            <span className="project-tech-badge">WebSockets</span>
-            <span className="project-tech-badge">JWTs</span>
+          <div className="project-tech-container">
+            <div className="project-tech-logos">
+              <div className="project-tech-icon"><ReactIcon /></div>
+              <div className="project-tech-icon"><ReduxIcon /></div>
+              <div className="project-tech-icon"><CypressIcon /></div>
+              <div className="project-tech-icon"><JestIcon /></div>
+            </div>
+            <div className="project-tech-badges">
+              <TechBadge label="React Context API" icon={<Share2 size={18} />} color="#61dafb" />
+              <TechBadge label="WebSockets" icon={<Zap size={18} />} color="#8b5cf6" />
+              <TechBadge label="JWTs" icon={<Key size={18} />} color="#f59e0b" />
+            </div>
           </div>
         </div>
 
