@@ -3,20 +3,6 @@
 import React from 'react';
 import { SFUIcon } from '@/public/icons';
 
-const certificates: { name: string; source: string }[] = [
-  { name: 'Full-Stack React Course', source: 'Coursera' },
-  { name: 'Front-End Web Application', source: 'Coursera' },
-  { name: 'Database Course', source: 'Coursera' },
-];
-
-const CertArrow = () => (
-  <div className="project-arrow-btn" style={{ backgroundColor: '#0eab00' }}>
-    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M1.5 10.5L10.5 1.5M10.5 1.5H3.75M10.5 1.5V8.25" stroke="#F5F5F5" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  </div>
-);
-
 export default function EducationSection() {
   return (
     <section className="education-section">
@@ -61,21 +47,6 @@ export default function EducationSection() {
         </div>
       </div>
 
-      {/* Course Certificates */}
-      <div className="education-certificates">
-        {certificates.map((cert) => (
-          <div className="education-cert-card" key={cert.name}>
-            <div className="education-cert-image" />
-            <div className="education-cert-footer">
-              <div>
-                <p className="education-cert-name">{cert.name}</p>
-                <p className="education-cert-source">{cert.source}</p>
-              </div>
-              <CertArrow />
-            </div>
-          </div>
-        ))}
-      </div>
     </section>
   );
 }
