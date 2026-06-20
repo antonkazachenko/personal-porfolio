@@ -60,7 +60,7 @@ export default function ReactBurgerPage() {
 
   return (
     <>
-      <div className="container mx-auto">
+      <div className="project-page container mx-auto">
         {/* Header */}
         <header className="header">
           <div className="left-menu">

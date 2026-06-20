@@ -18,10 +18,6 @@ interface Project {
 const projects: Project[] = [
   { name: 'React Burger', subtitle: 'React Application', color: '#9205af', category: 'Software Development', href: '/projects/react-burger', video: '/react-burger-demo.mp4' },
   { name: 'Go Todo List', subtitle: 'Go Application', color: '#00b8be', category: 'Software Development' },
-  { name: 'Go #3', subtitle: 'Go Application', color: '#00b8be', category: 'Software Development' },
-  { name: 'Go4', subtitle: 'Go Application', color: '#00b8be', category: 'Software Development' },
-  { name: 'Go5', subtitle: 'Go Application', color: '#00b8be', category: 'Software Development' },
-  { name: 'Go6', subtitle: 'Go Application', color: '#00b8be', category: 'Software Development' },
 ];
 
 const filters: { label: Category; icon: React.ReactNode }[] = [
