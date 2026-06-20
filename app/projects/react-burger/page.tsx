@@ -2,8 +2,8 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { User, Mail, Phone, Globe, Share2, Zap, Key } from 'lucide-react';
-import { ReactIcon, ReduxIcon, CypressIcon, JestIcon, GithubIcon, LinkedinIcon, GithubMobileIcon, LinkedinMobileIcon } from '@/public/icons';
+import { User, Mail, Phone, Globe, Share2, Zap, Key, Route, Move } from 'lucide-react';
+import { ReactIcon, TypeScriptIcon, ReduxIcon, CypressIcon, JestIcon, GithubIcon, LinkedinIcon, GithubMobileIcon, LinkedinMobileIcon } from '@/public/icons';
 import ThemeSwitcher from '@/app/components/ThemeSwitcher';
 import LangDropdown from '@/app/components/LangDropdown';
 import RightsSection from '@/app/components/RightsSection';
@@ -122,11 +122,14 @@ export default function ReactBurgerPage() {
           <div className="project-tech-container">
             <div className="project-tech-logos">
               <div className="project-tech-icon"><ReactIcon /></div>
+              <div className="project-tech-icon"><TypeScriptIcon /></div>
               <div className="project-tech-icon"><ReduxIcon /></div>
               <div className="project-tech-icon"><CypressIcon /></div>
               <div className="project-tech-icon"><JestIcon /></div>
             </div>
             <div className="project-tech-badges">
+              <TechBadge label="React Router" icon={<Route size={18} />} color="#f44250" />
+              <TechBadge label="React DnD" icon={<Move size={18} />} color="#34d399" />
               <TechBadge label="React Context API" icon={<Share2 size={18} />} color="#61dafb" />
               <TechBadge label="WebSockets" icon={<Zap size={18} />} color="#8b5cf6" />
               <TechBadge label="JWTs" icon={<Key size={18} />} color="#f59e0b" />
