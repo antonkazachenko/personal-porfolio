@@ -12,10 +12,11 @@ interface Project {
   color: string;
   category: Category;
   href?: string;
+  video?: string;
 }
 
 const projects: Project[] = [
-  { name: 'React Burger', subtitle: 'React Application', color: '#9205af', category: 'Software Development', href: '/projects/react-burger' },
+  { name: 'React Burger', subtitle: 'React Application', color: '#9205af', category: 'Software Development', href: '/projects/react-burger', video: '/react-burger-demo.mp4' },
   { name: 'Go Todo List', subtitle: 'Go Application', color: '#00b8be', category: 'Software Development' },
   { name: 'Go #3', subtitle: 'Go Application', color: '#00b8be', category: 'Software Development' },
   { name: 'Go4', subtitle: 'Go Application', color: '#00b8be', category: 'Software Development' },
@@ -44,9 +45,41 @@ const ArrowButton = ({ color }: { color: string }) => (
 );
 
 const ProjectCard = ({ project }: { project: Project }) => {
+  const videoRef = React.useRef<HTMLVideoElement>(null);
+
+  const playVideo = () => {
+    const v = videoRef.current;
+    if (v) v.play().catch(() => {});
+  };
+
+  const pauseVideo = () => {
+    const v = videoRef.current;
+    if (v) {
+      v.pause();
+      v.currentTime = 0;
+    }
+  };
+
   const inner = (
-    <div className="project-card" style={{ '--project-color': project.color } as React.CSSProperties}>
-      <div className="project-card-image" />
+    <div
+      className="project-card"
+      style={{ '--project-color': project.color } as React.CSSProperties}
+      onMouseEnter={project.video ? playVideo : undefined}
+      onMouseLeave={project.video ? pauseVideo : undefined}
+    >
+      {project.video ? (
+        <video
+          ref={videoRef}
+          className="project-card-image project-card-video"
+          src={project.video}
+          muted
+          loop
+          playsInline
+          preload="metadata"
+        />
+      ) : (
+        <div className="project-card-image" />
+      )}
       <div className="project-card-footer">
         <div>
           <p className="project-card-name">{project.name}</p>

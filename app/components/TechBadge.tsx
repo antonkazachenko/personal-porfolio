@@ -4,9 +4,10 @@ interface TechBadgeProps {
   label: string;
   icon: React.ReactNode;
   color: string;
+  description?: string;
 }
 
-export default function TechBadge({ label, icon, color }: TechBadgeProps) {
+export default function TechBadge({ label, icon, color, description }: TechBadgeProps) {
   return (
     <div className="tech-badge">
       <div className="tech-badge-bg" />
@@ -23,6 +24,13 @@ export default function TechBadge({ label, icon, color }: TechBadgeProps) {
 
       <span className="tech-badge-label">{label}</span>
       <div className="tech-badge-outer-shadow" />
+
+      {description && (
+        <div className="skill-tooltip">
+          <span className="skill-tooltip-name">{label}</span>
+          <span className="skill-tooltip-desc">{description}</span>
+        </div>
+      )}
     </div>
   );
 }

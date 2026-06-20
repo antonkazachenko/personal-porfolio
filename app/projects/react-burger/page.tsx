@@ -14,26 +14,44 @@ const PROJECT_COLOR = '#9205af';
 
 const NAV_ITEMS = ['Skills', 'Experience', 'Projects', 'Education', 'Contacts'];
 
+const TECH_STACK = [
+  { name: 'React', description: 'Component-based UI library', Icon: ReactIcon },
+  { name: 'TypeScript', description: 'Typed superset of JavaScript', Icon: TypeScriptIcon },
+  { name: 'Redux', description: 'Predictable global state', Icon: ReduxIcon },
+  { name: 'Cypress', description: 'End-to-end testing', Icon: CypressIcon },
+  { name: 'Jest', description: 'Unit testing framework', Icon: JestIcon },
+];
+
 const FEATURES = [
   {
-    title: 'JWT Authentication',
+    title: 'Drag & Drop',
     description:
-      'Secure user registration and login backed by JSON Web Tokens, with protected routes that redirect unauthenticated users.',
+      'Assemble a burger by dragging ingredients straight into the constructor. React DnD manages the drag sources, drop targets, and live reordering, so composing and rearranging a build feels natural and responsive.',
   },
   {
-    title: 'Real-time Orders',
+    title: 'State & Localization',
     description:
-      'Live order status updates delivered via a WebSocket connection so users always see the current state of their order.',
+      'Global state is centralised with Redux and @reduxjs/toolkit, keeping the cart, ingredients, and order flow predictable, while the React Context API powers in-app translations for a fully multilingual interface.',
   },
   {
-    title: 'Drag & Drop Builder',
+    title: 'Testing',
     description:
-      'Interactive burger constructor with drag-and-drop ingredient selection, letting users freely compose any burger they want.',
+      'A two-layer test suite keeps changes safe: Cypress drives end-to-end flows through the real UI, while Jest covers units and reducers — together guarding against regressions on every commit.',
   },
   {
-    title: 'State Management',
+    title: 'Auth',
     description:
-      'Centralised global state handled by Redux, with React Context API used for lightweight local state sharing across component trees.',
+      'Registration and login are secured with JSON Web Tokens. Tokens are stored securely and attached to protected requests, with guarded routes that redirect unauthenticated users away from private pages.',
+  },
+  {
+    title: 'Live Data',
+    description:
+      'A persistent WebSocket connection streams the public order feed and the user’s personal order history in real time, so statuses update instantly with no manual refreshes or polling.',
+  },
+  {
+    title: 'CD / Deploy',
+    description:
+      'Continuous delivery ships the app to GitHub Pages, turning every push to the main branch into an automated build and deploy for fast, repeatable releases.',
   },
 ];
 
@@ -161,18 +179,22 @@ export default function ReactBurgerPage() {
           <p className="project-tech-label">Tools &amp; Technologies Used</p>
           <div className="project-tech-container">
             <div className="project-tech-logos">
-              <div className="project-tech-icon"><ReactIcon /></div>
-              <div className="project-tech-icon"><TypeScriptIcon /></div>
-              <div className="project-tech-icon"><ReduxIcon /></div>
-              <div className="project-tech-icon"><CypressIcon /></div>
-              <div className="project-tech-icon"><JestIcon /></div>
+              {TECH_STACK.map(({ name, description, Icon }) => (
+                <div key={name} className="project-tech-icon">
+                  <Icon />
+                  <div className="skill-tooltip">
+                    <span className="skill-tooltip-name">{name}</span>
+                    <span className="skill-tooltip-desc">{description}</span>
+                  </div>
+                </div>
+              ))}
             </div>
             <div className="project-tech-badges">
-              <TechBadge label="React Router" icon={<Route size={18} />} color="#f44250" />
-              <TechBadge label="React DnD" icon={<Move size={18} />} color="#34d399" />
-              <TechBadge label="React Context API" icon={<Share2 size={18} />} color="#61dafb" />
-              <TechBadge label="WebSockets" icon={<Zap size={18} />} color="#8b5cf6" />
-              <TechBadge label="JWTs" icon={<Key size={18} />} color="#f59e0b" />
+              <TechBadge label="React Router" icon={<Route size={18} />} color="#f44250" description="Client-side routing" />
+              <TechBadge label="React DnD" icon={<Move size={18} />} color="#34d399" description="Drag-and-drop interactions" />
+              <TechBadge label="React Context API" icon={<Share2 size={18} />} color="#61dafb" description="Shared state & translations" />
+              <TechBadge label="WebSockets" icon={<Zap size={18} />} color="#8b5cf6" description="Real-time data streaming" />
+              <TechBadge label="JWTs" icon={<Key size={18} />} color="#f59e0b" description="Token-based authentication" />
             </div>
           </div>
         </div>

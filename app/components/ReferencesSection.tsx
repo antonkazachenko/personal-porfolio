@@ -2,6 +2,7 @@
 
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { LinkedinMobileIcon } from '@/public/icons';
 
 // -------------------------------------------------------------
 // Types
@@ -54,7 +55,7 @@ function getNextIndex(len: number, current: number, dir: 1 | -1) {
 const DEFAULT_REFERENCES: ReferenceItem[] = [
   {
     name: 'Matthew Ridderikhoff',
-    position: 'Senior Lead Software Developer @ IFS Copperleaf',
+    position: 'Senior Lead Software Developer @ IFS',
     avatar: '/images/references/matt.jpeg',
     quote:
       "It has been a privilege to have Anton as part of our team during his 8-month co-op term from May to December 2024. Throughout his tenure, Anton showcased a remarkable inclination towards learning and mastering new technologies, making significant contributions particularly in our visual regression platform and Design System components. Tony's strong problem-solving skills, quick learning ability, and his passion for software engineering were evident in the quality of his work and his interactions with the team. I am confident that with his enthusiasm and commitment, Anton is poised for a successful career in software development.",
@@ -62,7 +63,7 @@ const DEFAULT_REFERENCES: ReferenceItem[] = [
   },
   {
     name: 'Maria Fakhruddin',
-    position: 'Senior Program Manager @ IFS Copperleaf',
+    position: 'Senior Program Manager @ IFS',
     avatar: '/images/references/maria.jpeg',
     quote:
       "It's been a pleasure having Anton on our team for his co-op term. I've watched him grow from day one as he took on various aspects of our product development, from Design System components to our visual regression platform. What stands out to me is his genuine desire to learn and improve -he takes feedback well and isn't afraid to ask questions when needed. Tony has shown a good understanding of our product requirements and his positive attitude makes him a joy to work with. I have no doubt that with his dedication and eagerness to learn, Anton will build a successful career in software development.",
@@ -70,7 +71,7 @@ const DEFAULT_REFERENCES: ReferenceItem[] = [
   },
   {
     name: 'Simon Nodel',
-    position: 'Design System Team Lead @ IFS Copperleaf',
+    position: 'Design System Team Lead @ IFS',
     avatar: '/images/references/Simon.jpeg', // case-sensitive
     quote:
       "Anton has joined our team for 8 month co-op term from May to December 2024. He demonstrated strong interest in learning new technologies, quickly came up to speed and was a welcome addition to our team. He contributed to our Design System components that are used in enterprise application. His main focus has been on, our mission critical, visual regression platform. With a little bit of support he worked on all aspects of the framework, from database schema changes, to schema upgrade scripts, APIs and frontend application features. Tony is a smart, polite, enthusiastic, loves to learn and ready to help. I am sure that Tony will become a great software developer.",
@@ -78,7 +79,7 @@ const DEFAULT_REFERENCES: ReferenceItem[] = [
   },
   {
     name: 'Angela Ma',
-    position: 'Software Developer @ IFS Copperleaf',
+    position: 'Software Developer @ IFS',
     avatar: '/images/references/angela.jpeg',
     quote:
       "Tony consistently brought a positive and enthusiastic attitude to our team during his time as a Software Developer Co-op. His strong interest in learning new technologies, such as Angular, NgRx, NestJS, and Prisma, greatly contributed to the development of our visual regression management application. Tony demonstrated an eagerness to learn, actively seeking and applying feedback from code reviews. His team-oriented approach and willingness to tackle new challenges made him an absolute pleasure to work with.",
@@ -86,7 +87,7 @@ const DEFAULT_REFERENCES: ReferenceItem[] = [
   },
   {
     name: 'Brett Pasula',
-    position: 'Senior Lead Software Engineer @ IFS Copperleaf',
+    position: 'Senior Lead Software Engineer @ IFS',
     avatar: '/images/references/brett.jpeg',
     quote:
       "I had the pleasure of mentoring Anton during his time at Copperleaf. While our projects didn't directly overlap, I was continually impressed by his can-do attitude and affinity for software engineering. Anton consistently demonstrated a proactive, curious approach to learning and adapting to new challenges. His resourcefulness and enthusiasm for finding effective solutions were evident in all our interactions. His drive to always improve and his dedication are sure to be an asset for any team.",
@@ -94,7 +95,7 @@ const DEFAULT_REFERENCES: ReferenceItem[] = [
   },
   {
     name: 'Tara MacKinnon',
-    position: 'Software Developer @ IFS Copperleaf',
+    position: 'Software Developer @ IFS',
     avatar: '/images/references/tara.jpeg',
     quote:
       "I had the pleasure of working alongside Tony during our time as software developer co-ops. In the four months we worked together, I was consistently impressed by his strong problem-solving skills and ability to quickly learn new technologies. He was always eager to learn and contribute, making a positive impact on our team. Tony would be a great asset to any team, and I highly recommend him for any future role.",
@@ -221,7 +222,7 @@ export default function ReferencesCarousel({ items = DEFAULT_REFERENCES }: { ite
         <h2 className="section-header">References</h2>
       </div>
 
-      <div className="container mx-auto px-4 h-auto py-10 md:py-0 md:h-[600px] flex items-center">
+      <div className="references-desktop container mx-auto px-4 h-auto py-10 md:py-0 md:h-[600px] flex items-center">
         <div className="relative w-full">
           {/* Left */}
           <button
@@ -268,6 +269,116 @@ export default function ReferencesCarousel({ items = DEFAULT_REFERENCES }: { ite
                 )}
               </motion.div>
             </AnimatePresence>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile layout — single testimonial card + control bar (Figma 2018:1190) */}
+      <div className="references-mobile">
+        <AnimatePresence mode="wait" custom={dir}>
+          <motion.article
+            key={`ref-m-${index}`}
+            custom={dir}
+            variants={slideVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={{ duration: 0.35 }}
+            className="reference-card-mobile"
+          >
+            {(() => {
+              const item = chunks[index]?.[0];
+              if (!item) return <p className="reference-text">No references available.</p>;
+              return (
+                <>
+                  <div className="reference-mobile-body">
+                    <p className="reference-mobile-quote">&ldquo;{item.quote}&rdquo;</p>
+                    <a
+                      className="reference-mobile-readmore"
+                      href="https://www.linkedin.com/in/antonkazachenko/details/recommendations/?detailScreenTabIndex=0"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Read full recommendation
+                      <svg width="9" height="9" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                        <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </a>
+                  </div>
+
+                  <div className="reference-mobile-divider" />
+
+                  <div className="reference-mobile-footer">
+                    <img
+                      src={getAvatarSrc(item.avatar)}
+                      onError={(e) => {
+                        const img = e.currentTarget as HTMLImageElement;
+                        img.onerror = null;
+                        img.src = PLACEHOLDER_AVATAR;
+                      }}
+                      alt={`${item.name} avatar`}
+                      width={40}
+                      height={40}
+                      className="reference-mobile-avatar"
+                      loading="lazy"
+                    />
+                    <div className="reference-mobile-meta">
+                      <p className="reference-mobile-name">{item.name}</p>
+                      <p className="reference-mobile-position">{item.position}</p>
+                    </div>
+                    {item.link && (
+                      <a
+                        className="reference-mobile-linkedin"
+                        href={item.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={`${item.name} on LinkedIn`}
+                      >
+                        <LinkedinMobileIcon width={13} height={13} />
+                        LinkedIn
+                      </a>
+                    )}
+                  </div>
+                </>
+              );
+            })()}
+          </motion.article>
+        </AnimatePresence>
+
+        <div className="reference-mobile-controls">
+          <div className="reference-mobile-dots">
+            {chunks.map((_, i) => (
+              <span
+                key={i}
+                className={`reference-mobile-dot ${i === index ? 'reference-mobile-dot--active' : ''}`}
+              />
+            ))}
+          </div>
+          <div className="reference-mobile-nav">
+            <span className="reference-mobile-counter">
+              {String(index + 1).padStart(2, '0')}
+              <span className="reference-mobile-counter-total"> / {String(chunks.length).padStart(2, '0')}</span>
+            </span>
+            <button
+              type="button"
+              aria-label="Previous"
+              className="reference-mobile-navbtn"
+              onClick={() => { go(-1); resetAutoTimer(); }}
+            >
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M9 3L5 7L9 11" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              aria-label="Next"
+              className="reference-mobile-navbtn"
+              onClick={() => { go(1); resetAutoTimer(); }}
+            >
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M5 3L9 7L5 11" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
           </div>
         </div>
       </div>
