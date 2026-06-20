@@ -1825,12 +1825,12 @@ button.footer-page-link {
         padding-left: 40px;
     }
 
-    /* Green dot aligned with the card logo */
+    /* Dot aligned with the logo centre: 1px border + 20px padding + 20px (half logo) = 41px centre */
     .experience-item::before {
         content: "";
         position: absolute;
         left: 0;
-        top: 26px;
+        top: 35px;
         width: 12px;
         height: 12px;
         border-radius: 50%;
@@ -1839,13 +1839,14 @@ button.footer-page-link {
         z-index: 1;
     }
 
-    /* Line from this dot center to the next item's dot center */
+    /* Line from this dot centre to the next item's dot centre */
+    /* bottom: -(gap 20 + next dot centre 41) = -61px */
     .experience-item::after {
         content: "";
         position: absolute;
         left: 5.25px;
-        top: 32px;
-        bottom: -52px;
+        top: 41px;
+        bottom: -61px;
         width: 1.5px;
         background: rgba(245, 245, 245, 0.15);
         z-index: 0;
@@ -1865,9 +1866,16 @@ button.footer-page-link {
         border-color: rgba(245, 245, 245, 0.1);
     }
 
+    .experience-card-header {
+        align-items: flex-start;
+    }
+
     .experience-logo {
         width: 40px;
         height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     /* Green accent per the mobile design */
