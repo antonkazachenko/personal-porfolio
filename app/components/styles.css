@@ -1780,26 +1780,115 @@ button.footer-page-link {
     margin: 0;
 }
 
+/* ===== Mobile Key Features (Figma finding-card layout, hidden on desktop) ===== */
+.features-mobile {
+    display: none;
+}
+
+.features-mobile-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.features-mobile-title {
+    color: #f0f0f0;
+    font-family: var(--font-poppins-semi-bold), sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.features-mobile-index {
+    color: #3a3a3a;
+    font-family: "Consolas", "SF Mono", ui-monospace, monospace;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+}
+
+.features-mobile-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.feature-card-m {
+    background: #141414;
+    border: 1px solid #252525;
+    border-radius: 16px;
+    padding: 21px;
+}
+
+.feature-card-m-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.feature-card-m-title {
+    color: #ebebeb;
+    font-family: var(--font-poppins-semi-bold), sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 19.25px;
+    margin: 0;
+}
+
+.feature-card-m-index {
+    color: color-mix(in srgb, var(--project-color, #0eab00) 45%, transparent);
+    font-family: "Consolas", "SF Mono", ui-monospace, monospace;
+    font-size: 10px;
+    flex-shrink: 0;
+    padding-top: 2px;
+}
+
+.feature-card-m-desc {
+    color: #f5f5f5;
+    font-family: var(--font-poppins-regular), sans-serif;
+    font-size: 13px;
+    line-height: 21.125px;
+    margin: 10px 0 0;
+}
+
 @media screen and (max-width: 768px) {
+    /* Mobile hero matches Figma (node 2052:1086): left-aligned, no badge */
     .project-page-title {
-        font-size: 32px;
+        font-size: 30px;
+        line-height: 36px;
+        letter-spacing: -0.75px;
+        text-transform: none;
+        text-align: left;
     }
 
     .project-page-hero {
         gap: 20px;
+        align-items: flex-start;
     }
 
     .project-page-hero-text {
-        gap: 14px;
+        gap: 20px;
+        align-items: flex-start;
+    }
+
+    .project-page-subtitle {
+        font-family: var(--font-poppins-regular), sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 22.75px;
+        color: #f5f5f5;
+        text-align: left;
+    }
+
+    .project-ctas {
+        justify-content: flex-start;
+        gap: 12px;
     }
 
     .project-cta-btn {
-        padding: 11px 22px;
+        height: 40px;
+        padding: 0 20px;
         font-size: 13px;
-    }
-
-    .project-features-grid {
-        grid-template-columns: 1fr;
     }
 
     .project-video {
@@ -1817,6 +1906,23 @@ button.footer-page-link {
         flex-direction: column;
         gap: 20px;
         margin-top: 40px;
+        width: 100%;
+    }
+
+    /* Swap the desktop Key Features header + grid for the mobile card layout */
+    .project-features-section {
+        padding-top: 48px;
+    }
+
+    .project-features-section .skills-header-container,
+    .project-features-grid {
+        display: none;
+    }
+
+    .features-mobile {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
         width: 100%;
     }
 }

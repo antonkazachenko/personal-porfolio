@@ -255,6 +255,25 @@ export default function ReactBurgerPage() {
               </div>
             ))}
           </div>
+
+          {/* Key Features (mobile) — Figma finding-card layout */}
+          <div className="features-mobile" style={{ '--project-color': PROJECT_COLOR } as React.CSSProperties}>
+            <div className="features-mobile-head">
+              <h2 className="features-mobile-title">Key Features</h2>
+              <span className="features-mobile-index">03</span>
+            </div>
+            <div className="features-mobile-list">
+              {FEATURES.map((f, i) => (
+                <article key={f.title} className="feature-card-m">
+                  <div className="feature-card-m-head">
+                    <h3 className="feature-card-m-title">{f.title}</h3>
+                    <span className="feature-card-m-index">{String(i + 1).padStart(2, '0')}</span>
+                  </div>
+                  <p className="feature-card-m-desc">{f.description}</p>
+                </article>
+              ))}
+            </div>
+          </div>
         </section>
 
         {/* Footer */}
