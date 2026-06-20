@@ -460,6 +460,10 @@
     margin-top: 1vh;
 }
 
+.lang-emoji {
+    display: none;
+}
+
 .experience-section {
     padding: 60px 0;
 }
@@ -1796,18 +1800,35 @@ button.footer-page-link {
     }
 
     .language-list > div > svg {
-        grid-row: span 2;
-        width: 44px;
-        height: auto;
+        display: none;
+    }
+
+    .language-list .lang-emoji {
+        display: inline;
+        font-size: 27px;
+        line-height: 36px;
+        grid-column: 1;
+        grid-row: 1 / span 2;
+        align-self: center;
     }
 
     .language-list h3 {
-        font-size: 18px;
+        font-size: 15px;
+        font-family: var(--font-poppins-medium), serif;
+        color: #F5F5F5;
         margin: 0;
+        grid-column: 2;
+        grid-row: 2;
     }
 
     .language-list p {
-        font-size: 13px;
-        margin: 2px 0 0;
+        font-size: 11px;
+        font-family: var(--font-poppins-medium), serif;
+        color: #0eab00;
+        text-transform: uppercase;
+        letter-spacing: 0.55px;
+        margin: 0;
+        grid-column: 2;
+        grid-row: 1;
     }
 }

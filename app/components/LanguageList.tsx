@@ -6,20 +6,23 @@ const LanguageList = () => {
     <div className="language-list">
       <div>
         <UKIcon/>
+        <span className="lang-emoji">🇬🇧</span>
         <h3>English</h3>
-        <p>Bilingual (C2)</p>
+        <p>Bilingual proficiency</p>
       </div>
 
       <div>
         <RussiaIcon/>
+        <span className="lang-emoji">🇷🇺</span>
         <h3>Russian</h3>
-        <p>Bilingual (C2)</p>
+        <p>Bilingual proficiency</p>
       </div>
 
       <div>
         <FrenchIcon/>
+        <span className="lang-emoji">🇫🇷</span>
         <h3>French</h3>
-        <p>Intermediate (B1)</p>
+        <p>Intermediate proficiency</p>
       </div>
     </div>
   );
