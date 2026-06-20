@@ -6,7 +6,13 @@ const RightsSection = () => {
 
   return (
     <div className="rights-section">
-      <TabIcon className="rights-ak-logo" />
+      <button
+        className="rights-ak-logo-btn"
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        aria-label="Scroll to top"
+      >
+        <TabIcon className="rights-ak-logo" />
+      </button>
       <p className="copyright-text">
         &copy; {currentYear} Anton Kazachenko. All Rights Reserved.
       </p>

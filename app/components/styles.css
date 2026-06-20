@@ -721,6 +721,20 @@
     padding: 33px 0 32px;
 }
 
+.rights-ak-logo-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    opacity: 0.9;
+    transition: opacity 0.2s ease;
+}
+
+.rights-ak-logo-btn:hover {
+    opacity: 1;
+}
+
 .rights-ak-logo {
     height: 28px;
     width: auto;
