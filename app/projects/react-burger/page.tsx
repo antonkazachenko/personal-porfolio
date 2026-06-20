@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { User, Mail, Phone, Globe, Share2, Zap, Key, Route, Move } from 'lucide-react';
+import { User, Mail, Phone, ExternalLink, Share2, Zap, Key, Route, Move } from 'lucide-react';
 import { ReactIcon, TypeScriptIcon, ReduxIcon, CypressIcon, JestIcon, GithubIcon, LinkedinIcon, GithubMobileIcon, LinkedinMobileIcon, TabIcon } from '@/public/icons';
 import ThemeSwitcher from '@/app/components/ThemeSwitcher';
 import LangDropdown from '@/app/components/LangDropdown';
@@ -117,10 +117,10 @@ export default function ReactBurgerPage() {
               href="https://antonkazachenko.github.io/react-burger"
               target="_blank"
               rel="noopener noreferrer"
-              className="project-cta-btn"
+              className="project-cta-btn project-cta-btn--primary"
             >
-              Live
-              <Globe size={15} />
+              Live Demo
+              <ExternalLink size={14} />
             </a>
             <a
               href="https://github.com/antonkazachenko/react-burger"

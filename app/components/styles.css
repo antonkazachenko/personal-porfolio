@@ -1436,6 +1436,18 @@ button.footer-page-link {
     color: #0EAB00;
 }
 
+/* Primary "Live Demo" CTA: solid green fill */
+.project-cta-btn--primary {
+    background: #0EAB00;
+    color: #F5F5F5;
+}
+
+.project-cta-btn--primary:hover {
+    background: #0c9700;
+    border-color: rgba(245, 245, 245, 0.14);
+    color: #F5F5F5;
+}
+
 .project-cta-btn svg {
     width: 15px;
     height: 15px;
