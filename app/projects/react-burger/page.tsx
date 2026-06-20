@@ -22,6 +22,14 @@ const TECH_STACK = [
   { name: 'Jest', description: 'Unit testing framework', Icon: JestIcon },
 ];
 
+const BADGES = [
+  { label: 'React Router', Icon: Route, color: '#f44250', description: 'Client-side routing' },
+  { label: 'React DnD', Icon: Move, color: '#34d399', description: 'Drag-and-drop interactions' },
+  { label: 'React Context API', Icon: Share2, color: '#61dafb', description: 'Shared state & translations' },
+  { label: 'WebSockets', Icon: Zap, color: '#8b5cf6', description: 'Real-time data streaming' },
+  { label: 'JWTs', Icon: Key, color: '#f59e0b', description: 'Token-based authentication' },
+];
+
 const FEATURES = [
   {
     title: 'Drag & Drop',
@@ -174,7 +182,7 @@ export default function ReactBurgerPage() {
           />
         </section>
 
-        {/* Tech strip */}
+        {/* Tech strip (desktop) */}
         <div className="project-tech-strip">
           <p className="project-tech-label">Tools &amp; Technologies Used</p>
           <div className="project-tech-container">
@@ -190,14 +198,44 @@ export default function ReactBurgerPage() {
               ))}
             </div>
             <div className="project-tech-badges">
-              <TechBadge label="React Router" icon={<Route size={18} />} color="#f44250" description="Client-side routing" />
-              <TechBadge label="React DnD" icon={<Move size={18} />} color="#34d399" description="Drag-and-drop interactions" />
-              <TechBadge label="React Context API" icon={<Share2 size={18} />} color="#61dafb" description="Shared state & translations" />
-              <TechBadge label="WebSockets" icon={<Zap size={18} />} color="#8b5cf6" description="Real-time data streaming" />
-              <TechBadge label="JWTs" icon={<Key size={18} />} color="#f59e0b" description="Token-based authentication" />
+              {BADGES.map(({ label, Icon, color, description }) => (
+                <TechBadge key={label} label={label} icon={<Icon size={18} />} color={color} description={description} />
+              ))}
             </div>
           </div>
         </div>
+
+        {/* Tech section (mobile) — chip layout */}
+        <section className="tech-mobile">
+          <div className="tech-mobile-head">
+            <h2 className="tech-mobile-title">Tools &amp; Technologies</h2>
+            <span className="tech-mobile-index">02</span>
+          </div>
+
+          <div className="tech-mobile-group">
+            <p className="tech-mobile-label">Core Stack</p>
+            <div className="tech-mobile-chips">
+              {TECH_STACK.map(({ name, Icon }) => (
+                <div key={name} className="tech-chip">
+                  <span className="tech-chip-logo"><Icon /></span>
+                  <span className="tech-chip-text">{name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="tech-mobile-group">
+            <p className="tech-mobile-label">Libraries &amp; Tooling</p>
+            <div className="tech-mobile-chips">
+              {BADGES.map(({ label, Icon, color }) => (
+                <div key={label} className="tech-chip">
+                  <span className="tech-chip-icon" style={{ color }}><Icon size={14} /></span>
+                  <span className="tech-chip-text">{label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* Key Features */}
         <section className="project-features-section">

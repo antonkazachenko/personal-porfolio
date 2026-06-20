@@ -1,0 +1,11 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="MySQLLogo" clip-path="url(#clip0_0_24)">
+<path id="Vector" d="M18.5625 0H3.4375C1.53902 0 0 1.53902 0 3.4375V18.5625C0 20.461 1.53902 22 3.4375 22H18.5625C20.461 22 22 20.461 22 18.5625V3.4375C22 1.53902 20.461 0 18.5625 0Z" fill="var(--fill-0, #1A1A1A)"/>
+<path id="Vector_2" d="M4.125 6.875H7.5625L11 14.4375L14.4375 6.875H17.875V15.125H15.125V9.96875L12.0312 15.125H9.96875L6.875 9.96875V15.125H4.125V6.875Z" fill="var(--fill-0, #F29111)"/>
+</g>
+<defs>
+<clipPath id="clip0_0_24">
+<rect width="22" height="22" fill="white"/>
+</clipPath>
+</defs>
+</svg>
