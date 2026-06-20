@@ -6,9 +6,7 @@ export default function Hero() {
       <ProfilePicture/>
       <h1 className="hero-title">Anton Kazachenko</h1>
       <h2 className="hero-subtitle">Software Developer</h2>
-      <p className="hero-description">
-        SWE&nbsp;I @&nbsp;Infoblox · Prev SWE&nbsp;Intern @&nbsp;Copperleaf · CS @&nbsp;SFU
-      </p>
+      <p className="hero-description">SWE&nbsp;I @&nbsp;Infoblox</p>
     </div>
   );
 }

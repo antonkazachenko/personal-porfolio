@@ -1,13 +1,14 @@
 import React from 'react';
+import { TabIcon } from '@/public/icons';
 
 const RightsSection = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <div className="mb-7">
-      <hr className="mb-7 h-px w-full border-0 bg-gray-400" />
+    <div className="rights-section">
+      <TabIcon className="rights-ak-logo" />
       <p className="copyright-text">
-        Copyright &copy; {currentYear} Anton Kazachenko. All Rights Reserved.
+        &copy; {currentYear} Anton Kazachenko. All Rights Reserved.
       </p>
     </div>
   );

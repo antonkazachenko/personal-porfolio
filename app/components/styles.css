@@ -711,14 +711,30 @@
     border: 1px solid #FFB909;
 }
 
+.rights-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 33px 0 32px;
+}
+
+.rights-ak-logo {
+    height: 28px;
+    width: auto;
+    display: block;
+}
+
 .copyright-text {
     font-family: var(--font-poppins-light), serif;
-    color: rgba(245, 245, 245, 0.80);
+    color: rgba(255, 255, 255, 0.4);
     text-align: center;
-    font-size: 12px;
-    font-style: normal;
+    font-size: 11px;
     font-weight: 300;
-    line-height: 130%;
+    line-height: 1.5;
+    letter-spacing: 0.55px;
 }
 
 .reference-card {
@@ -1498,42 +1514,43 @@ button.footer-page-link {
     align-items: center;
 }
 
-.mobile-logo-badge {
-    position: relative;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    border: 2px solid #f5f5f5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-poppins-bold), sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-    color: #f5f5f5;
-}
-
-.mobile-logo-dot {
-    position: absolute;
-    top: -2px;
-    right: -2px;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: #0eab00;
-    border: 2px solid #0a0a0a;
+.mobile-logo-svg {
+    height: 26px;
+    width: auto;
+    display: block;
 }
 
 .hamburger {
     display: none;
+    flex-direction: column;
+    gap: 5px;
     background: none;
     border: none;
-    color: #f5f5f5;
     cursor: pointer;
-    padding: 0;
-    align-items: center;
-    justify-content: center;
+    padding: 4px;
+}
+
+.hamburger-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #f5f5f5;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.2s ease;
+    transform-origin: center;
+}
+
+.hamburger[aria-expanded="true"] .hamburger-bar--top {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger[aria-expanded="true"] .hamburger-bar--mid {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.hamburger[aria-expanded="true"] .hamburger-bar--bot {
+    transform: translateY(-7px) rotate(-45deg);
 }
 
 .mobile-drawer-backdrop {
@@ -1578,15 +1595,16 @@ button.footer-page-link {
     .header {
         position: sticky;
         top: 0;
+        left: 0;
         z-index: 50;
         height: 64px;
-        /* Break out of the container's 16px gutter so the bar is full-bleed,
-           then re-apply the 16px as inner padding */
-        margin: 0 -16px;
+        width: 100vw;
+        margin-left: -16px;
         padding: 0 16px;
         background: rgba(10, 10, 10, 0.9);
         backdrop-filter: blur(8px);
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        box-sizing: border-box;
     }
 
     .mobile-logo {
@@ -1606,9 +1624,18 @@ button.footer-page-link {
         gap: 8px;
     }
 
+    .header .lang-dropdown {
+        display: none;
+    }
+
     .right-menu {
         gap: 16px;
         align-items: center;
+    }
+
+    .header .icon-wrapper .social-icon-mobile {
+        width: 20px;
+        height: 20px;
     }
 
     .hamburger {
@@ -1622,9 +1649,14 @@ button.footer-page-link {
     }
 
     .profile-picture-container {
-        width: 200px;
-        height: 200px;
-        padding: 10px;
+        width: 148px;
+        height: 148px;
+        padding: 3px;
+        box-shadow: 0 0 14px #0EAB00;
+    }
+
+    .profile-picture {
+        padding: 4px;
     }
 
     .hero-title {
@@ -1767,16 +1799,9 @@ button.footer-page-link {
         display: none;
     }
 
-    /* Vertical rail down the left edge */
+    /* Remove container rail — line is drawn per-item instead */
     .experience-timeline::before {
-        content: "";
-        position: absolute;
-        left: 5px;
-        top: 6px;
-        bottom: 6px;
-        width: 1.5px;
-        background: rgba(245, 245, 245, 0.15);
-        z-index: 0;
+        content: none;
     }
 
     .experience-item {
@@ -1786,7 +1811,7 @@ button.footer-page-link {
         padding-left: 40px;
     }
 
-    /* Green dot sitting on the rail, aligned with the card logo */
+    /* Green dot aligned with the card logo */
     .experience-item::before {
         content: "";
         position: absolute;
@@ -1798,6 +1823,23 @@ button.footer-page-link {
         background: #0eab00;
         border: 2px solid #0a0a0a;
         z-index: 1;
+    }
+
+    /* Line from this dot center to the next item's dot center */
+    .experience-item::after {
+        content: "";
+        position: absolute;
+        left: 5.25px;
+        top: 32px;
+        bottom: -52px;
+        width: 1.5px;
+        background: rgba(245, 245, 245, 0.15);
+        z-index: 0;
+    }
+
+    /* Last item has no successor — no line below its dot */
+    .experience-item:last-child::after {
+        content: none;
     }
 
     .experience-card,

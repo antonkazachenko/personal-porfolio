@@ -1,9 +1,8 @@
 "use client";
 
 import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
 import ThemeSwitcher from './ThemeSwitcher';
-import { GithubIcon, GithubMobileIcon, LinkedinIcon, LinkedinMobileIcon } from "@/public/icons";
+import { GithubIcon, GithubMobileIcon, LinkedinIcon, LinkedinMobileIcon, TabIcon } from "@/public/icons";
 import LangDropdown from "@/app/components/LangDropdown";
 
 interface HeaderProps {
@@ -40,10 +39,7 @@ const Header: React.FC<HeaderProps> = ({
     <header className="header">
       <div className="left-menu">
         <span className="mobile-logo" aria-hidden="true">
-          <span className="mobile-logo-badge">
-            AK
-            <span className="mobile-logo-dot" />
-          </span>
+          <TabIcon className="mobile-logo-svg" />
         </span>
         <ThemeSwitcher />
         <LangDropdown />
@@ -73,7 +69,9 @@ const Header: React.FC<HeaderProps> = ({
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen((open) => !open)}
         >
-          {menuOpen ? <X size={24} /> : <Menu size={24} />}
+          <span className="hamburger-bar hamburger-bar--top" />
+          <span className="hamburger-bar hamburger-bar--mid" />
+          <span className="hamburger-bar hamburger-bar--bot" />
         </button>
       </div>
 
