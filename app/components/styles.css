@@ -1836,7 +1836,7 @@ button.footer-page-link {
 }
 
 .feature-card-m-index {
-    color: color-mix(in srgb, var(--project-color, #0eab00) 45%, transparent);
+    color: rgba(14, 171, 0, 0.35);
     font-family: "Consolas", "SF Mono", ui-monospace, monospace;
     font-size: 10px;
     flex-shrink: 0;
@@ -2041,11 +2041,24 @@ button.footer-page-link {
     }
 
     .left-menu {
-        gap: 8px;
+        gap: 36px;
     }
 
-    .header .lang-dropdown {
-        display: none;
+    .mobile-logo-svg {
+        height: 17px;
+    }
+
+    /* Language dropdown shown on mobile (matches Figma node 2018:786) */
+    .header .lang-dropdown-trigger {
+        font-size: 15px;
+        gap: 4px;
+        color: rgba(245, 245, 245, 0.6);
+    }
+
+    .header .lang-dropdown-chevron {
+        width: 13px;
+        height: 13px;
+        opacity: 1;
     }
 
     .right-menu {

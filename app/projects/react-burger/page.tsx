@@ -72,9 +72,9 @@ export default function ReactBurgerPage() {
         {/* Header */}
         <header className="header">
           <div className="left-menu">
-            <span className="mobile-logo" aria-hidden="true">
+            <Link href="/" className="mobile-logo" aria-label="Home">
               <TabIcon className="mobile-logo-svg" />
-            </span>
+            </Link>
             <ThemeSwitcher />
             <LangDropdown />
           </div>
@@ -257,7 +257,7 @@ export default function ReactBurgerPage() {
           </div>
 
           {/* Key Features (mobile) — Figma finding-card layout */}
-          <div className="features-mobile" style={{ '--project-color': PROJECT_COLOR } as React.CSSProperties}>
+          <div className="features-mobile">
             <div className="features-mobile-head">
               <h2 className="features-mobile-title">Key Features</h2>
               <span className="features-mobile-index">03</span>

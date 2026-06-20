@@ -94,9 +94,9 @@ export default function DataAnalysisPage() {
         {/* Header */}
         <header className="header">
           <div className="left-menu">
-            <span className="mobile-logo" aria-hidden="true">
+            <Link href="/" className="mobile-logo" aria-label="Home">
               <TabIcon className="mobile-logo-svg" />
-            </span>
+            </Link>
             <ThemeSwitcher />
             <LangDropdown />
           </div>

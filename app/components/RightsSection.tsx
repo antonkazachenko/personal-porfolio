@@ -1,18 +1,32 @@
+'use client';
+
 import React from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { TabIcon } from '@/public/icons';
 
 const RightsSection = () => {
   const currentYear = new Date().getFullYear();
+  const pathname = usePathname();
+
+  // On the main page the logo scrolls to top; on other pages it navigates home.
+  const handleClick = (e: React.MouseEvent) => {
+    if (pathname === '/') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
 
   return (
     <div className="rights-section">
-      <button
+      <Link
+        href="/"
         className="rights-ak-logo-btn"
-        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        aria-label="Scroll to top"
+        onClick={handleClick}
+        aria-label="Go to home"
       >
         <TabIcon className="rights-ak-logo" />
-      </button>
+      </Link>
       <p className="copyright-text">
         &copy; {currentYear} Anton Kazachenko. All Rights Reserved.
       </p>
