@@ -106,14 +106,18 @@ export default function ReactBurgerPage() {
             </a>
           </div>
 
-          {/* Video / GIF stub */}
-          <div className="project-video-stub" style={{ borderColor: PROJECT_COLOR }}>
-            <div className="project-video-play">
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                <path d="M4 2L14 9L4 16V2Z" fill="#111111" />
-              </svg>
-            </div>
-          </div>
+          {/* Demo video */}
+          <video
+            className="project-video"
+            style={{ borderColor: PROJECT_COLOR }}
+            src="/react-burger-demo.mp4"
+            controls
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+          />
         </section>
 
         {/* Tech strip */}
