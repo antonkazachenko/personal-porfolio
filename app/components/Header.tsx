@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import ThemeSwitcher from './ThemeSwitcher';
-import { GithubIcon, LinkedinIcon } from "@/public/icons";
+import { GithubIcon, GithubMobileIcon, LinkedinIcon, LinkedinMobileIcon } from "@/public/icons";
 import LangDropdown from "@/app/components/LangDropdown";
 
 interface HeaderProps {
@@ -56,12 +56,14 @@ const Header: React.FC<HeaderProps> = ({
       <div className="right-menu">
         <div className="icon-wrapper">
           <a href="https://github.com/antonkazachenko" target="_blank" rel="noopener noreferrer">
-            <GithubIcon />
+            <GithubIcon className="social-icon-desktop" />
+            <GithubMobileIcon className="social-icon-mobile" />
           </a>
         </div>
         <div className="icon-wrapper">
           <a href="https://linkedin.com/in/antonkazachenko" target="_blank" rel="noopener noreferrer">
-            <LinkedinIcon />
+            <LinkedinIcon className="social-icon-desktop" />
+            <LinkedinMobileIcon className="social-icon-mobile" />
           </a>
         </div>
         <button
