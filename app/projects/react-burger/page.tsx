@@ -1,9 +1,9 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { User, Mail, Phone, Globe, Share2, Zap, Key, Route, Move } from 'lucide-react';
-import { ReactIcon, TypeScriptIcon, ReduxIcon, CypressIcon, JestIcon, GithubIcon, LinkedinIcon, GithubMobileIcon, LinkedinMobileIcon } from '@/public/icons';
+import { ReactIcon, TypeScriptIcon, ReduxIcon, CypressIcon, JestIcon, GithubIcon, LinkedinIcon, GithubMobileIcon, LinkedinMobileIcon, TabIcon } from '@/public/icons';
 import ThemeSwitcher from '@/app/components/ThemeSwitcher';
 import LangDropdown from '@/app/components/LangDropdown';
 import RightsSection from '@/app/components/RightsSection';
@@ -11,6 +11,8 @@ import TechBadge from '@/app/components/TechBadge';
 import '@/app/components/styles.css';
 
 const PROJECT_COLOR = '#9205af';
+
+const NAV_ITEMS = ['Skills', 'Experience', 'Projects', 'Education', 'Contacts'];
 
 const FEATURES = [
   {
@@ -36,34 +38,68 @@ const FEATURES = [
 ];
 
 export default function ReactBurgerPage() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <>
       <div className="container mx-auto">
         {/* Header */}
         <header className="header">
           <div className="left-menu">
+            <span className="mobile-logo" aria-hidden="true">
+              <TabIcon className="mobile-logo-svg" />
+            </span>
             <ThemeSwitcher />
             <LangDropdown />
           </div>
           <ul className="menu-list">
-            <li><Link href="/">Skills</Link></li>
-            <li><Link href="/">Experience</Link></li>
-            <li><Link href="/">Projects</Link></li>
-            <li><Link href="/">Education</Link></li>
-            <li><Link href="/">Contacts</Link></li>
+            {NAV_ITEMS.map((label) => (
+              <li key={label}><Link href="/">{label}</Link></li>
+            ))}
           </ul>
           <div className="right-menu">
             <div className="icon-wrapper">
               <a href="https://github.com/antonkazachenko" target="_blank" rel="noopener noreferrer">
-                <GithubIcon />
+                <GithubIcon className="social-icon-desktop" />
+                <GithubMobileIcon className="social-icon-mobile" />
               </a>
             </div>
             <div className="icon-wrapper">
               <a href="https://linkedin.com/in/antonkazachenko" target="_blank" rel="noopener noreferrer">
-                <LinkedinIcon />
+                <LinkedinIcon className="social-icon-desktop" />
+                <LinkedinMobileIcon className="social-icon-mobile" />
               </a>
             </div>
+            <button
+              type="button"
+              className="hamburger"
+              aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen((open) => !open)}
+            >
+              <span className="hamburger-bar hamburger-bar--top" />
+              <span className="hamburger-bar hamburger-bar--mid" />
+              <span className="hamburger-bar hamburger-bar--bot" />
+            </button>
           </div>
+
+          {menuOpen && (
+            <>
+              <div className="mobile-drawer-backdrop" onClick={() => setMenuOpen(false)} />
+              <nav className="mobile-drawer">
+                {NAV_ITEMS.map((label) => (
+                  <Link
+                    key={label}
+                    href="/"
+                    className="mobile-drawer-link"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {label}
+                  </Link>
+                ))}
+              </nav>
+            </>
+          )}
         </header>
 
         {/* Hero */}
