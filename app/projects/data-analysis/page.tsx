@@ -290,9 +290,9 @@ export default function DataAnalysisPage() {
                 <span className="dap-direct-icon"><Phone size={14} /></span>
                 +1 778-928-0654
               </a>
-              <a className="dap-direct-link" href="mailto:aka184@sfu.ca">
+              <a className="dap-direct-link" href="mailto:kazachenkowork@gmail.com">
                 <span className="dap-direct-icon"><Mail size={14} /></span>
-                aka184@sfu.ca
+                kazachenkowork@gmail.com
               </a>
             </div>
 

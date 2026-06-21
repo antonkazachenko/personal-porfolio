@@ -69,11 +69,11 @@ const Footer = ({ onScrollToSkills, onScrollToExperience, onScrollToProjects, on
                 </span>
                 <span>+1 778-928-0654</span>
               </a>
-              <a className="footer-contact-link" href="mailto:aka184@sfu.ca">
+              <a className="footer-contact-link" href="mailto:kazachenkowork@gmail.com">
                 <span className="footer-icon-circle">
                   <Mail size={14} />
                 </span>
-                <span>aka184@sfu.ca</span>
+                <span>kazachenkowork@gmail.com</span>
               </a>
             </div>
 
