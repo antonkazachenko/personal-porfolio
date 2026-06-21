@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { User, Mail, Phone, ExternalLink, Share2, Zap, Key, Route, Move } from 'lucide-react';
+import { User, Mail, Phone, ExternalLink, Share2, Zap, Key, Route, Move, ArrowLeft } from 'lucide-react';
 import { ReactIcon, TypeScriptIcon, ReduxIcon, CypressIcon, JestIcon, GithubIcon, LinkedinIcon, GithubMobileIcon, LinkedinMobileIcon, TabIcon } from '@/public/icons';
 import ThemeSwitcher from '@/app/components/ThemeSwitcher';
 import LangDropdown from '@/app/components/LangDropdown';
@@ -128,8 +128,14 @@ export default function ReactBurgerPage() {
           )}
         </header>
 
+        {/* Back to home (desktop) */}
+        <Link href="/" className="project-back-btn" aria-label="Back to home">
+          <ArrowLeft size={14} />
+          Back
+        </Link>
+
         {/* Hero */}
-        <section className="project-page-hero">
+        <section className="project-page-hero" id="overview">
           <div className="project-page-hero-text">
             <h1 className="project-page-title">React Burger</h1>
             <p className="project-page-subtitle">
@@ -182,6 +188,7 @@ export default function ReactBurgerPage() {
           />
         </section>
 
+        <div id="technologies">
         {/* Tech strip (desktop) */}
         <div className="project-tech-strip">
           <p className="project-tech-label">Tools &amp; Technologies Used</p>
@@ -236,9 +243,10 @@ export default function ReactBurgerPage() {
             </div>
           </div>
         </section>
+        </div>
 
         {/* Key Features */}
-        <section className="project-features-section">
+        <section className="project-features-section" id="features">
           <div className="skills-header-container">
             <h1 className="section-header-bg">KEY FEATURES</h1>
             <h2 className="section-header">KEY FEATURES</h2>
@@ -297,33 +305,39 @@ export default function ReactBurgerPage() {
             </div>
 
             <div className="footer-info">
-              <div className="footer-column">
-                <h4 className="footer-column-title">Contacts</h4>
-                <a className="footer-contact-link" href="tel:+17789280654">
-                  <Phone size={16} />
-                  <span>778-928-0654</span>
-                </a>
-                <a className="footer-contact-link" href="mailto:aka184@sfu.ca">
-                  <Mail size={16} />
-                  <span>aka184@sfu.ca</span>
-                </a>
-              </div>
+              <div className="footer-info-card">
+                <div className="footer-column">
+                  <h4 className="footer-column-title">Direct</h4>
+                  <a className="footer-contact-link" href="tel:+17789280654">
+                    <span className="footer-icon-circle"><Phone size={14} /></span>
+                    <span>+1 778-928-0654</span>
+                  </a>
+                  <a className="footer-contact-link" href="mailto:aka184@sfu.ca">
+                    <span className="footer-icon-circle"><Mail size={14} /></span>
+                    <span>aka184@sfu.ca</span>
+                  </a>
+                </div>
 
-              <div className="footer-column">
-                <h4 className="footer-column-title">Pages</h4>
-                <Link href="/" className="footer-page-link">Skills</Link>
-                <Link href="/" className="footer-page-link">Experience</Link>
-                <Link href="/" className="footer-page-link">Projects</Link>
-                <Link href="/" className="footer-page-link">Education</Link>
-              </div>
+                <div className="footer-column">
+                  <h4 className="footer-column-title">Socials</h4>
+                  <div className="footer-socials">
+                    <a href="https://github.com/antonkazachenko" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="footer-social-link">
+                      <GithubIcon className="social-icon-desktop" />
+                      <GithubMobileIcon className="social-icon-mobile" />
+                    </a>
+                    <a href="https://linkedin.com/in/antonkazachenko" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="footer-social-link">
+                      <LinkedinIcon className="social-icon-desktop" />
+                      <LinkedinMobileIcon className="social-icon-mobile" />
+                    </a>
+                  </div>
+                </div>
 
-              <div className="footer-socials">
-                <a href="https://github.com/antonkazachenko" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                  <GithubIcon />
-                </a>
-                <a href="https://linkedin.com/in/antonkazachenko" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                  <LinkedinIcon />
-                </a>
+                <div className="footer-column footer-card-pages">
+                  <h4 className="footer-column-title">Pages</h4>
+                  <a className="footer-page-link" href="#overview">Overview</a>
+                  <a className="footer-page-link" href="#technologies">Technologies</a>
+                  <a className="footer-page-link" href="#features">Key Features</a>
+                </div>
               </div>
             </div>
           </div>

@@ -1365,6 +1365,34 @@ button.footer-page-link {
         display: none;
     }
 
+    /* Project footer: grey separator above the contacts block (Figma 2052:1424) */
+    .project-page .footer {
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding-top: 41px;
+    }
+
+    /* Project footer info card: Direct / Socials / Pages (Figma 2052:1582) */
+    .footer-info-card .footer-column {
+        gap: 12px;
+    }
+
+    .footer-card-pages {
+        width: 100%;
+        border-top: 1px solid #1e1e1e;
+        padding-top: 21px;
+    }
+
+    .footer-card-pages .footer-column-title {
+        color: #3d3d3d;
+        font-size: 11px;
+        letter-spacing: 1.54px;
+        font-family: var(--font-poppins-medium), sans-serif;
+    }
+
+    .footer-info-card .footer-page-link {
+        font-size: 13px;
+    }
+
     .social-icon-desktop,
     .footer-social-link .social-icon-desktop,
     .icon-wrapper .social-icon-desktop {
