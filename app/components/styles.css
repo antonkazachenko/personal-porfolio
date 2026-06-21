@@ -1405,6 +1405,42 @@ button.footer-page-link {
 }
 
 /* ===== Project Page ===== */
+/* Back-to-home pill (Figma node 2074:3694) */
+.project-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    margin-top: 60px;
+    padding: 11px 21px;
+    background: rgba(8, 8, 8, 0.65);
+    border: 1px solid rgba(245, 245, 245, 0.14);
+    border-radius: 30px;
+    color: #f5f5f5;
+    font-family: var(--font-poppins-light), sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0.35px;
+    text-decoration: none;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.project-back-btn:hover {
+    border-color: #0eab00;
+    color: #0eab00;
+}
+
+.project-back-btn svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+}
+
+/* Mobile-only "Home" back button (Figma node 2078:4409) */
+.mobile-home-button {
+    display: none;
+}
+
 .project-page-hero {
     padding: 60px 0 0;
     display: flex;
@@ -1880,6 +1916,41 @@ button.footer-page-link {
 }
 
 @media screen and (max-width: 768px) {
+    /* Desktop "Back" button gives way to the compact "Home" pill below */
+    .project-back-btn {
+        display: none;
+    }
+
+    .mobile-home-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        width: fit-content;
+        height: 30px;
+        margin-top: 32px;
+        padding: 0 13px;
+        background: rgba(245, 245, 245, 0.04);
+        border: 1px solid rgba(245, 245, 245, 0.1);
+        border-radius: 999px;
+        color: #f5f5f5;
+        font-family: var(--font-poppins-light), sans-serif;
+        font-size: 12px;
+        line-height: 18px;
+        text-decoration: none;
+        transition: border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .mobile-home-button:hover {
+        border-color: #0eab00;
+        color: #0eab00;
+    }
+
+    .mobile-home-button-chevron {
+        flex-shrink: 0;
+        width: 4px;
+        height: 8px;
+    }
+
     /* Mobile hero matches Figma (node 2052:1086): left-aligned, no badge */
     .project-page-title {
         font-size: 30px;
@@ -2790,6 +2861,164 @@ button.footer-page-link {
     background: #0c9700;
     border-color: #0c9700;
     color: #000;
+}
+
+/* ---- Demo credentials (Figma node 2079:4930) ---- */
+.demo-creds {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.demo-creds-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 19px;
+    background: rgba(8, 8, 8, 0.65);
+    border: 1px solid rgba(245, 245, 245, 0.14);
+    border-radius: 30px;
+    color: #f5f5f5;
+    font-family: var(--font-poppins-light), sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.demo-creds-toggle:hover {
+    border-color: rgba(245, 245, 245, 0.3);
+}
+
+.demo-creds-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #0eab00;
+    box-shadow: 0 0 5px 0 #0eab00;
+    flex-shrink: 0;
+}
+
+.demo-creds-chevron {
+    width: 10px;
+    height: 10px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.demo-creds-toggle[aria-expanded="true"] .demo-creds-chevron {
+    transform: rotate(180deg);
+}
+
+/* Reveal animation: grid-rows 0fr -> 1fr smoothly expands the panel */
+.demo-creds-reveal {
+    display: grid;
+    grid-template-rows: 0fr;
+    width: 100%;
+    opacity: 0;
+    transition: grid-template-rows 0.32s ease, opacity 0.32s ease;
+}
+
+.demo-creds-reveal-inner {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    min-height: 0;
+    padding-top: 15px;
+}
+
+.demo-creds.is-open .demo-creds-reveal {
+    grid-template-rows: 1fr;
+    opacity: 1;
+}
+
+.demo-creds-panel {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: fit-content;
+    max-width: 100%;
+    padding: 13px 23px;
+    background: rgba(14, 14, 14, 0.8);
+    border: 1px solid rgba(245, 245, 245, 0.1);
+    border-radius: 16px;
+    box-sizing: border-box;
+}
+
+.demo-creds-label {
+    color: #0eab00;
+    font-family: var(--font-poppins-light), sans-serif;
+    font-size: 11px;
+    line-height: 16px;
+    letter-spacing: 0.88px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.demo-creds-divider {
+    width: 1px;
+    height: 26px;
+    background: rgba(245, 245, 245, 0.1);
+    flex-shrink: 0;
+}
+
+.demo-creds-cred {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.demo-creds-cred-key {
+    color: rgba(245, 245, 245, 0.75);
+    font-family: var(--font-poppins-light), sans-serif;
+    font-size: 11px;
+    line-height: 16px;
+    white-space: nowrap;
+}
+
+.demo-creds-cred-val {
+    color: #f5f5f5;
+    font-family: var(--font-poppins-regular), sans-serif;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.24px;
+    white-space: nowrap;
+}
+
+.demo-creds-copy {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px 4px;
+    border: none;
+    border-radius: 6px;
+    background: none;
+    color: rgba(245, 245, 245, 0.75);
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.demo-creds-copy:hover {
+    background: rgba(245, 245, 245, 0.08);
+    color: #f5f5f5;
+}
+
+.demo-creds-copy svg {
+    width: 13px;
+    height: 13px;
+}
+
+@media screen and (max-width: 768px) {
+    .demo-creds-panel {
+        flex-wrap: wrap;
+        gap: 12px 16px;
+    }
+
+    .demo-creds-divider {
+        display: none;
+    }
 }
 
 .dap-media {

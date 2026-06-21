@@ -8,6 +8,7 @@ import ThemeSwitcher from '@/app/components/ThemeSwitcher';
 import LangDropdown from '@/app/components/LangDropdown';
 import RightsSection from '@/app/components/RightsSection';
 import TechBadge from '@/app/components/TechBadge';
+import DemoCredentials from '@/app/components/DemoCredentials';
 import '@/app/components/styles.css';
 
 const PROJECT_COLOR = '#9205af';
@@ -134,6 +135,20 @@ export default function ReactBurgerPage() {
           Back
         </Link>
 
+        {/* Back to home (mobile) */}
+        <Link href="/" className="mobile-home-button" aria-label="Home">
+          <svg
+            className="mobile-home-button-chevron"
+            viewBox="0 0 4 8"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path d="M3.5 0.5L0.5 4L3.5 7.5" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          Home
+        </Link>
+
         {/* Hero */}
         <section className="project-page-hero" id="overview">
           <div className="project-page-hero-text">
@@ -173,6 +188,8 @@ export default function ReactBurgerPage() {
               <LinkedinMobileIcon />
             </a>
           </div>
+
+          <DemoCredentials />
 
           {/* Demo video */}
           <video

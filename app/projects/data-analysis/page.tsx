@@ -150,6 +150,20 @@ export default function DataAnalysisPage() {
           )}
         </header>
 
+        {/* Back to home (mobile) */}
+        <Link href="/" className="mobile-home-button" aria-label="Home">
+          <svg
+            className="mobile-home-button-chevron"
+            viewBox="0 0 4 8"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path d="M3.5 0.5L0.5 4L3.5 7.5" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          Home
+        </Link>
+
         {/* Hero */}
         <section className="dap-hero">
           <span className="dap-eyebrow">
