@@ -4,8 +4,8 @@ import React, { useState } from 'react';
 import { ChevronDown, Copy, Check } from 'lucide-react';
 
 const CREDENTIALS: { key: string; value: string }[] = [
-  { key: 'Email:', value: 'demo@dataproject.com' },
-  { key: 'Password:', value: 'Demo1234!' },
+  { key: 'Email:', value: 'anton@gmail.com' },
+  { key: 'Password:', value: 'test12345' },
 ];
 
 const DemoCredentials: React.FC = () => {
