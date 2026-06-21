@@ -14,12 +14,13 @@ interface Project {
   category: Category;
   href?: string;
   video?: string;
+  poster?: string;
   wip?: boolean;
 }
 
 const projects: Project[] = [
-  { name: 'React Burger', subtitle: 'React Application', color: '#9205af', category: 'Software Development', href: '/projects/react-burger', video: '/react-burger-demo.mp4' },
-  { name: 'Go Todo List', subtitle: 'Go Application', color: '#00b8be', category: 'Software Development', href: '/projects/go-todo-list', video: '/go-todo-list-demo.mp4' },
+  { name: 'React Burger', subtitle: 'React Application', color: '#9205af', category: 'Software Development', href: '/projects/react-burger', video: '/react-burger-demo.mp4', poster: '/react-burger-demo-poster.jpg' },
+  { name: 'Go Todo List', subtitle: 'Go Application', color: '#00b8be', category: 'Software Development', href: '/projects/go-todo-list', video: '/go-todo-list-demo.mp4', poster: '/go-todo-list-demo-poster.jpg' },
   { name: 'Go Client Server app', subtitle: 'Go Application', color: '#00b8be', category: 'Software Development', wip: true },
 ];
 
@@ -43,7 +44,7 @@ const ArrowButton = ({ color }: { color: string }) => (
   </div>
 );
 
-const ProjectCard = ({ project }: { project: Project }) => {
+const ProjectCard = ({ project, isMobile }: { project: Project; isMobile: boolean }) => {
   const videoRef = React.useRef<HTMLVideoElement>(null);
 
   const playVideo = () => {
@@ -59,22 +60,35 @@ const ProjectCard = ({ project }: { project: Project }) => {
     }
   };
 
+  // On mobile there's no hover to trigger playback, and the video first frame
+  // doesn't render reliably, so show a static poster image instead.
+  const showVideo = project.video && !isMobile;
+
   const inner = (
     <div
       className="project-card"
       style={{ '--project-color': project.color } as React.CSSProperties}
-      onMouseEnter={project.video ? playVideo : undefined}
-      onMouseLeave={project.video ? pauseVideo : undefined}
+      onMouseEnter={showVideo ? playVideo : undefined}
+      onMouseLeave={showVideo ? pauseVideo : undefined}
     >
-      {project.video ? (
+      {showVideo ? (
         <video
           ref={videoRef}
           className="project-card-image project-card-video"
           src={project.video}
+          poster={project.poster}
           muted
           loop
           playsInline
           preload="metadata"
+        />
+      ) : project.poster ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          className="project-card-image project-card-video"
+          src={project.poster}
+          alt={project.name}
+          loading="lazy"
         />
       ) : project.wip ? (
         <div className="project-card-image project-card-image--wip">
@@ -149,7 +163,7 @@ export default function ProjectsSection() {
       <div className="projects-carousel-wrapper">
         <div className={`projects-carousel ${shouldAnimate ? 'projects-carousel--animate' : 'projects-carousel--static'}`}>
           {carouselItems.map((project, i) => (
-            <ProjectCard key={`${project.name}-${i}`} project={project} />
+            <ProjectCard key={`${project.name}-${i}`} project={project} isMobile={isMobile} />
           ))}
           {(activeFilter === 'Data Science' || activeFilter === 'Cloud & DevOps') && (
             <div className="category-wip-indicator">
