@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { User, Mail, Phone, ExternalLink, Share2, Zap, Key, Route, Move, ArrowLeft, Database, Server, Lock, Globe, Layers, CheckCircle } from 'lucide-react';
+import { User, Mail, Phone, ExternalLink, Key, Route, ArrowLeft, Database, CheckCircle } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, GithubMobileIcon, LinkedinMobileIcon, TabIcon, GoIcon, SQLiteIcon, JSIcon, HTML5Icon, CSS3Icon, DockerIcon } from '@/public/icons';
 import ThemeSwitcher from '@/app/components/ThemeSwitcher';
 import LangDropdown from '@/app/components/LangDropdown';
