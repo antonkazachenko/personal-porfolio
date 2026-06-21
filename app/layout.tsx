@@ -113,15 +113,25 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   return (
     <html
+      suppressHydrationWarning
       className=
-        {`${PoppinsRegular.variable} 
+        {`${PoppinsRegular.variable}
         ${PoppinsBold.variable}
         ${PoppinsItalic.variable}
-        ${PoppinsSemiBold.variable} 
+        ${PoppinsSemiBold.variable}
         ${PoppinsLight.variable}
         ${PoppinsMedium.variable}`}
     >
-      <link rel="icon" href="/icons/AK.svg" type="image/svg+xml" />
+      <head>
+        {/* Apply the saved theme before paint to avoid a flash of the wrong theme.
+            Mirrors the default in useTheme.ts (dark). */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){t='dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();`,
+          }}
+        />
+        <link rel="icon" href="/icons/AK.svg" type="image/svg+xml" />
+      </head>
     <body>
     <main>{children}</main>
     </body>

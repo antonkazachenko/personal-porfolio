@@ -1,19 +1,30 @@
 'use client';
 
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { SunIcon, MoonIcon } from "@/public/icons";
+import { useTheme } from './useTheme';
 import "./styles.css";
 
 export default function ThemeSwitcher() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
-  };
+  const { theme, toggleTheme } = useTheme();
+  const isLight = theme === 'light';
 
   return (
-    <div className="switch" data-ison={isDarkMode} onClick={toggleTheme}>
+    <div
+      className="switch"
+      data-ison={isLight}
+      onClick={toggleTheme}
+      role="button"
+      tabIndex={0}
+      aria-label="Toggle color theme"
+      aria-pressed={isLight}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleTheme();
+        }
+      }}
+    >
       {/* Moon Icon (Always Visible on the Left Side) */}
       <motion.div className="icon-container moon-icon">
         <MoonIcon className="icon" />
@@ -25,7 +36,7 @@ export default function ThemeSwitcher() {
         layout
         transition={spring}
         style={{
-          backgroundColor: isDarkMode ? '#111111' : '#F5F5F5',
+          backgroundColor: isLight ? '#F5F5F5' : '#111111',
         }}
       />
 

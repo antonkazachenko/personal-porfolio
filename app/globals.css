@@ -3,8 +3,82 @@
 @tailwind utilities;
 
 :root {
-  --background: #111111;
-  --foreground: #ededed;
+  /* ============================================================
+     COLOR SYSTEM
+     ------------------------------------------------------------
+     Source of truth: Figma "Anton Kazachenko" — Dark & Light Palettes.
+     Use ONLY the semantic tokens below in components (or their
+     Tailwind aliases: bg-background, text-text-secondary, etc.).
+     Both themes expose the SAME token contract; the Light Theme block
+     further down overrides each token's value. That shared contract IS
+     the theme mapping — each token below resolves to its Dark value here
+     and its Light value under [data-theme="light"].
+
+     THEME MAPPING (Figma section 3 — role → token → dark / light):
+       Main Background  --color-background   #111111            #F7F8FA
+       Card / UI Surface--color-card         #101630 (derived)  #FFFFFF
+       Primary Text     --color-text-primary #F5F5F5 @100%      #111111
+       Secondary Text   --color-text-secondary #F5F5F5 @80%     #3F3F46
+       Muted Text       --color-text-muted   #F5F5F5 @60%       #6B7280
+       Primary Green    --color-accent       #0EAB00            #0EAB00
+       Subtle Border    --color-border-soft  rgb(255 255 255/.05) #E5E7EB
+                        --color-border       rgb(255 255 255/.1)  #DADDE3
+     (Roles marked "derived" are not specified in the Figma Dark palette;
+      values come from the Dark frame's own usage — see notes per token.)
+     ============================================================ */
+
+  /* --- Shared brand primitives (raw — do not use directly in UI) --- */
+  --green-500: #0eab00;   /* Primary green */
+  --green-600: #0b8f00;   /* Green hover */
+  --green-700: #078a00;   /* Green text on light */
+
+  /* Dark-theme text base, as R G B channels so tints derive cleanly */
+  --neutral-50: 245 245 245;   /* #F5F5F5 */
+
+  /* ============================================================
+     SEMANTIC TOKENS — DARK THEME (default)
+     ============================================================ */
+
+  /* Surfaces */
+  --color-background: #111111;       /* Main app/page background */
+  --color-surface: #101630;          /* Deep navy — elevated UI surfaces */
+  --color-surface-soft: rgb(255 255 255 / 0.05);   /* Alt fills, hover bg */
+  --color-card: #101630;             /* Card surfaces */
+  --color-card-elevated: rgb(255 255 255 / 0.04);  /* Slightly elevated cards */
+
+  /* Text hierarchy (dark = opacity steps of #F5F5F5) */
+  --color-text-primary: rgb(var(--neutral-50) / 1);      /* Headings, primary content */
+  --color-text-secondary: rgb(var(--neutral-50) / 0.8);  /* Body, descriptions */
+  --color-text-muted: rgb(var(--neutral-50) / 0.6);      /* Captions, metadata */
+  --color-text-subtle: rgb(var(--neutral-50) / 0.3);     /* Disabled, placeholders */
+  --color-text-on-accent: #ffffff;                       /* On primary green CTAs */
+
+  /* Borders & dividers (dark = white overlays, as used in the Figma swatches) */
+  --color-border: rgb(255 255 255 / 0.1);      /* Default component borders */
+  --color-border-soft: rgb(255 255 255 / 0.05);/* Subtle separators */
+  --color-border-strong: rgb(255 255 255 / 0.15);/* Emphasized borders */
+  --color-divider: rgb(255 255 255 / 0.05);    /* Section dividers */
+  --color-overlay: rgb(var(--neutral-50) / 0.05); /* Hairline dividers, ghost areas */
+
+  /* Brand accent system */
+  --color-accent: var(--green-500);                /* Main brand accent */
+  --color-accent-hover: var(--green-600);          /* Accent hover state */
+  --color-accent-soft-bg: rgb(14 171 0 / 0.1);     /* Green-tinted surface fills */
+  --color-accent-soft-border: rgb(14 171 0 / 0.3); /* Soft green outlines */
+  --color-accent-text: var(--green-500);           /* Green text on dark */
+
+  /* Interactive buttons */
+  --color-btn-primary-bg: var(--green-500);
+  --color-btn-primary-hover: var(--green-600);
+  --color-btn-primary-text: #ffffff;
+  --color-btn-secondary-bg: #101630;
+  --color-btn-secondary-border: rgb(255 255 255 / 0.1);
+  --color-btn-secondary-text: rgb(var(--neutral-50) / 1);
+  --color-btn-secondary-hover-bg: rgb(255 255 255 / 0.05);
+
+  /* --- Backwards-compatible aliases (existing code) --- */
+  --background: var(--color-background);
+  --foreground: var(--color-text-primary);
 
   /* Fluid typography unit keyed to the 1920px Figma canvas.
      1 unit == 1px at 1920px viewport; scales with width, clamped so it
@@ -13,6 +87,51 @@
      (A CSS var is used instead of scaling the html root font-size so that
      Tailwind's rem-based utilities like w-9 / px-16 / py-20 stay intact.) */
   --u: clamp(0.65px, 0.0520833vw, 1px);
+}
+
+/* ============================================================
+   SEMANTIC TOKENS — LIGHT THEME
+   Source of truth: Figma "Anton Kazachenko" — Light Theme Palette.
+   Activated via <html data-theme="light"> or class "light".
+   ============================================================ */
+[data-theme="light"],
+.light {
+  /* Surfaces */
+  --color-background: #f7f8fa;        /* Page background (not pure white) */
+  --color-surface: #ffffff;           /* Section fills */
+  --color-surface-soft: #f1f3f5;      /* Alt section fills, button hover bg */
+  --color-card: #ffffff;              /* Card surfaces */
+  --color-card-elevated: #fafafa;     /* Slightly elevated card surfaces */
+
+  /* Text hierarchy (light = distinct values, not opacity steps) */
+  --color-text-primary: #111111;      /* Headings, main content */
+  --color-text-secondary: #3f3f46;    /* Body, descriptions */
+  --color-text-muted: #6b7280;        /* Captions, metadata */
+  --color-text-subtle: #9ca3af;       /* Placeholders, disabled states */
+  --color-text-on-accent: #ffffff;    /* On primary green CTAs */
+
+  /* Borders & dividers */
+  --color-border: #dadde3;            /* Default component borders, dividers */
+  --color-border-soft: #e5e7eb;       /* Subtle separators */
+  --color-border-strong: #c9cdd4;     /* Emphasized borders */
+  --color-divider: #e6e8ec;           /* Section dividers */
+  --color-overlay: rgb(17 17 17 / 0.05); /* Hairline overlays on light */
+
+  /* Brand accent system */
+  --color-accent: #0eab00;            /* Main brand accent, primary CTAs */
+  --color-accent-hover: #0b8f00;      /* Green button hover state */
+  --color-accent-soft-bg: #eafbe8;    /* Green-tinted surface fills */
+  --color-accent-soft-border: #b8f2b1;/* Soft green outlines */
+  --color-accent-text: #078a00;       /* Green text on light backgrounds */
+
+  /* Interactive buttons */
+  --color-btn-primary-bg: #0eab00;
+  --color-btn-primary-hover: #0b8f00;
+  --color-btn-primary-text: #ffffff;
+  --color-btn-secondary-bg: #ffffff;
+  --color-btn-secondary-border: #dadde3;
+  --color-btn-secondary-text: #111111;
+  --color-btn-secondary-hover-bg: #f1f3f5;
 }
 
 body {
