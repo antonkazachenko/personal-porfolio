@@ -75,3 +75,4 @@ export { default as CJSFIcon } from './cjsf.svg';
 export { default as CopperleafIcon } from './copperleaf.svg';
 export { default as GDSCIcon } from './gdsc.svg';
 
+export { default as DockerIcon } from './cloud/docker.svg';

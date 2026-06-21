@@ -3,12 +3,16 @@
 import React, { useState } from 'react';
 import { ChevronDown, Copy, Check } from 'lucide-react';
 
-const CREDENTIALS: { key: string; value: string }[] = [
+const DEFAULT_CREDENTIALS: { key: string; value: string }[] = [
   { key: 'Email:', value: 'anton@gmail.com' },
   { key: 'Password:', value: 'test12345' },
 ];
 
-const DemoCredentials: React.FC = () => {
+interface DemoCredentialsProps {
+  credentials?: { key: string; value: string }[];
+}
+
+const DemoCredentials: React.FC<DemoCredentialsProps> = ({ credentials = DEFAULT_CREDENTIALS }) => {
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState<string | null>(null);
 
@@ -40,7 +44,7 @@ const DemoCredentials: React.FC = () => {
           <div className="demo-creds-panel">
             <span className="demo-creds-label">Demo Access</span>
             <span className="demo-creds-divider" />
-            {CREDENTIALS.map(({ key, value }) => (
+            {credentials.map(({ key, value }) => (
               <div key={key} className="demo-creds-cred">
                 <span className="demo-creds-cred-key">{key}</span>
                 <span className="demo-creds-cred-val">{value}</span>
