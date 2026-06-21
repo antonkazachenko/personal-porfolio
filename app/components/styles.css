@@ -976,6 +976,49 @@
   display: block;
 }
 
+/* Work-in-progress card: construction icon + "In Progress" badge (Figma 2084:5816) */
+.project-card-image--wip {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-card-construction {
+  width: 54px;
+  height: 54px;
+  color: var(--project-color, #f5f5f5);
+  opacity: 0.85;
+}
+
+.project-status-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px 5px 8px;
+  background: rgba(8, 8, 8, 0.72);
+  border: 1px solid rgba(14, 171, 0, 0.28);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.88);
+  font-family: var(--font-poppins-medium), sans-serif;
+  font-size: 10px;
+  line-height: 14px;
+  letter-spacing: 0.25px;
+  white-space: nowrap;
+}
+
+.project-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #0eab00;
+  box-shadow: 0 0 5px 0 rgba(14, 171, 0, 0.55);
+  flex-shrink: 0;
+}
+
 .project-card-footer {
   display: flex;
   align-items: center;
@@ -1016,6 +1059,7 @@
 .footer-content {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
     gap: 60px;
     flex-wrap: wrap;
 }
@@ -1112,12 +1156,16 @@
     opacity: 0.85;
 }
 
+/* On desktop the info wrappers collapse so the form, Contacts, Pages and
+   Socials columns become siblings of .footer-content and distribute evenly
+   across the full width (matches Figma node 827:1286). The mobile media
+   query restores these to real flex boxes for the stacked card layout. */
 .footer-info {
-    display: flex;
-    gap: 60px;
-    flex: 1 1 auto;
-    justify-content: space-between;
-    align-items: flex-start;
+    display: contents;
+}
+
+.footer-column--socials {
+    order: 1;
 }
 
 .footer-column {
@@ -1174,9 +1222,7 @@ button.footer-page-link {
 }
 
 .footer-info-card {
-    display: flex;
-    gap: 60px;
-    align-items: flex-start;
+    display: contents;
 }
 
 .footer-icon-circle {
@@ -1217,6 +1263,7 @@ button.footer-page-link {
 
     .footer-content {
         flex-direction: column;
+        align-items: stretch;
         gap: 32px;
     }
 
@@ -1302,12 +1349,14 @@ button.footer-page-link {
     }
 
     .footer-info {
+        display: flex;
         flex-direction: column;
         justify-content: flex-start;
         gap: 0;
     }
 
     .footer-info-card {
+        display: flex;
         flex-direction: column;
         gap: 20px;
         background: rgba(255, 255, 255, 0.05);
@@ -1315,6 +1364,11 @@ button.footer-page-link {
         border-radius: 16px;
         padding: 21px;
         width: 100%;
+    }
+
+    /* The desktop "socials last" reorder is irrelevant in the stacked card */
+    .footer-column--socials {
+        order: 0;
     }
 
     .footer-column-title {
@@ -1819,7 +1873,7 @@ button.footer-page-link {
 
 .project-feature-card {
     background: rgba(245, 245, 245, 0.05);
-    border: 1px solid;
+    border: 1px solid #f5f5f5;
     border-radius: 30px;
     padding: 40px;
     display: flex;
@@ -1836,11 +1890,11 @@ button.footer-page-link {
 }
 
 .project-feature-desc {
-    color: rgba(245, 245, 245, 0.80);
+    color: #f5f5f5;
     font-family: var(--font-poppins-light), sans-serif;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 300;
-    line-height: 1.6;
+    line-height: 1.5;
     margin: 0;
 }
 
@@ -1962,6 +2016,7 @@ button.footer-page-link {
 
     .project-page-hero {
         gap: 20px;
+        padding-top: 20px;
         align-items: flex-start;
     }
 
@@ -1992,7 +2047,7 @@ button.footer-page-link {
 
     .project-video {
         max-height: 280px;
-        margin-top: 10px;
+        margin-top: 0;
     }
 
     /* Swap the desktop tech strip for the mobile chip layout */
@@ -3011,6 +3066,11 @@ button.footer-page-link {
 }
 
 @media screen and (max-width: 768px) {
+    /* Demo credentials are hidden on mobile */
+    .demo-creds {
+        display: none;
+    }
+
     .demo-creds-panel {
         flex-wrap: wrap;
         gap: 12px 16px;

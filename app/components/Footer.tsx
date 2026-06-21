@@ -77,7 +77,7 @@ const Footer = ({ onScrollToSkills, onScrollToExperience, onScrollToProjects, on
               </a>
             </div>
 
-            <div className="footer-column">
+            <div className="footer-column footer-column--socials">
               <h4 className="footer-column-title">Socials</h4>
               <div className="footer-socials">
                 <a href="https://github.com/antonkazachenko" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="footer-social-link">

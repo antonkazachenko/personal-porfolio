@@ -270,11 +270,7 @@ export default function ReactBurgerPage() {
           </div>
           <div className="project-features-grid">
             {FEATURES.map((f) => (
-              <div
-                key={f.title}
-                className="project-feature-card"
-                style={{ borderColor: PROJECT_COLOR }}
-              >
+              <div key={f.title} className="project-feature-card">
                 <h3 className="project-feature-title">{f.title}</h3>
                 <p className="project-feature-desc">{f.description}</p>
               </div>
@@ -335,7 +331,7 @@ export default function ReactBurgerPage() {
                   </a>
                 </div>
 
-                <div className="footer-column">
+                <div className="footer-column footer-column--socials">
                   <h4 className="footer-column-title">Socials</h4>
                   <div className="footer-socials">
                     <a href="https://github.com/antonkazachenko" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="footer-social-link">

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { Construction } from 'lucide-react';
 import { WebIcon, CloudIcon, AtomIcon } from '@/public/icons';
 
 type Category = 'Software Development' | 'Cloud & DevOps' | 'Data Science';
@@ -13,11 +14,13 @@ interface Project {
   category: Category;
   href?: string;
   video?: string;
+  wip?: boolean;
 }
 
 const projects: Project[] = [
   { name: 'React Burger', subtitle: 'React Application', color: '#9205af', category: 'Software Development', href: '/projects/react-burger', video: '/react-burger-demo.mp4' },
   { name: 'Go Todo List', subtitle: 'Go Application', color: '#00b8be', category: 'Software Development' },
+  { name: 'Go Client Server app', subtitle: 'Go Application', color: '#00b8be', category: 'Software Development', wip: true },
   { name: "Borrowers' Reliability", subtitle: 'Data Analysis Project', color: '#0eab00', category: 'Data Science', href: '/projects/data-analysis' },
 ];
 
@@ -74,6 +77,14 @@ const ProjectCard = ({ project }: { project: Project }) => {
           playsInline
           preload="metadata"
         />
+      ) : project.wip ? (
+        <div className="project-card-image project-card-image--wip">
+          <span className="project-status-badge">
+            <span className="project-status-dot" />
+            In Progress
+          </span>
+          <Construction className="project-card-construction" aria-hidden="true" />
+        </div>
       ) : (
         <div className="project-card-image" />
       )}
