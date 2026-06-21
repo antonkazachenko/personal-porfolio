@@ -198,7 +198,6 @@ const ExperienceSection = forwardRef<HTMLDivElement, object>((props, ref: Forwar
                     <p className="experience-company">{exp.company}</p>
                     <h3 className="experience-role">{exp.role}</h3>
                     <p className="experience-card-date">{exp.duration}</p>
-                    {exp.about && <p className="experience-about">{exp.about}</p>}
                   </div>
                   {hasDetails && (
                     <span className="experience-toggle" aria-hidden="true">
@@ -215,6 +214,7 @@ const ExperienceSection = forwardRef<HTMLDivElement, object>((props, ref: Forwar
                 {hasDetails && (
                   <div className={`experience-collapsible ${isExpanded ? 'expanded' : ''}`}>
                     <div className="experience-collapsible-inner">
+                      {exp.about && <p className="experience-about">{exp.about}</p>}
                       <ul className="experience-description">
                         {exp.description.map((item, i) => (
                           <li key={i}>{item}</li>

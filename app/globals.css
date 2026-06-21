@@ -5,6 +5,14 @@
 :root {
   --background: #111111;
   --foreground: #ededed;
+
+  /* Fluid typography unit keyed to the 1920px Figma canvas.
+     1 unit == 1px at 1920px viewport; scales with width, clamped so it
+     neither explodes on ultrawide (>1920) nor collapses on small laptops.
+     Usage: font-size: calc(var(--u) * <figmaPxAt1920>);
+     (A CSS var is used instead of scaling the html root font-size so that
+     Tailwind's rem-based utilities like w-9 / px-16 / py-20 stay intact.) */
+  --u: clamp(0.65px, 0.0520833vw, 1px);
 }
 
 body {
