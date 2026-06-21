@@ -36,7 +36,9 @@ export default function ThemeSwitcher() {
         layout
         transition={spring}
         style={{
-          backgroundColor: isLight ? '#F5F5F5' : '#111111',
+          // Dark theme: white ball on the dark pill. Light theme: dark ball on
+          // the light pill. (Matches Figma node 830:3481.)
+          backgroundColor: isLight ? '#111111' : '#F5F5F5',
         }}
       />
 
