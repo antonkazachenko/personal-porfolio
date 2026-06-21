@@ -2480,6 +2480,7 @@ button.footer-page-link {
         display: flex;
         align-items: center;
         justify-content: center;
+        align-self: center;
     }
 
     /* Typography copied from the mobile Figma design (sizes, colours, alignment) */
