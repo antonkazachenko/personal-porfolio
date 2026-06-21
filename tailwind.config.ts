@@ -15,11 +15,19 @@ const config: Config = {
         surface: {
           DEFAULT: "var(--color-surface)",
           soft: "var(--color-surface-soft)",
+          raised: "var(--color-surface-raised)",
+          "raised-alt": "var(--color-surface-raised-alt)",
+          sunken: "var(--color-surface-sunken)",
         },
         card: {
           DEFAULT: "var(--color-card)",
           elevated: "var(--color-card-elevated)",
         },
+        scrim: {
+          DEFAULT: "var(--color-scrim)",
+          strong: "var(--color-scrim-strong)",
+        },
+        bar: "var(--color-bar)",
         text: {
           primary: "var(--color-text-primary)",
           secondary: "var(--color-text-secondary)",
@@ -31,8 +39,12 @@ const config: Config = {
           DEFAULT: "var(--color-border)",
           soft: "var(--color-border-soft)",
           strong: "var(--color-border-strong)",
+          raised: "var(--color-border-raised)",
         },
-        divider: "var(--color-divider)",
+        divider: {
+          DEFAULT: "var(--color-divider)",
+          strong: "var(--color-divider-strong)",
+        },
         overlay: "var(--color-overlay)",
         accent: {
           DEFAULT: "var(--color-accent)",

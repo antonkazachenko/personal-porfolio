@@ -17,7 +17,7 @@ interface Experience {
 }
 
 const themeColors: Record<Experience["theme"], string> = {
-  white: "#F5F5F5",
+  white: "var(--color-text-primary)",
   red: "#DB0632",
   yellow: "#FFB909",
   green: "#0EAB00",

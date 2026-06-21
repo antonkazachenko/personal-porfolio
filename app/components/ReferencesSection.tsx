@@ -231,9 +231,9 @@ export default function ReferencesCarousel({ items = DEFAULT_REFERENCES }: { ite
             className="absolute -left-2 lg:-left-6 top-1/2 z-10 -translate-y-1/2"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="62" height="62" viewBox="0 0 62 62" fill="none" className="w-9 h-9 md:w-[62px] md:h-[62px]">
-              <path d="M31 61C47.5685 61 61 47.5685 61 31C61 14.4315 47.5685 1 31 1C14.4315 1 1 14.4315 1 31C1 47.5685 14.4315 61 31 61Z" stroke="#F5F5F5" strokeOpacity="0.6" strokeWidth="0.75" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M18.5 31H43.5" stroke="#F5F5F5" strokeOpacity="0.6" strokeWidth="0.75" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M28.5 21L18.5 31L28.5 41" stroke="#F5F5F5" strokeOpacity="0.6" strokeWidth="0.75" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M31 61C47.5685 61 61 47.5685 61 31C61 14.4315 47.5685 1 31 1C14.4315 1 1 14.4315 1 31C1 47.5685 14.4315 61 31 61Z" stroke="var(--color-text-primary)" strokeOpacity="0.6" strokeWidth="0.75" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M18.5 31H43.5" stroke="var(--color-text-primary)" strokeOpacity="0.6" strokeWidth="0.75" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M28.5 21L18.5 31L28.5 41" stroke="var(--color-text-primary)" strokeOpacity="0.6" strokeWidth="0.75" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </button>
 
@@ -244,9 +244,9 @@ export default function ReferencesCarousel({ items = DEFAULT_REFERENCES }: { ite
             className="absolute -right-2 lg:-right-6 top-1/2 z-10 -translate-y-1/2"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="62" height="62" viewBox="0 0 62 62" fill="none" className="w-9 h-9 md:w-[62px] md:h-[62px]">
-              <path d="M31 61C14.4315 61 1 47.5685 1 31C1 14.4315 14.4315 1 31 1C47.5685 1 61 14.4315 61 31C61 47.5685 47.5685 61 31 61Z" stroke="#F5F5F5" strokeWidth="0.75" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M43.5001 31H18.5001" stroke="#F5F5F5" strokeWidth="0.75" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M33.5001 21L43.5001 31L33.5001 41" stroke="#F5F5F5" strokeWidth="0.75" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M31 61C14.4315 61 1 47.5685 1 31C1 14.4315 14.4315 1 31 1C47.5685 1 61 14.4315 61 31C61 47.5685 47.5685 61 31 61Z" stroke="var(--color-text-primary)" strokeWidth="0.75" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M43.5001 31H18.5001" stroke="var(--color-text-primary)" strokeWidth="0.75" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M33.5001 21L43.5001 31L33.5001 41" stroke="var(--color-text-primary)" strokeWidth="0.75" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </button>
 

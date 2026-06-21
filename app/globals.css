@@ -60,6 +60,18 @@
   --color-divider: rgb(255 255 255 / 0.05);    /* Section dividers */
   --color-overlay: rgb(var(--neutral-50) / 0.05); /* Hairline dividers, ghost areas */
 
+  /* Raised neutral surfaces — panels that sit ABOVE the base background
+     (dropdowns, tooltips, chips, badges, mobile cards/bars). Not in the Figma
+     palette; dark values consolidate the bespoke greys the design used. */
+  --color-surface-raised: #1a1a1a;       /* Dropdowns, tooltips, chips, cards */
+  --color-surface-raised-alt: #141414;   /* Alt raised card (mobile finding cards) */
+  --color-surface-sunken: #0a0a0a;       /* Mobile top bar / drawer base */
+  --color-border-raised: #252525;        /* Borders on raised surfaces */
+  --color-divider-strong: #1e1e1e;       /* Strong dividers on dark panels */
+  --color-scrim: rgb(8 8 8 / 0.65);      /* Translucent dark pill over content */
+  --color-scrim-strong: rgb(8 8 8 / 0.72);/* Stronger translucent pill (badges) */
+  --color-bar: rgb(10 10 10 / 0.9);      /* Sticky translucent app bar */
+
   /* Brand accent system */
   --color-accent: var(--green-500);                /* Main brand accent */
   --color-accent-hover: var(--green-600);          /* Accent hover state */
@@ -116,6 +128,16 @@
   --color-border-strong: #c9cdd4;     /* Emphasized borders */
   --color-divider: #e6e8ec;           /* Section dividers */
   --color-overlay: rgb(17 17 17 / 0.05); /* Hairline overlays on light */
+
+  /* Raised neutral surfaces (light) */
+  --color-surface-raised: #ffffff;       /* Dropdowns, tooltips, chips, cards */
+  --color-surface-raised-alt: #fafafa;   /* Alt raised card */
+  --color-surface-sunken: #eef0f3;       /* Mobile top bar / drawer base */
+  --color-border-raised: #e5e7eb;        /* Borders on raised surfaces */
+  --color-divider-strong: #e6e8ec;       /* Strong dividers */
+  --color-scrim: rgb(255 255 255 / 0.8); /* Translucent light pill over content */
+  --color-scrim-strong: rgb(255 255 255 / 0.88);/* Stronger translucent pill */
+  --color-bar: rgb(247 248 250 / 0.9);   /* Sticky translucent app bar */
 
   /* Brand accent system */
   --color-accent: #0eab00;            /* Main brand accent, primary CTAs */

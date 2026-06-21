@@ -162,7 +162,7 @@
     margin: 0;
     padding: 4px 0;
     list-style: none;
-    background-color: #1a1a1a;
+    background-color: var(--color-surface-raised);
     border: 0.75px solid var(--color-border-strong);
     border-radius: 10px;
     min-width: 100%;
@@ -227,7 +227,7 @@
 
 .profile-picture {
     border-radius: 50%; /* Ensure the image remains circular */
-    background-color: #000; /* Match this to your page background */
+    background-color: var(--color-background); /* Match this to your page background */
     object-fit: cover;
     width: 100%; /* Make sure the image takes the full container */
     height: 100%; /* Make sure the image takes the full container */
@@ -403,7 +403,7 @@
     bottom: calc(100% + 8px);
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(20, 20, 20, 0.95);
+    background: var(--color-surface-raised);
     border: 0.75px solid var(--color-border-strong);
     border-radius: 8px;
     padding: 6px 10px;
@@ -1023,10 +1023,10 @@
   align-items: center;
   gap: 6px;
   padding: 5px 10px 5px 8px;
-  background: rgba(8, 8, 8, 0.72);
+  background: var(--color-scrim-strong);
   border: 1px solid rgba(14, 171, 0, 0.28);
   border-radius: 999px;
-  color: rgba(255, 255, 255, 0.88);
+  color: var(--color-text-secondary);
   font-family: var(--font-poppins-medium), sans-serif;
   font-size: 10px;
   line-height: 14px;
@@ -1456,12 +1456,12 @@ button.footer-page-link {
 
     .footer-card-pages {
         width: 100%;
-        border-top: 1px solid #1e1e1e;
+        border-top: 1px solid var(--color-divider-strong);
         padding-top: 21px;
     }
 
     .footer-card-pages .footer-column-title {
-        color: #3d3d3d;
+        color: var(--color-text-subtle);
         font-size: 11px;
         letter-spacing: 1.54px;
         font-family: var(--font-poppins-medium), sans-serif;
@@ -1491,7 +1491,7 @@ button.footer-page-link {
     width: fit-content;
     margin-top: 60px;
     padding: 11px 21px;
-    background: rgba(8, 8, 8, 0.65);
+    background: var(--color-scrim);
     border: 1px solid var(--color-border-strong);
     border-radius: 30px;
     color: var(--color-text-primary);
@@ -1570,7 +1570,7 @@ button.footer-page-link {
     align-items: center;
     gap: 10px;
     padding: 15px 29px;
-    background: rgba(8, 8, 8, 0.65);
+    background: var(--color-scrim);
     border: 1px solid var(--color-border-strong);
     border-radius: 30px;
     color: var(--color-text-primary);
@@ -1644,8 +1644,8 @@ button.footer-page-link {
     width: 100vw;
     max-width: 100vw;
     background: var(--color-surface-soft);
-    border-top: 1px solid #1C1C21;
-    border-bottom: 1px solid #1C1C21;
+    border-top: 1px solid var(--color-divider-strong);
+    border-bottom: 1px solid var(--color-divider-strong);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1704,7 +1704,7 @@ button.footer-page-link {
 }
 
 .tech-mobile-title {
-    color: #f0f0f0;
+    color: var(--color-text-primary);
     font-family: var(--font-poppins-semi-bold), sans-serif;
     font-size: 18px;
     font-weight: 600;
@@ -1712,7 +1712,7 @@ button.footer-page-link {
 }
 
 .tech-mobile-index {
-    color: #3a3a3a;
+    color: var(--color-text-subtle);
     font-family: "Consolas", "SF Mono", ui-monospace, monospace;
     font-size: 10px;
     letter-spacing: 0.5px;
@@ -1725,7 +1725,7 @@ button.footer-page-link {
 }
 
 .tech-mobile-label {
-    color: #3d3d3d;
+    color: var(--color-text-subtle);
     font-family: var(--font-poppins-medium), sans-serif;
     font-size: 11px;
     letter-spacing: 1.54px;
@@ -1745,8 +1745,8 @@ button.footer-page-link {
     gap: 8px;
     padding: 9px 13px;
     border-radius: 14px;
-    background: #161616;
-    border: 1px solid #252525;
+    background: var(--color-surface-raised);
+    border: 1px solid var(--color-border-raised);
 }
 
 .tech-chip-logo {
@@ -1771,7 +1771,7 @@ button.footer-page-link {
 }
 
 .tech-chip-text {
-    color: #b8b8b8;
+    color: var(--color-text-muted);
     font-family: var(--font-poppins-medium), sans-serif;
     font-size: 12px;
     white-space: nowrap;
@@ -1798,7 +1798,7 @@ button.footer-page-link {
 .tech-badge-bg {
     position: absolute;
     inset: 0;
-    background: #111113;
+    background: var(--color-surface-raised);
     border-radius: 16px;
     pointer-events: none;
 }
@@ -1811,7 +1811,7 @@ button.footer-page-link {
     border: 1px solid var(--color-border-soft);
     flex-shrink: 0;
     overflow: hidden;
-    background: #0a0a0c;
+    background: var(--color-surface-sunken);
 }
 
 .tech-badge-gradient {
@@ -1844,7 +1844,7 @@ button.footer-page-link {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--color-text-primary);
     filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.12));
 }
 
@@ -1934,7 +1934,7 @@ button.footer-page-link {
 }
 
 .features-mobile-title {
-    color: #f0f0f0;
+    color: var(--color-text-primary);
     font-family: var(--font-poppins-semi-bold), sans-serif;
     font-size: 18px;
     font-weight: 600;
@@ -1942,7 +1942,7 @@ button.footer-page-link {
 }
 
 .features-mobile-index {
-    color: #3a3a3a;
+    color: var(--color-text-subtle);
     font-family: "Consolas", "SF Mono", ui-monospace, monospace;
     font-size: 10px;
     letter-spacing: 0.5px;
@@ -1955,8 +1955,8 @@ button.footer-page-link {
 }
 
 .feature-card-m {
-    background: #141414;
-    border: 1px solid #252525;
+    background: var(--color-surface-raised-alt);
+    border: 1px solid var(--color-border-raised);
     border-radius: 16px;
     padding: 21px;
 }
@@ -1969,7 +1969,7 @@ button.footer-page-link {
 }
 
 .feature-card-m-title {
-    color: #ebebeb;
+    color: var(--color-text-primary);
     font-family: var(--font-poppins-semi-bold), sans-serif;
     font-size: 14px;
     font-weight: 600;
@@ -2166,7 +2166,7 @@ button.footer-page-link {
     z-index: 45;
     display: flex;
     flex-direction: column;
-    background: #0a0a0a;
+    background: var(--color-surface-sunken);
     border-bottom: 1px solid var(--color-surface-soft);
     padding: 8px 16px 16px;
 }
@@ -2199,7 +2199,7 @@ button.footer-page-link {
         width: 100vw;
         margin-left: -16px;
         padding: 0 16px;
-        background: rgba(10, 10, 10, 0.9);
+        background: var(--color-bar);
         backdrop-filter: blur(8px);
         border-bottom: 1px solid var(--color-border-soft);
         box-sizing: border-box;
@@ -2432,7 +2432,7 @@ button.footer-page-link {
         height: 12px;
         border-radius: 50%;
         background: var(--color-accent);
-        border: 2px solid #0a0a0a;
+        border: 2px solid var(--color-border-raised);
         z-index: 1;
     }
 
@@ -2486,7 +2486,7 @@ button.footer-page-link {
 
     .experience-role {
         font-size: 14px;
-        color: #ffffff;
+        color: var(--color-text-primary);
         text-align: left;
     }
 
@@ -2500,7 +2500,7 @@ button.footer-page-link {
 
     .experience-description li {
         font-size: 12px;
-        color: rgba(255, 255, 255, 0.6);
+        color: var(--color-text-muted);
         text-align: left;
     }
 
@@ -2690,7 +2690,7 @@ button.footer-page-link {
         width: 40px;
         height: 40px;
         border-radius: 50%;
-        border: 1px solid rgba(255, 255, 255, 0.13);
+        border: 1px solid var(--color-border);
         object-fit: cover;
         flex-shrink: 0;
     }
@@ -2701,7 +2701,7 @@ button.footer-page-link {
     }
 
     .reference-mobile-name {
-        color: #fff;
+        color: var(--color-text-primary);
         font-family: var(--font-poppins-medium), sans-serif;
         font-size: 11.5px;
         font-weight: 600;
@@ -2710,7 +2710,7 @@ button.footer-page-link {
     }
 
     .reference-mobile-position {
-        color: rgba(255, 255, 255, 0.38);
+        color: var(--color-text-subtle);
         font-family: var(--font-poppins-light), sans-serif;
         font-size: 10px;
         letter-spacing: 0.1px;
@@ -2728,7 +2728,7 @@ button.footer-page-link {
         border-radius: 999px;
         background: var(--color-border-soft);
         border: 1px solid var(--color-border);
-        color: rgba(255, 255, 255, 0.55);
+        color: var(--color-text-muted);
         font-family: var(--font-poppins-light), sans-serif;
         font-size: 11px;
         text-decoration: none;
@@ -2751,7 +2751,7 @@ button.footer-page-link {
         width: 5px;
         height: 5px;
         border-radius: 999px;
-        background: rgba(255, 255, 255, 0.18);
+        background: var(--color-border-strong);
         transition: width 0.25s ease, background 0.25s ease;
     }
 
@@ -2934,9 +2934,9 @@ button.footer-page-link {
     height: 40px;
     padding: 0 20px;
     border-radius: 999px;
-    border: 1px solid #2e2e2e;
+    border: 1px solid var(--color-border-raised);
     background: transparent;
-    color: #d0d0d0;
+    color: var(--color-text-secondary);
     font-family: var(--font-poppins-light), sans-serif;
     font-size: 13px;
     text-decoration: none;
@@ -2980,7 +2980,7 @@ button.footer-page-link {
     align-items: center;
     gap: 8px;
     padding: 10px 19px;
-    background: rgba(8, 8, 8, 0.65);
+    background: var(--color-scrim);
     border: 1px solid var(--color-border-strong);
     border-radius: 30px;
     color: var(--color-text-primary);
@@ -3045,7 +3045,7 @@ button.footer-page-link {
     width: fit-content;
     max-width: 100%;
     padding: 13px 23px;
-    background: rgba(14, 14, 14, 0.8);
+    background: var(--color-surface-raised);
     border: 1px solid var(--color-border);
     border-radius: 16px;
     box-sizing: border-box;
@@ -3178,7 +3178,7 @@ button.footer-page-link {
 }
 
 .dap-section-title {
-    color: #f0f0f0;
+    color: var(--color-text-primary);
     font-family: var(--font-poppins-semi-bold), sans-serif;
     font-size: 18px;
     font-weight: 600;
@@ -3186,7 +3186,7 @@ button.footer-page-link {
 }
 
 .dap-section-index {
-    color: #3a3a3a;
+    color: var(--color-text-subtle);
     font-family: "Consolas", "SF Mono", ui-monospace, monospace;
     font-size: 10px;
     letter-spacing: 0.5px;
@@ -3200,7 +3200,7 @@ button.footer-page-link {
 }
 
 .dap-microlabel {
-    color: #3d3d3d;
+    color: var(--color-text-subtle);
     font-family: var(--font-poppins-medium), sans-serif;
     font-size: 11px;
     letter-spacing: 1.54px;
@@ -3221,8 +3221,8 @@ button.footer-page-link {
     gap: 8px;
     padding: 9px 13px;
     border-radius: 14px;
-    background: #161616;
-    border: 1px solid #252525;
+    background: var(--color-surface-raised);
+    border: 1px solid var(--color-border-raised);
 }
 
 .dap-chip-logo {
@@ -3243,13 +3243,13 @@ button.footer-page-link {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: #b8b8b8;
+    color: var(--color-text-muted);
     opacity: 0.8;
     flex-shrink: 0;
 }
 
 .dap-chip-text {
-    color: #b8b8b8;
+    color: var(--color-text-muted);
     font-family: var(--font-poppins-medium), sans-serif;
     font-size: 12px;
     white-space: nowrap;
@@ -3264,8 +3264,8 @@ button.footer-page-link {
 }
 
 .dap-finding {
-    background: #141414;
-    border: 1px solid #252525;
+    background: var(--color-surface-raised-alt);
+    border: 1px solid var(--color-border-raised);
     border-radius: 16px;
     padding: 21px;
 }
@@ -3278,7 +3278,7 @@ button.footer-page-link {
 }
 
 .dap-finding-title {
-    color: #ebebeb;
+    color: var(--color-text-primary);
     font-family: var(--font-poppins-semi-bold), sans-serif;
     font-size: 14px;
     font-weight: 600;
@@ -3312,7 +3312,7 @@ button.footer-page-link {
 }
 
 .dap-contacts-title {
-    color: #fff;
+    color: var(--color-text-primary);
     font-family: var(--font-poppins-semi-bold), sans-serif;
     font-size: 24px;
     font-weight: 600;
@@ -3438,7 +3438,7 @@ button.footer-page-link {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: rgba(255, 255, 255, 0.85);
+    color: var(--color-text-secondary);
     flex-shrink: 0;
 }
 
@@ -3470,7 +3470,7 @@ button.footer-page-link {
     flex-direction: column;
     gap: 12px;
     padding-top: 21px;
-    border-top: 1px solid #1e1e1e;
+    border-top: 1px solid var(--color-divider-strong);
 }
 
 .dap-page-link {
