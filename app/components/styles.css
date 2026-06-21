@@ -2481,14 +2481,31 @@ button.footer-page-link {
         justify-content: center;
     }
 
-    /* Green accent per the mobile design */
+    /* Typography copied from the mobile Figma design (sizes, colours, alignment) */
     .experience-company {
+        font-size: 10px;
         color: #0eab00;
+        text-align: left;
+    }
+
+    .experience-role {
+        font-size: 14px;
+        color: #ffffff;
+        text-align: left;
     }
 
     /* Show the in-card date, hide the long company blurb */
     .experience-card-date {
         display: block;
+        font-size: 10px;
+        color: rgba(255, 255, 255, 0.4);
+        text-align: left;
+    }
+
+    .experience-description li {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.6);
+        text-align: left;
     }
 
     .experience-about {
