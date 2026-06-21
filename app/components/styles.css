@@ -690,8 +690,8 @@
     }
     .experience-card {
         flex-direction: column;
-        align-items: center;
-        text-align: center;
+        align-items: flex-start;
+        text-align: left;
     }
     .experience-logo {
         width: 40px;
@@ -2471,6 +2471,7 @@ button.footer-page-link {
 
     .experience-card-header {
         align-items: flex-start;
+        width: 100%;
     }
 
     .experience-logo {

@@ -41,7 +41,7 @@ const experiences: Experience[] = [
     theme: "green",
   },
   {
-    company: "SFU Google Developer Student Club (GDSC)",
+    company: "SFU Google Developer Student Club",
     role: "Guest Mentor",
     duration: "Mar 2026",
     about: "GDSC is a Google-supported student community at SFU.",
