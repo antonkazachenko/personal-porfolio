@@ -4,8 +4,10 @@ import React, {forwardRef, ForwardedRef, ReactElement, useState, useEffect, useR
 import Image from "next/image";
 import {ChevronUp} from "lucide-react";
 import {CJSFIcon, CopperleafIcon, GDSCIcon, MicrosoftIcon, SFUIcon} from "@/public/icons";
+import { useI18n } from "@/app/i18n/I18nProvider";
 
 interface Experience {
+  key?: string;
   company: string;
   role: string;
   duration: string;
@@ -27,6 +29,7 @@ const themeColors: Record<Experience["theme"], string> = {
 
 const experiences: Experience[] = [
   {
+    key: "infoblox",
     company: "Infoblox · Permanent Full-time",
     role: "Associate Software Engineer",
     duration: "Mar 2026 - Present",
@@ -41,6 +44,7 @@ const experiences: Experience[] = [
     theme: "green",
   },
   {
+    key: "gdsc",
     company: "SFU Google Developer Student Club",
     role: "Guest Mentor",
     duration: "Mar 2026",
@@ -52,6 +56,7 @@ const experiences: Experience[] = [
     theme: "blue",
   },
   {
+    key: "ifs",
     company: "IFS Copperleaf · Internship",
     role: "Software Developer Intern",
     duration: "May 2024 - Dec 2024",
@@ -65,6 +70,7 @@ const experiences: Experience[] = [
     theme: "purple",
   },
   {
+    key: "sfu",
     company: "SFU · Permanent Part-time",
     role: "Research Assistant",
     duration: "Sep 2024 - Dec 2025",
@@ -79,6 +85,7 @@ const experiences: Experience[] = [
     theme: "red",
   },
   {
+    key: "teals",
     company: "Microsoft Teals Program · Volunteering",
     role: "Teaching Assistant",
     duration: "May 2024 - Aug 2024",
@@ -93,6 +100,7 @@ const experiences: Experience[] = [
     theme: "yellow",
   },
   {
+    key: "cjsf",
     company: "CJSF 90.1 · Permanent Part-time",
     role: "Mobile Application Developer",
     duration: "Sep 2023 - May 2024",
@@ -110,6 +118,7 @@ const experiences: Experience[] = [
 
 const ExperienceSection = forwardRef<HTMLDivElement, object>((props, ref: ForwardedRef<HTMLDivElement>) => {
   const [expanded, setExpanded] = useState<boolean[]>(() => experiences.map((_, i) => i === 0));
+  const { t } = useI18n();
 
   const toggle = (index: number) => {
     setExpanded((prev) => prev.map((value, i) => (i === index ? !value : value)));
@@ -161,8 +170,8 @@ const ExperienceSection = forwardRef<HTMLDivElement, object>((props, ref: Forwar
   return (
     <div className="experience-section" ref={ref}>
       <div className="skills-header-container">
-        <h1 className="section-header-bg">EXPERIENCE</h1>
-        <h2 className="section-header">EXPERIENCE</h2>
+        <h1 className="section-header-bg">{t('experience.heading')}</h1>
+        <h2 className="section-header">{t('experience.heading')}</h2>
       </div>
       <div className="experience-timeline" ref={timelineRef}>
         {lineSegments.map((seg, i) => (
@@ -173,8 +182,80 @@ const ExperienceSection = forwardRef<HTMLDivElement, object>((props, ref: Forwar
           />
         ))}
         {experiences.map((exp, index) => {
-          const isExpanded = expanded[index];
-          const hasDetails = exp.description.length > 0;
+const isExpanded = expanded[index];
+          
+          let company = exp.company;
+          let role = exp.role;
+          let duration = exp.duration;
+          let about = exp.about;
+          let description = exp.description;
+          
+          if (exp.key === 'ifs') {
+            company = t('experience.ifs.company');
+            role = t('experience.ifs.role');
+            duration = t('experience.ifs.duration');
+            about = t('experience.ifs.about');
+            description = [
+              t('experience.ifs.description1'),
+              t('experience.ifs.description2'),
+              t('experience.ifs.description3')
+            ];
+
+          } else if (exp.key === 'teals') {
+            company = t('experience.teals.company');
+            role = t('experience.teals.role');
+            duration = t('experience.teals.duration');
+            about = t('experience.teals.about');
+            description = [
+              t('experience.teals.description1'),
+              t('experience.teals.description2'),
+              t('experience.teals.description3'),
+              t('experience.teals.description4')
+            ];
+          } else if (exp.key === 'sfu') {
+            company = t('experience.sfu.company');
+            role = t('experience.sfu.role');
+            duration = t('experience.sfu.duration');
+            about = t('experience.sfu.about');
+            description = [
+              t('experience.sfu.description1'),
+              t('experience.sfu.description2'),
+              t('experience.sfu.description3'),
+              t('experience.sfu.description4')
+            ];
+          } else if (exp.key === 'cjsf') {
+            company = t('experience.cjsf.company');
+            role = t('experience.cjsf.role');
+            duration = t('experience.cjsf.duration');
+            about = t('experience.cjsf.about');
+            description = [
+              t('experience.cjsf.description1'),
+              t('experience.cjsf.description2'),
+              t('experience.cjsf.description3'),
+              t('experience.cjsf.description4')
+            ];
+          } else if (exp.key === 'infoblox') {
+            company = t('experience.infoblox.company');
+            role = t('experience.infoblox.role');
+            duration = t('experience.infoblox.duration');
+            about = t('experience.infoblox.about');
+            description = [
+              t('experience.infoblox.description1'),
+              t('experience.infoblox.description2'),
+              t('experience.infoblox.description3'),
+              t('experience.infoblox.description4')
+            ];
+          } else if (exp.key === 'gdsc') {
+            company = t('experience.gdsc.company');
+            role = t('experience.gdsc.role');
+            duration = t('experience.gdsc.duration');
+            about = t('experience.gdsc.about');
+            description = [
+              t('experience.gdsc.description1')
+            ];
+          }
+
+          const hasDetails = description.length > 0;
           return (
             <div
               className="experience-item"
@@ -182,7 +263,7 @@ const ExperienceSection = forwardRef<HTMLDivElement, object>((props, ref: Forwar
               style={{ "--exp-color": themeColors[exp.theme] } as CSSProperties}
             >
               <div className="timeline-date" ref={(el) => { dateRefs.current[index] = el; }}>
-                <span>{exp.duration}</span>
+                <span>{duration}</span>
               </div>
               <div
                 className={`experience-card ${index % 2 === 0 ? 'right-card' : 'left-card'} ${hasDetails ? 'experience-card--clickable' : ''}`}
@@ -195,9 +276,9 @@ const ExperienceSection = forwardRef<HTMLDivElement, object>((props, ref: Forwar
                     {exp.logo}
                   </div>
                   <div className="experience-heading">
-                    <p className="experience-company">{exp.company}</p>
-                    <h3 className="experience-role">{exp.role}</h3>
-                    <p className="experience-card-date">{exp.duration}</p>
+                    <p className="experience-company">{company}</p>
+                    <h3 className="experience-role">{role}</h3>
+                    <p className="experience-card-date">{duration}</p>
                   </div>
                   {hasDetails && (
                     <span className="experience-toggle" aria-hidden="true">
@@ -214,9 +295,9 @@ const ExperienceSection = forwardRef<HTMLDivElement, object>((props, ref: Forwar
                 {hasDetails && (
                   <div className={`experience-collapsible ${isExpanded ? 'expanded' : ''}`}>
                     <div className="experience-collapsible-inner">
-                      {exp.about && <p className="experience-about">{exp.about}</p>}
+                      {about && <p className="experience-about">{about}</p>}
                       <ul className="experience-description">
-                        {exp.description.map((item, i) => (
+                        {description.map((item, i) => (
                           <li key={i}>{item}</li>
                         ))}
                       </ul>

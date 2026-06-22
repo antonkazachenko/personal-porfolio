@@ -2,19 +2,21 @@
 
 import React, { useState } from 'react';
 import { ChevronDown, Copy, Check } from 'lucide-react';
-
-const DEFAULT_CREDENTIALS: { key: string; value: string }[] = [
-  { key: 'Email:', value: 'anton@gmail.com' },
-  { key: 'Password:', value: 'test12345' },
-];
+import { useI18n } from '@/app/i18n/I18nProvider';
 
 interface DemoCredentialsProps {
   credentials?: { key: string; value: string }[];
 }
 
-const DemoCredentials: React.FC<DemoCredentialsProps> = ({ credentials = DEFAULT_CREDENTIALS }) => {
+const DemoCredentials: React.FC<DemoCredentialsProps> = ({ credentials }) => {
+  const { t } = useI18n();
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState<string | null>(null);
+
+  const activeCredentials = credentials ?? [
+    { key: t('demoCredentials.email'), value: 'anton@gmail.com' },
+    { key: t('demoCredentials.password'), value: 'test12345' },
+  ];
 
   const handleCopy = async (value: string) => {
     try {
@@ -35,16 +37,16 @@ const DemoCredentials: React.FC<DemoCredentialsProps> = ({ credentials = DEFAULT
         onClick={() => setOpen((value) => !value)}
       >
         <span className="demo-creds-dot" />
-        Demo Credentials
+        {t('demoCredentials.toggle')}
         <ChevronDown className="demo-creds-chevron" size={10} strokeWidth={2} aria-hidden="true" />
       </button>
 
       <div className="demo-creds-reveal">
         <div className="demo-creds-reveal-inner">
           <div className="demo-creds-panel">
-            <span className="demo-creds-label">Demo Access</span>
+            <span className="demo-creds-label">{t('demoCredentials.accessLabel')}</span>
             <span className="demo-creds-divider" />
-            {credentials.map(({ key, value }) => (
+            {activeCredentials.map(({ key, value }) => (
               <div key={key} className="demo-creds-cred">
                 <span className="demo-creds-cred-key">{key}</span>
                 <span className="demo-creds-cred-val">{value}</span>

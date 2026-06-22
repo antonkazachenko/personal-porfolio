@@ -1,0 +1,207 @@
+TYPE:
+tooltips: {
+  frontendFramework: string;
+  jsTranspiler: string;
+  webStyling: string;
+  e2eTesting: string;
+  backendLanguage: string;
+  templateEngine: string;
+  webMarkup: string;
+  unitTesting: string;
+  webScripting: string;
+  relationalDatabase: string;
+  reactFramework: string;
+  stateManagement: string;
+  jsRuntime: string;
+  cssProcessor: string;
+  databaseORM: string;
+  uiLibrary: string;
+  mobileFramework: string;
+  systemsLanguage: string;
+  reactiveProgramming: string;
+  cssPreprocessor: string;
+  queryLanguage: string;
+  embeddedDatabase: string;
+  typedJavaScript: string;
+  configAutomation: string;
+  cloudPlatform: string;
+  containerization: string;
+  ciCDPipelines: string;
+  metricsVisualization: string;
+  k8sPackaging: string;
+  ciCDAutomation: string;
+  containerOrchestration: string;
+  artifactRepository: string;
+  metricsMonitoring: string;
+  codeQuality: string;
+  infrastructureAsCode: string;
+  bigDataProcessing: string;
+  gradientBoosting: string;
+  cloudNotebooks: string;
+  interactiveNotebooks: string;
+  neuralNetworkAPI: string;
+  dataVisualization: string;
+  numericalComputing: string;
+  dataAnalysis: string;
+  dataLanguage: string;
+  deepLearning: string;
+  mlLibrary: string;
+  scientificComputing: string;
+  mlFramework: string;
+}
+
+EN:
+tooltips: {
+  frontendFramework: "Frontend framework",
+  jsTranspiler: "JS transpiler",
+  webStyling: "Web styling",
+  e2eTesting: "E2E testing",
+  backendLanguage: "Backend language",
+  templateEngine: "Template engine",
+  webMarkup: "Web markup",
+  unitTesting: "Unit testing",
+  webScripting: "Web scripting",
+  relationalDatabase: "Relational database",
+  reactFramework: "React framework",
+  stateManagement: "State management",
+  jsRuntime: "JS runtime",
+  cssProcessor: "CSS processor",
+  databaseORM: "Database ORM",
+  uiLibrary: "UI library",
+  mobileFramework: "Mobile framework",
+  systemsLanguage: "Systems language",
+  reactiveProgramming: "Reactive programming",
+  cssPreprocessor: "CSS preprocessor",
+  queryLanguage: "Query language",
+  embeddedDatabase: "Embedded database",
+  typedJavaScript: "Typed JavaScript",
+  configAutomation: "Config automation",
+  cloudPlatform: "Cloud platform",
+  containerization: "Containerization",
+  ciCDPipelines: "CI/CD pipelines",
+  metricsVisualization: "Metrics visualization",
+  k8sPackaging: "K8s packaging",
+  ciCDAutomation: "CI/CD automation",
+  containerOrchestration: "Container orchestration",
+  artifactRepository: "Artifact repository",
+  metricsMonitoring: "Metrics monitoring",
+  codeQuality: "Code quality",
+  infrastructureAsCode: "Infrastructure as code",
+  bigDataProcessing: "Big data processing",
+  gradientBoosting: "Gradient boosting",
+  cloudNotebooks: "Cloud notebooks",
+  interactiveNotebooks: "Interactive notebooks",
+  neuralNetworkAPI: "Neural network API",
+  dataVisualization: "Data visualization",
+  numericalComputing: "Numerical computing",
+  dataAnalysis: "Data analysis",
+  dataLanguage: "Data language",
+  deepLearning: "Deep learning",
+  mlLibrary: "ML library",
+  scientificComputing: "Scientific computing",
+  mlFramework: "ML framework",
+}
+
+DE:
+tooltips: {
+  frontendFramework: "Frontend-Framework",
+  jsTranspiler: "JS-Transpiler",
+  webStyling: "Web-Styling",
+  e2eTesting: "E2E-Testing",
+  backendLanguage: "Backend-Sprache",
+  templateEngine: "Template-Engine",
+  webMarkup: "Web-Markup",
+  unitTesting: "Unit-Testing",
+  webScripting: "Web-Skripting",
+  relationalDatabase: "Relationale Datenbank",
+  reactFramework: "React-Framework",
+  stateManagement: "State-Management",
+  jsRuntime: "JS-Laufzeitumgebung",
+  cssProcessor: "CSS-Prozessor",
+  databaseORM: "Datenbank-ORM",
+  uiLibrary: "UI-Bibliothek",
+  mobileFramework: "Mobile-Framework",
+  systemsLanguage: "Systemsprache",
+  reactiveProgramming: "Reaktive Programmierung",
+  cssPreprocessor: "CSS-Präprozessor",
+  queryLanguage: "Abfragesprache",
+  embeddedDatabase: "Eingebettete Datenbank",
+  typedJavaScript: "Typisiertes JavaScript",
+  configAutomation: "Konfigurationsautomatisierung",
+  cloudPlatform: "Cloud-Plattform",
+  containerization: "Containerisierung",
+  ciCDPipelines: "CI/CD-Pipelines",
+  metricsVisualization: "Metrik-Visualisierung",
+  k8sPackaging: "K8s-Paketierung",
+  ciCDAutomation: "CI/CD-Automatisierung",
+  containerOrchestration: "Container-Orchestrierung",
+  artifactRepository: "Artefakt-Repository",
+  metricsMonitoring: "Metrik-Überwachung",
+  codeQuality: "Code-Qualität",
+  infrastructureAsCode: "Infrastruktur als Code",
+  bigDataProcessing: "Big-Data-Verarbeitung",
+  gradientBoosting: "Gradient Boosting",
+  cloudNotebooks: "Cloud-Notebooks",
+  interactiveNotebooks: "Interaktive Notebooks",
+  neuralNetworkAPI: "Neuronale Netz-API",
+  dataVisualization: "Datenvisualisierung",
+  numericalComputing: "Numerisches Rechnen",
+  dataAnalysis: "Datenanalyse",
+  dataLanguage: "Datensprache",
+  deepLearning: "Deep Learning",
+  mlLibrary: "ML-Bibliothek",
+  scientificComputing: "Wissenschaftliches Rechnen",
+  mlFramework: "ML-Framework",
+}
+
+FR:
+tooltips: {
+  frontendFramework: "Framework Frontend",
+  jsTranspiler: "Transpileur JS",
+  webStyling: "Style Web",
+  e2eTesting: "Tests E2E",
+  backendLanguage: "Langage Backend",
+  templateEngine: "Moteur de templates",
+  webMarkup: "Balisage Web",
+  unitTesting: "Tests unitaires",
+  webScripting: "Scripting Web",
+  relationalDatabase: "Base de données relationnelle",
+  reactFramework: "Framework React",
+  stateManagement: "Gestion d'état",
+  jsRuntime: "Environnement d'exécution JS",
+  cssProcessor: "Processeur CSS",
+  databaseORM: "ORM de base de données",
+  uiLibrary: "Bibliothèque UI",
+  mobileFramework: "Framework mobile",
+  systemsLanguage: "Langage système",
+  reactiveProgramming: "Programmation réactive",
+  cssPreprocessor: "Préprocesseur CSS",
+  queryLanguage: "Langage de requête",
+  embeddedDatabase: "Base de données embarquée",
+  typedJavaScript: "JavaScript typé",
+  configAutomation: "Automatisation de la configuration",
+  cloudPlatform: "Plateforme cloud",
+  containerization: "Conteneurisation",
+  ciCDPipelines: "Pipelines CI/CD",
+  metricsVisualization: "Visualisation de métriques",
+  k8sPackaging: "Package K8s",
+  ciCDAutomation: "Automatisation CI/CD",
+  containerOrchestration: "Orchestration de conteneurs",
+  artifactRepository: "Référentiel d'artefacts",
+  metricsMonitoring: "Surveillance des métriques",
+  codeQuality: "Qualité du code",
+  infrastructureAsCode: "Infrastructure en tant que code",
+  bigDataProcessing: "Traitement de métadonnées",
+  gradientBoosting: "Gradient boosting",
+  cloudNotebooks: "Notebooks cloud",
+  interactiveNotebooks: "Notebooks interactifs",
+  neuralNetworkAPI: "API de réseaux de neurones",
+  dataVisualization: "Visualisation de données",
+  numericalComputing: "Calcul numérique",
+  dataAnalysis: "Analyse de données",
+  dataLanguage: "Langage de données",
+  deepLearning: "Apprentissage profond",
+  mlLibrary: "Bibliothèque ML",
+  scientificComputing: "Calcul scientifique",
+  mlFramework: "Framework ML",
+}

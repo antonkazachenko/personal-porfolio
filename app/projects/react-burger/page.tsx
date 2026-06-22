@@ -18,19 +18,19 @@ const PROJECT_COLOR = '#9205af';
 const NAV_KEYS = ['skills', 'experience', 'projects', 'education', 'contacts'] as const;
 
 const TECH_STACK = [
-  { name: 'React', description: 'Component-based UI library', Icon: ReactIcon },
-  { name: 'TypeScript', description: 'Typed superset of JavaScript', Icon: TypeScriptIcon },
-  { name: 'Redux', description: 'Predictable global state', Icon: ReduxIcon },
-  { name: 'Cypress', description: 'End-to-end testing', Icon: CypressIcon },
-  { name: 'Jest', description: 'Unit testing framework', Icon: JestIcon },
+  { key: 'react', name: 'React', Icon: ReactIcon },
+  { key: 'typescript', name: 'TypeScript', Icon: TypeScriptIcon },
+  { key: 'redux', name: 'Redux', Icon: ReduxIcon },
+  { key: 'cypress', name: 'Cypress', Icon: CypressIcon },
+  { key: 'jest', name: 'Jest', Icon: JestIcon },
 ];
 
 const BADGES = [
-  { label: 'React Router', Icon: Route, color: '#f44250', description: 'Client-side routing' },
-  { label: 'React DnD', Icon: Move, color: '#34d399', description: 'Drag-and-drop interactions' },
-  { label: 'React Context API', Icon: Share2, color: '#61dafb', description: 'Shared state & translations' },
-  { label: 'WebSockets', Icon: Zap, color: '#8b5cf6', description: 'Real-time data streaming' },
-  { label: 'JWTs', Icon: Key, color: '#f59e0b', description: 'Token-based authentication' },
+  { key: 'reactRouter', label: 'React Router', Icon: Route, color: '#f44250' },
+  { key: 'reactDnd', label: 'React DnD', Icon: Move, color: '#34d399' },
+  { key: 'contextApi', label: 'React Context API', Icon: Share2, color: '#61dafb' },
+  { key: 'websockets', label: 'WebSockets', Icon: Zap, color: '#8b5cf6' },
+  { key: 'jwts', label: 'JWTs', Icon: Key, color: '#f59e0b' },
 ];
 
 // Feature keys map to the reactBurger.features.* dictionary entries; titles and
@@ -139,7 +139,7 @@ export default function ReactBurgerPage() {
               rel="noopener noreferrer"
               className="project-cta-btn project-cta-btn--primary"
             >
-              Live Demo
+              {t('projectLinks.liveDemo')}
               <ExternalLink size={14} />
             </a>
             <a
@@ -148,7 +148,7 @@ export default function ReactBurgerPage() {
               rel="noopener noreferrer"
               className="project-cta-btn"
             >
-              GitHub
+              {t('projectLinks.github')}
               <GithubMobileIcon />
             </a>
             <a
@@ -157,7 +157,7 @@ export default function ReactBurgerPage() {
               rel="noopener noreferrer"
               className="project-cta-btn"
             >
-              LinkedIn Post
+              {t('projectLinks.linkedinPost')}
               <LinkedinMobileIcon />
             </a>
           </div>
@@ -181,22 +181,22 @@ export default function ReactBurgerPage() {
         <div id="technologies">
         {/* Tech strip (desktop) */}
         <div className="project-tech-strip">
-          <p className="project-tech-label">Tools &amp; Technologies Used</p>
+          <p className="project-tech-label">{t('techSection.usedHeading')}</p>
           <div className="project-tech-container">
             <div className="project-tech-logos">
-              {TECH_STACK.map(({ name, description, Icon }) => (
-                <div key={name} className="project-tech-icon">
+              {TECH_STACK.map(({ key, name, Icon }) => (
+                <div key={key} className="project-tech-icon">
                   <Icon />
                   <div className="skill-tooltip">
                     <span className="skill-tooltip-name">{name}</span>
-                    <span className="skill-tooltip-desc">{description}</span>
+                    <span className="skill-tooltip-desc">{t(`reactBurger.tech.stack.${key}`)}</span>
                   </div>
                 </div>
               ))}
             </div>
             <div className="project-tech-badges">
-              {BADGES.map(({ label, Icon, color, description }) => (
-                <TechBadge key={label} label={label} icon={<Icon size={18} />} color={color} description={description} />
+              {BADGES.map(({ key, label, Icon, color }) => (
+                <TechBadge key={key} label={label} icon={<Icon size={18} />} color={color} description={t(`reactBurger.tech.badges.${key}`)} />
               ))}
             </div>
           </div>
@@ -205,12 +205,12 @@ export default function ReactBurgerPage() {
         {/* Tech section (mobile) — chip layout */}
         <section className="tech-mobile">
           <div className="tech-mobile-head">
-            <h2 className="tech-mobile-title">Tools &amp; Technologies</h2>
+            <h2 className="tech-mobile-title">{t('techSection.heading')}</h2>
             <span className="tech-mobile-index">02</span>
           </div>
 
           <div className="tech-mobile-group">
-            <p className="tech-mobile-label">Core Stack</p>
+            <p className="tech-mobile-label">{t('techSection.coreStack')}</p>
             <div className="tech-mobile-chips">
               {TECH_STACK.map(({ name, Icon }) => (
                 <div key={name} className="tech-chip">
@@ -222,7 +222,7 @@ export default function ReactBurgerPage() {
           </div>
 
           <div className="tech-mobile-group">
-            <p className="tech-mobile-label">Libraries &amp; Tooling</p>
+            <p className="tech-mobile-label">{t('techSection.librariesTooling')}</p>
             <div className="tech-mobile-chips">
               {BADGES.map(({ label, Icon, color }) => (
                 <div key={label} className="tech-chip">

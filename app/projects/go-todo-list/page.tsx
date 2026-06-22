@@ -7,55 +7,36 @@ import { GithubIcon, LinkedinIcon, GithubMobileIcon, LinkedinMobileIcon, TabIcon
 import ThemeSwitcher from '@/app/components/ThemeSwitcher';
 import LangDropdown from '@/app/components/LangDropdown';
 import RightsSection from '@/app/components/RightsSection';
+import { useI18n } from '@/app/i18n/I18nProvider';
 import TechBadge from '@/app/components/TechBadge';
 import DemoCredentials from '@/app/components/DemoCredentials';
 import '@/app/components/styles.css';
 
 const PROJECT_COLOR = '#00b8be';
 
-const NAV_ITEMS = ['Skills', 'Experience', 'Projects', 'Education', 'Contacts'];
+const NAV_KEYS = ['skills', 'experience', 'projects', 'education', 'contacts'];
 
 const TECH_STACK = [
-  { name: 'Go', description: 'Backend Language', Icon: GoIcon },
-  { name: 'SQLite', description: 'Persistent Data Storage', Icon: SQLiteIcon },
-  { name: 'JavaScript', description: 'Frontend Logic', Icon: JSIcon },
-  { name: 'Docker', description: 'Containerization', Icon: DockerIcon },
-  { name: 'HTML5', description: 'Markup', Icon: HTML5Icon },
-  { name: 'CSS3', description: 'Styling', Icon: CSS3Icon },
+  { key: 'go', name: 'Go', Icon: GoIcon },
+  { key: 'sqlite', name: 'SQLite', Icon: SQLiteIcon },
+  { key: 'javascript', name: 'JavaScript', Icon: JSIcon },
+  { key: 'docker', name: 'Docker', Icon: DockerIcon },
+  { key: 'html5', name: 'HTML5', Icon: HTML5Icon },
+  { key: 'css3', name: 'CSS3', Icon: CSS3Icon },
 ];
 
 const BADGES = [
-  { label: 'Chi Router', Icon: Route, color: '#00b8be', description: 'Lightweight idiomatic routing' },
-  { label: 'SQLx', Icon: Database, color: '#336791', description: 'SQL toolkit for Go' },
-  { label: 'JWT Auth', Icon: Key, color: '#f59e0b', description: 'Secure token authentication' },
-  { label: 'Testify', Icon: CheckCircle, color: '#00e676', description: 'Unit testing utilities' },
+  { key: 'chiRouter', label: 'Chi Router', Icon: Route, color: '#00b8be' },
+  { key: 'sqlx', label: 'SQLx', Icon: Database, color: '#336791' },
+  { key: 'jwtAuth', label: 'JWT Auth', Icon: Key, color: '#f59e0b' },
+  { key: 'testify', label: 'Testify', Icon: CheckCircle, color: '#00e676' },
 ];
 
-const FEATURES = [
-  {
-    title: 'Layered Architecture',
-    description:
-      'The API is built using a clean layered architecture, with separate Controller, Service, Repository, and Entity layers for improved maintainability and separation of concerns.',
-  },
-  {
-    title: 'Task Scheduling',
-    description:
-      'Users can schedule tasks for future dates with the ability to set up custom repeat intervals, managed completely in the Go backend.',
-  },
-  {
-    title: 'JWT Authentication',
-    description:
-      'Secure login and endpoint protection handled using JSON Web Tokens (JWT), ensuring that tasks are safely associated with specific user sessions.',
-  },
-  {
-    title: 'Multi-stage Docker Build',
-    description:
-      'The application features a multi-stage Dockerfile that creates a lightweight, production-ready image containing only the compiled Go binary and essential static files.',
-  },
-];
+const FEATURE_KEYS = ['layeredArchitecture', 'taskScheduling', 'jwtAuth', 'dockerBuild'] as const;
 
 export default function GoTodoListPage() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { t } = useI18n();
 
   return (
     <>
@@ -63,15 +44,15 @@ export default function GoTodoListPage() {
         {/* Header */}
         <header className="header">
           <div className="left-menu">
-            <Link href="/" className="mobile-logo" aria-label="Home">
+            <Link href="/" className="mobile-logo" aria-label={t('header.home')}>
               <TabIcon className="mobile-logo-svg" />
             </Link>
             <ThemeSwitcher />
             <LangDropdown />
           </div>
           <ul className="menu-list">
-            {NAV_ITEMS.map((label) => (
-              <li key={label}><Link href="/">{label}</Link></li>
+            {NAV_KEYS.map((key) => (
+              <li key={key}><Link href="/">{t(`nav.${key}`)}</Link></li>
             ))}
           </ul>
           <div className="right-menu">
@@ -90,7 +71,7 @@ export default function GoTodoListPage() {
             <button
               type="button"
               className="hamburger"
-              aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+              aria-label={menuOpen ? t('header.closeMenu') : t('header.openMenu')}
               aria-expanded={menuOpen}
               onClick={() => setMenuOpen((open) => !open)}
             >
@@ -104,14 +85,14 @@ export default function GoTodoListPage() {
             <>
               <div className="mobile-drawer-backdrop" onClick={() => setMenuOpen(false)} />
               <nav className="mobile-drawer">
-                {NAV_ITEMS.map((label) => (
+                {NAV_KEYS.map((key) => (
                   <Link
-                    key={label}
+                    key={key}
                     href="/"
                     className="mobile-drawer-link"
                     onClick={() => setMenuOpen(false)}
                   >
-                    {label}
+                    {t(`nav.${key}`)}
                   </Link>
                 ))}
               </nav>
@@ -120,13 +101,13 @@ export default function GoTodoListPage() {
         </header>
 
         {/* Back to home (desktop) */}
-        <Link href="/" className="project-back-btn" aria-label="Back to home">
+        <Link href="/" className="project-back-btn" aria-label={t('header.backToHome')}>
           <ArrowLeft size={14} />
-          Back
+          {t('header.back')}
         </Link>
 
         {/* Back to home (mobile) */}
-        <Link href="/" className="mobile-home-button" aria-label="Home">
+        <Link href="/" className="mobile-home-button" aria-label={t('header.home')}>
           <svg
             className="mobile-home-button-chevron"
             viewBox="0 0 4 8"
@@ -136,7 +117,7 @@ export default function GoTodoListPage() {
           >
             <path d="M3.5 0.5L0.5 4L3.5 7.5" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-          Home
+          {t('header.home')}
         </Link>
 
         {/* Hero */}
@@ -144,7 +125,7 @@ export default function GoTodoListPage() {
           <div className="project-page-hero-text">
             <h1 className="project-page-title">Go Todo List</h1>
             <p className="project-page-subtitle">
-              A high-performance Todo List API built with Go and PostgreSQL, featuring secure authentication and robust data management.
+              {t('goTodoList.description')}
             </p>
           </div>
 
@@ -155,7 +136,7 @@ export default function GoTodoListPage() {
               rel="noopener noreferrer"
               className="project-cta-btn project-cta-btn--primary"
             >
-              Live Demo
+              {t('projectLinks.liveDemo')}
               <ExternalLink size={14} />
             </a>
             <a
@@ -164,7 +145,7 @@ export default function GoTodoListPage() {
               rel="noopener noreferrer"
               className="project-cta-btn"
             >
-              GitHub
+              {t('projectLinks.github')}
               <GithubMobileIcon />
             </a>
             <a
@@ -173,12 +154,12 @@ export default function GoTodoListPage() {
               rel="noopener noreferrer"
               className="project-cta-btn"
             >
-              LinkedIn Post
+              {t('projectLinks.linkedinPost')}
               <LinkedinMobileIcon />
             </a>
           </div>
 
-          <DemoCredentials credentials={[{ key: 'Password:', value: 'test12345' }]} />
+          <DemoCredentials credentials={[{ key: t('demoCredentials.password'), value: 'test12345' }]} />
 
           {/* Demo video */}
           <video
@@ -197,22 +178,22 @@ export default function GoTodoListPage() {
         <div id="technologies">
         {/* Tech strip (desktop) */}
         <div className="project-tech-strip">
-          <p className="project-tech-label">Tools &amp; Technologies Used</p>
+          <p className="project-tech-label">{t('techSection.usedHeading')}</p>
           <div className="project-tech-container">
             <div className="project-tech-logos">
-              {TECH_STACK.map(({ name, description, Icon }) => (
-                <div key={name} className="project-tech-icon">
+              {TECH_STACK.map(({ key, name, Icon }) => (
+                <div key={key} className="project-tech-icon">
                   <Icon />
                   <div className="skill-tooltip">
                     <span className="skill-tooltip-name">{name}</span>
-                    <span className="skill-tooltip-desc">{description}</span>
+                    <span className="skill-tooltip-desc">{t(`goTodoList.tech.stack.${key}`)}</span>
                   </div>
                 </div>
               ))}
             </div>
             <div className="project-tech-badges">
-              {BADGES.map(({ label, Icon, color, description }) => (
-                <TechBadge key={label} label={label} icon={<Icon size={18} />} color={color} description={description} />
+              {BADGES.map(({ key, label, Icon, color }) => (
+                <TechBadge key={key} label={label} icon={<Icon size={18} />} color={color} description={t(`goTodoList.tech.badges.${key}`)} />
               ))}
             </div>
           </div>
@@ -221,12 +202,12 @@ export default function GoTodoListPage() {
         {/* Tech section (mobile) — chip layout */}
         <section className="tech-mobile">
           <div className="tech-mobile-head">
-            <h2 className="tech-mobile-title">Tools &amp; Technologies</h2>
+            <h2 className="tech-mobile-title">{t('techSection.heading')}</h2>
             <span className="tech-mobile-index">02</span>
           </div>
 
           <div className="tech-mobile-group">
-            <p className="tech-mobile-label">Core Stack</p>
+            <p className="tech-mobile-label">{t('techSection.coreStack')}</p>
             <div className="tech-mobile-chips">
               {TECH_STACK.map(({ name, Icon }) => (
                 <div key={name} className="tech-chip">
@@ -238,7 +219,7 @@ export default function GoTodoListPage() {
           </div>
 
           <div className="tech-mobile-group">
-            <p className="tech-mobile-label">Libraries &amp; Tooling</p>
+            <p className="tech-mobile-label">{t('techSection.librariesTooling')}</p>
             <div className="tech-mobile-chips">
               {BADGES.map(({ label, Icon, color }) => (
                 <div key={label} className="tech-chip">
@@ -254,14 +235,14 @@ export default function GoTodoListPage() {
         {/* Key Features */}
         <section className="project-features-section" id="features">
           <div className="skills-header-container">
-            <h1 className="section-header-bg">KEY FEATURES</h1>
-            <h2 className="section-header">KEY FEATURES</h2>
+            <h1 className="section-header-bg">{t('goTodoList.featuresHeading')}</h1>
+            <h2 className="section-header">{t('goTodoList.featuresHeading')}</h2>
           </div>
           <div className="project-features-grid">
-            {FEATURES.map((f) => (
-              <div key={f.title} className="project-feature-card">
-                <h3 className="project-feature-title">{f.title}</h3>
-                <p className="project-feature-desc">{f.description}</p>
+            {FEATURE_KEYS.map((k) => (
+              <div key={k} className="project-feature-card">
+                <h3 className="project-feature-title">{t(`goTodoList.features.${k}.title`)}</h3>
+                <p className="project-feature-desc">{t(`goTodoList.features.${k}.description`)}</p>
               </div>
             ))}
           </div>
@@ -269,17 +250,17 @@ export default function GoTodoListPage() {
           {/* Key Features (mobile) — Figma finding-card layout */}
           <div className="features-mobile">
             <div className="features-mobile-head">
-              <h2 className="features-mobile-title">Key Features</h2>
+              <h2 className="features-mobile-title">{t('goTodoList.featuresHeading')}</h2>
               <span className="features-mobile-index">03</span>
             </div>
             <div className="features-mobile-list">
-              {FEATURES.map((f, i) => (
-                <article key={f.title} className="feature-card-m">
+              {FEATURE_KEYS.map((k, i) => (
+                <article key={k} className="feature-card-m">
                   <div className="feature-card-m-head">
-                    <h3 className="feature-card-m-title">{f.title}</h3>
+                    <h3 className="feature-card-m-title">{t(`goTodoList.features.${k}.title`)}</h3>
                     <span className="feature-card-m-index">{String(i + 1).padStart(2, '0')}</span>
                   </div>
-                  <p className="feature-card-m-desc">{f.description}</p>
+                  <p className="feature-card-m-desc">{t(`goTodoList.features.${k}.description`)}</p>
                 </article>
               ))}
             </div>
@@ -290,26 +271,26 @@ export default function GoTodoListPage() {
         <footer className="footer">
           <div className="footer-content">
             <div className="footer-contact">
-              <h3 className="footer-heading">Have any project in mind?</h3>
-              <p className="footer-subheading">I&apos;m available for freelancing</p>
+              <h3 className="footer-heading">{t('projectFooter.heading')}</h3>
+              <p className="footer-subheading">{t('projectFooter.subheading')}</p>
               <form className="footer-form" onSubmit={(e) => e.preventDefault()}>
                 <div className="footer-field">
                   <User className="footer-field-icon" size={18} />
-                  <input type="text" name="fullName" placeholder="Full Name" />
+                  <input type="text" name="fullName" placeholder={t('footer.nameLabel')} />
                 </div>
                 <div className="footer-field">
                   <Mail className="footer-field-icon" size={18} />
-                  <input type="email" name="email" placeholder="Email" />
+                  <input type="email" name="email" placeholder={t('footer.emailLabel')} />
                 </div>
-                <textarea className="footer-message" name="message" placeholder="Message" rows={4} />
-                <button type="submit" className="footer-submit">Submit</button>
+                <textarea className="footer-message" name="message" placeholder={t('footer.messageLabel')} rows={4} />
+                <button type="submit" className="footer-submit">{t('projectFooter.submit')}</button>
               </form>
             </div>
 
             <div className="footer-info">
               <div className="footer-info-card">
                 <div className="footer-column">
-                  <h4 className="footer-column-title">Direct</h4>
+                  <h4 className="footer-column-title">{t('footer.direct')}</h4>
                   <a className="footer-contact-link" href="tel:+17789280654">
                     <span className="footer-icon-circle"><Phone size={14} /></span>
                     <span>+1 778-928-0654</span>
@@ -321,7 +302,7 @@ export default function GoTodoListPage() {
                 </div>
 
                 <div className="footer-column footer-column--socials">
-                  <h4 className="footer-column-title">Socials</h4>
+                  <h4 className="footer-column-title">{t('footer.socials')}</h4>
                   <div className="footer-socials">
                     <a href="https://github.com/antonkazachenko" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="footer-social-link">
                       <GithubIcon className="social-icon-desktop" />
@@ -335,10 +316,10 @@ export default function GoTodoListPage() {
                 </div>
 
                 <div className="footer-column footer-card-pages">
-                  <h4 className="footer-column-title">Pages</h4>
-                  <a className="footer-page-link" href="#overview">Overview</a>
-                  <a className="footer-page-link" href="#technologies">Technologies</a>
-                  <a className="footer-page-link" href="#features">Key Features</a>
+                  <h4 className="footer-column-title">{t('footer.pages')}</h4>
+                  <a className="footer-page-link" href="#overview">{t('projectFooter.overview')}</a>
+                  <a className="footer-page-link" href="#technologies">{t('projectFooter.technologies')}</a>
+                  <a className="footer-page-link" href="#features">{t('goTodoList.featuresHeading')}</a>
                 </div>
               </div>
             </div>

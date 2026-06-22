@@ -33,6 +33,67 @@ type Dictionary = {
     subtitle: string;
     description: string;
   };
+experience: {
+    heading: string;
+teals: {
+      company: string;
+      role: string;
+      duration: string;
+      about: string;
+      description1: string;
+      description2: string;
+      description3: string;
+      description4: string;
+    };
+    ifs: {
+      company: string;
+      role: string;
+      duration: string;
+      about: string;
+      description1: string;
+      description2: string;
+      description3: string;
+    };
+
+    cjsf: {
+      company: string;
+      role: string;
+      duration: string;
+      about: string;
+      description1: string;
+      description2: string;
+      description3: string;
+      description4: string;
+    };
+    sfu: {
+      company: string;
+      role: string;
+      duration: string;
+      about: string;
+      description1: string;
+      description2: string;
+      description3: string;
+      description4: string;
+    };
+
+    infoblox: {
+      company: string;
+      role: string;
+      duration: string;
+      about: string;
+      description1: string;
+      description2: string;
+      description3: string;
+      description4: string;
+    };
+    gdsc: {
+      company: string;
+      role: string;
+      duration: string;
+      about: string;
+      description1: string;
+    };
+  };
   education: {
     heading: string;
     degree: string;
@@ -63,6 +124,9 @@ type Dictionary = {
     direct: string;
     socials: string;
     pages: string;
+  };
+rights: {
+    allRightsReserved: string;
   };
   references: {
     heading: string;
@@ -107,6 +171,94 @@ type Dictionary = {
       };
     };
   };
+goTodoList: {
+    featuresHeading: string;
+    description: string;
+    features: {
+      layeredArchitecture: { title: string; description: string };
+      taskScheduling: { title: string; description: string };
+      jwtAuth: { title: string; description: string };
+      dockerBuild: { title: string; description: string };
+    };
+    tech: {
+      stack: { go: string; sqlite: string; javascript: string; docker: string; html5: string; css3: string };
+      badges: { chiRouter: string; sqlx: string; jwtAuth: string; testify: string };
+    };
+  };
+  dataAnalysis: {
+    heroEyebrow: string;
+    keyFindings: string;
+    findings: {
+      correlation: { title: string; description: string };
+      creditHistory: { title: string; description: string };
+      conclusion: { title: string; description: string };
+    };
+  };
+  demoCredentials: {
+    toggle: string;
+    accessLabel: string;
+    email: string;
+    password: string;
+  };
+  projectLinks: {
+    liveDemo: string;
+    github: string;
+    linkedinPost: string;
+  };
+  skills: {
+    heading: string;
+    categories: { softwareDev: string; cloudDevops: string; dataScience: string; };
+  tooltips: {
+    frontendFramework: string;
+    jsTranspiler: string;
+    webStyling: string;
+    e2eTesting: string;
+    backendLanguage: string;
+    templateEngine: string;
+    webMarkup: string;
+    unitTesting: string;
+    webScripting: string;
+    relationalDatabase: string;
+    reactFramework: string;
+    stateManagement: string;
+    jsRuntime: string;
+    cssProcessor: string;
+    databaseORM: string;
+    uiLibrary: string;
+    mobileFramework: string;
+    systemsLanguage: string;
+    reactiveProgramming: string;
+    cssPreprocessor: string;
+    queryLanguage: string;
+    embeddedDatabase: string;
+    typedJavaScript: string;
+    configAutomation: string;
+    cloudPlatform: string;
+    containerization: string;
+    ciCDPipelines: string;
+    metricsVisualization: string;
+    k8sPackaging: string;
+    ciCDAutomation: string;
+    containerOrchestration: string;
+    artifactRepository: string;
+    metricsMonitoring: string;
+    codeQuality: string;
+    infrastructureAsCode: string;
+    bigDataProcessing: string;
+    gradientBoosting: string;
+    cloudNotebooks: string;
+    interactiveNotebooks: string;
+    neuralNetworkAPI: string;
+    dataVisualization: string;
+    numericalComputing: string;
+    dataAnalysis: string;
+    dataLanguage: string;
+    deepLearning: string;
+    mlLibrary: string;
+    scientificComputing: string;
+    mlFramework: string;
+  }
+  };
   projectFooter: {
     heading: string;
     subheading: string;
@@ -132,6 +284,67 @@ export const dictionaries: Record<Locale, Dictionary> = {
       closeMenu: 'Close menu',
       back: 'Back',
       backToHome: 'Back to home',
+    },
+experience: {
+      heading: 'EXPERIENCE',
+teals: {
+        company: "Microsoft Teals Program · Volunteering",
+        role: "Teaching Assistant",
+        duration: "May 2024 - Aug 2024",
+        about: "Microsoft TEALS is a volunteer-run program that partners with high schools to build sustainable computer science programs through industry professional support.",
+        description1: "Led interactive Python programming sessions for 9th-grade students, encouraging enthusiasm for coding and problem-solving.",
+        description2: "Established and upheld a learning environment that celebrates diversity and inclusion, ensuring all students feel valued and supported.",
+        description3: "Evaluated student progress through regular assessments and feedback, adapting teaching methods to meet diverse learning needs.",
+        description4: "Assisted students with individual challenges in understanding course material, providing targeted support to enhance learning outcomes."
+      },
+      ifs: {
+        company: 'IFS Copperleaf · Internship',
+        role: 'Software Developer Intern',
+        duration: 'May 2024 - Dec 2024',
+        about: 'IFS Copperleaf is an enterprise SaaS company providing AI-driven asset investment planning and decision analytics for critical infrastructure.',
+        description1: "Contributed to the development of a scalable design system using Angular and TypeScript, building reusable components to improve UI consistency across the company's applications.",
+        description2: "Assisted in implementing state management solutions using NgRx and integrated RxJS for reactive programming to handle asynchronous operations and streamline data-fetching workflows.",
+        description3: "Supported fullstack development for a mission-critical visual regression testing platform using Prisma with NestJS and PostgreSQL in a Docker environment, refining SQL migration scripts and leveraging pgAdmin for effective database management."
+      },
+
+      cjsf: {
+        company: "CJSF 90.1 · Permanent Part-time",
+        role: "Mobile Application Developer",
+        duration: "Sep 2023 - May 2024",
+        about: "CJSF 90.1 FM is the independent campus and community radio station of Simon Fraser University, broadcasting music, news, and culture.",
+        description1: "Enhanced the responsiveness and user-friendliness of the user interface, achieving a 30% improvement in overall user engagement.",
+        description2: "Improved the efficiency of state management with the React Context API, resulting in a 40% increase in application performance.",
+        description3: "Successfully resolved adaptivity-related bugs, enhancing app performance and user experience by 50%.",
+        description4: "Increased user engagement by 25% through the implementation of a robust 'favorites' feature, enhancing the overall usability of the app."
+      },
+      sfu: {
+        company: "SFU · Permanent Part-time",
+        role: "Research Assistant",
+        duration: "Sep 2024 - Dec 2025",
+        about: "",
+        description1: "Lead contributor in SFU’s People and Data-Centric Computing Research Group on a project to understand AI training data and design innovative ways to communicate dataset details.",
+        description2: "Built end-to-end research infrastructure: reproducible data pipelines and management workflows, plus a full backend with a functional API for extensible data exploration.",
+        description3: "Designed and implemented the project website front end, including custom interactive visualizations to surface key properties of AI training data.",
+        description4: "Consistently applied strong software engineering practices (version control, documentation, project management) while independently driving progress across diverse research areas."
+      },
+
+      infoblox: {
+        company: "Infoblox · Permanent Full-time",
+        role: "Associate Software Engineer",
+        duration: "Mar 2026 - Present",
+        about: "Infoblox is a cloud-first networking company specializing in DNS, DHCP, and IP address management (DDI) and cybersecurity.",
+        description1: "Built and maintained backend microservices in Go (Golang), deployed to Kubernetes via Helm charts and monitored with Grafana dashboards and alerting.",
+        description2: "Designed event-driven data pipelines using Kafka for asynchronous message processing across distributed services.",
+        description3: "Owned frontend feature development in Angular, architecting microfrontends for independent deployment and consistent UI across teams.",
+        description4: "Integrated with Databricks to query and ingest large-scale datasets for downstream analytics."
+      },
+      gdsc: {
+        company: "SFU Google Developer Student Club",
+        role: "Guest Mentor",
+        duration: "Mar 2026",
+        about: "GDSC is a Google-supported student community at SFU.",
+        description1: "Helped students navigate through getting their first internship."
+      }
     },
     education: {
       heading: 'Education',
@@ -164,6 +377,9 @@ export const dictionaries: Record<Locale, Dictionary> = {
       direct: 'Direct',
       socials: 'Socials',
       pages: 'Pages',
+    },
+rights: {
+      allRightsReserved: 'All Rights Reserved.',
     },
     references: {
       heading: 'References',
@@ -216,6 +432,149 @@ export const dictionaries: Record<Locale, Dictionary> = {
             'Continuous delivery ships the app to GitHub Pages, turning every push to the main branch into an automated build and deploy for fast, repeatable releases.',
         },
       },
+      tech: {
+        stack: {
+          react: 'Komponentenbasierte UI-Bibliothek',
+          typescript: 'Typisierte JavaScript-Erweiterung',
+          redux: 'Vorhersagbarer globaler State',
+          cypress: 'End-to-End-Testing',
+          jest: 'Unit-Testing-Framework',
+        },
+        badges: {
+          reactRouter: 'Client-seitiges Routing',
+          reactDnd: 'Drag-and-Drop-Interaktionen',
+          contextApi: 'Gemeinsamer State & Übersetzungen',
+          websockets: 'Echtzeit-Datenstreaming',
+          jwts: 'Token-basierte Authentifizierung',
+        },
+      },
+    },
+techSection: {
+      usedHeading: 'Technologies Used',
+      heading: 'Technologies',
+      coreStack: 'Core Stack',
+      librariesTooling: 'Libraries & Tooling',
+    },
+    goTodoList: {
+      featuresHeading: 'Key Features',
+      description: 'A robust REST API for task management, built with Go and SQLite, utilizing a clean layered architecture and JWT authentication.',
+      features: {
+        layeredArchitecture: {
+          title: 'Layered Architecture',
+          description: 'Separation of concerns using controllers, services, and repositories for maintainable and testable code.'
+        },
+        taskScheduling: {
+          title: 'Task Scheduling',
+          description: 'Background workers that periodically clean up expired JWT tokens and stale data.'
+        },
+        jwtAuth: {
+          title: 'JWT Auth',
+          description: 'Secure endpoints using stateless JWTs for scalable authentication.'
+        },
+        dockerBuild: {
+          title: 'Docker Build',
+          description: 'Multi-stage Dockerfile for lightweight and secure deployments.'
+        }
+      },
+      tech: {
+        stack: {
+          go: 'Backend Language',
+          sqlite: 'Persistent Data Storage',
+          javascript: 'Frontend Logic',
+          docker: 'Containerization',
+          html5: 'Markup',
+          css3: 'Styling',
+        },
+        badges: {
+          chiRouter: 'Lightweight idiomatic routing',
+          sqlx: 'SQL toolkit for Go',
+          jwtAuth: 'Secure token authentication',
+          testify: 'Unit testing utilities',
+        },
+      },
+    },
+    dataAnalysis: {
+      heroEyebrow: 'Data Analysis Project',
+      keyFindings: 'Key Findings',
+      findings: {
+        correlation: {
+          title: 'Correlation Analysis',
+          description: 'Identified strong correlations between specific demographic factors and credit default risk.'
+        },
+        creditHistory: {
+          title: 'Credit History Impact',
+          description: 'Historical credit data was the most significant predictor of future loan performance.'
+        },
+        conclusion: {
+          title: 'Conclusion',
+          description: 'The insights guided the development of a more accurate credit scoring model.'
+        }
+      }
+    },
+    demoCredentials: {
+      toggle: 'Demo Credentials',
+      accessLabel: 'Demo Access',
+      email: 'Email:',
+      password: 'Password:',
+    },
+    projectLinks: {
+      liveDemo: 'Live Demo',
+      github: 'GitHub',
+      linkedinPost: 'LinkedIn Post',
+    },
+    skills: {
+      heading: 'MY SKILLS',
+      categories: { softwareDev: 'Software Development', cloudDevops: 'Cloud & DevOps', dataScience: 'Data Science' },
+    tooltips: {
+      frontendFramework: "Frontend framework",
+      jsTranspiler: "JS transpiler",
+      webStyling: "Web styling",
+      e2eTesting: "E2E testing",
+      backendLanguage: "Backend language",
+      templateEngine: "Template engine",
+      webMarkup: "Web markup",
+      unitTesting: "Unit testing",
+      webScripting: "Web scripting",
+      relationalDatabase: "Relational database",
+      reactFramework: "React framework",
+      stateManagement: "State management",
+      jsRuntime: "JS runtime",
+      cssProcessor: "CSS processor",
+      databaseORM: "Database ORM",
+      uiLibrary: "UI library",
+      mobileFramework: "Mobile framework",
+      systemsLanguage: "Systems language",
+      reactiveProgramming: "Reactive programming",
+      cssPreprocessor: "CSS preprocessor",
+      queryLanguage: "Query language",
+      embeddedDatabase: "Embedded database",
+      typedJavaScript: "Typed JavaScript",
+      configAutomation: "Config automation",
+      cloudPlatform: "Cloud platform",
+      containerization: "Containerization",
+      ciCDPipelines: "CI/CD pipelines",
+      metricsVisualization: "Metrics visualization",
+      k8sPackaging: "K8s packaging",
+      ciCDAutomation: "CI/CD automation",
+      containerOrchestration: "Container orchestration",
+      artifactRepository: "Artifact repository",
+      metricsMonitoring: "Metrics monitoring",
+      codeQuality: "Code quality",
+      infrastructureAsCode: "Infrastructure as code",
+      bigDataProcessing: "Big data processing",
+      gradientBoosting: "Gradient boosting",
+      cloudNotebooks: "Cloud notebooks",
+      interactiveNotebooks: "Interactive notebooks",
+      neuralNetworkAPI: "Neural network API",
+      dataVisualization: "Data visualization",
+      numericalComputing: "Numerical computing",
+      dataAnalysis: "Data analysis",
+      dataLanguage: "Data language",
+      deepLearning: "Deep learning",
+      mlLibrary: "ML library",
+      scientificComputing: "Scientific computing",
+      mlFramework: "ML framework",
+    }
     },
     projectFooter: {
       heading: 'Have any project in mind?',
@@ -243,6 +602,67 @@ export const dictionaries: Record<Locale, Dictionary> = {
       closeMenu: 'Menü schließen',
       back: 'Zurück',
       backToHome: 'Zurück zur Startseite',
+    },
+experience: {
+      heading: 'ERFAHRUNG',
+teals: {
+        company: "Microsoft TEALS-Programm · Ehrenamt",
+        role: "Lehrassistent",
+        duration: "Mai 2024 - Aug 2024",
+        about: "Microsoft TEALS ist ein ehrenamtliches Programm, das mit High Schools zusammenarbeitet, um durch die Unterstützung von Fachleuten aus der Industrie nachhaltige Informatikprogramme aufzubauen.",
+        description1: "Leitung interaktiver Programmierworkshops mit Python für Schülerinnen und Schüler der 9. Klasse und Förderung von Begeisterung für Programmierung und Problemlösen.",
+        description2: "Aufbau und Pflege eines Lernumfelds, das Vielfalt und Inklusion wertschätzt, sodass sich alle Schülerinnen und Schüler wertgeschätzt und unterstützt fühlen.",
+        description3: "Bewertung des Lernfortschritts der Schülerinnen und Schüler durch regelmäßige Leistungsüberprüfungen und Feedback sowie Anpassung der Lehrmethoden an unterschiedliche Lernbedürfnisse.",
+        description4: "Unterstützung von Schülerinnen und Schülern bei individuellen Schwierigkeiten im Verständnis der Kursinhalte durch gezielte Förderung zur Verbesserung der Lernergebnisse."
+      },
+      ifs: {
+        company: 'IFS Copperleaf · Praktikum',
+        role: 'Praktikant Softwareentwicklung',
+        duration: 'Mai 2024 - Dez 2024',
+        about: 'IFS Copperleaf ist ein Enterprise-SaaS-Unternehmen, das KI-gestützte Asset-Investmentplanung und Entscheidungsanalyse für kritische Infrastrukturen anbietet.',
+        description1: "Mitentwicklung eines skalierbaren Design-Systems auf Basis von Angular und TypeScript durch Aufbau wiederverwendbarer Komponenten zur Verbesserung der UI-Konsistenz in den Anwendungen des Unternehmens.",
+        description2: "Unterstützung bei der Implementierung von State-Management-Lösungen mit NgRx sowie Integration von RxJS für reaktive Programmierung, um asynchrone Operationen zu handhaben und Datenabruf-Workflows zu optimieren.",
+        description3: "Unterstützung der Fullstack-Entwicklung einer geschäftskritischen Plattform für visuelle Regressionstests mit Prisma, NestJS und PostgreSQL in einer Docker-Umgebung; Verfeinerung von SQL-Migrationsskripten und Nutzung von pgAdmin für effizientes Datenbankmanagement."
+      },
+
+      cjsf: {
+        company: "CJSF 90.1 · Feste Teilzeit",
+        role: "Mobile-App-Entwickler",
+        duration: "Sep 2023 - Mai 2024",
+        about: "CJSF 90.1 FM ist der unabhängige Campus- und Community-Radiosender der Simon Fraser University, der Musik, Nachrichten und Kultur sendet.",
+        description1: "Verbesserung der Reaktionsfähigkeit und Benutzerfreundlichkeit der Benutzeroberfläche, wodurch das allgemeine Nutzerengagement um 30 % gesteigert wurde.",
+        description2: "Steigerung der Effizienz des State Managements mit der React Context API, was zu einer Leistungssteigerung der Anwendung um 40 % führte.",
+        description3: "Erfolgreiche Behebung von Anpassungsfehlern, wodurch die Anwendungsleistung und die Nutzererfahrung um 50 % verbessert wurden.",
+        description4: "Steigerung des Nutzerengagements um 25 % durch die Implementierung einer robusten 'Favoriten'-Funktion, wodurch die allgemeine Nutzbarkeit der App verbessert wurde."
+      },
+      sfu: {
+        company: "SFU · Feste Teilzeit",
+        role: "Forschungsassistent",
+        duration: "Sep 2024 - Dez 2025",
+        about: "",
+        description1: "Hauptbeitragender in der Forschungsgruppe People and Data-Centric Computing der SFU bei einem Projekt zum Verständnis von KI-Trainingsdaten und zur Entwicklung innovativer Methoden zur Kommunikation von Datensatzdetails.",
+        description2: "Aufbau einer durchgängigen Forschungsinfrastruktur: reproduzierbare Datenpipelines und Management-Workflows sowie ein vollständiges Backend mit einer funktionalen API für erweiterbare Datenexploration.",
+        description3: "Design und Implementierung des Frontends für die Projekt-Website, einschließlich benutzerdefinierter interaktiver Visualisierungen zur Darstellung wichtiger Eigenschaften von KI-Trainingsdaten.",
+        description4: "Konsequente Anwendung fundierter Software-Engineering-Praktiken (Versionskontrolle, Dokumentation, Projektmanagement) bei gleichzeitiger eigenverantwortlicher Vorantreibung von Fortschritten in verschiedenen Forschungsbereichen."
+      },
+
+      infoblox: {
+        company: "Infoblox · Feste Vollzeit",
+        role: "Associate Software Engineer",
+        duration: "März 2026 - Heute",
+        about: "Infoblox ist ein Cloud-First-Netzwerkunternehmen, das sich auf DNS, DHCP und IP-Adressverwaltung (DDI) sowie Cybersicherheit spezialisiert hat.",
+        description1: "Erstellung und Wartung von Backend-Microservices in Go (Golang), die über Helm-Charts in Kubernetes bereitgestellt und mit Grafana-Dashboards und Warnmeldungen überwacht wurden.",
+        description2: "Entwurf ereignisgesteuerter Datenpipelines unter Verwendung von Kafka für die asynchrone Nachrichtenverarbeitung über verteilte Dienste hinweg.",
+        description3: "Verantwortlich für die Frontend-Feature-Entwicklung in Angular, Architektur von Microfrontends für unabhängige Deployments und eine konsistente Benutzeroberfläche teamübergreifend.",
+        description4: "Integration mit Databricks zur Abfrage und Aufnahme umfangreicher Datensätze für nachgelagerte Analysen."
+      },
+      gdsc: {
+        company: "SFU Google Developer Student Club",
+        role: "Gast-Mentor",
+        duration: "März 2026",
+        about: "GDSC ist eine von Google unterstützte Studenten-Community an der SFU.",
+        description1: "Unterstützung von Studierenden bei der Suche und Vorbereitung auf ihr erstes Praktikum."
+      }
     },
     education: {
       heading: 'Ausbildung',
@@ -275,6 +695,9 @@ export const dictionaries: Record<Locale, Dictionary> = {
       direct: 'Direkt',
       socials: 'Social Media',
       pages: 'Seiten',
+    },
+rights: {
+      allRightsReserved: 'Alle Rechte vorbehalten.',
     },
     references: {
       heading: 'Referenzen',
@@ -327,6 +750,149 @@ export const dictionaries: Record<Locale, Dictionary> = {
             'Continuous Delivery liefert die App auf GitHub Pages aus und macht aus jedem Push auf den main-Branch einen automatisierten Build und Deploy für schnelle, wiederholbare Releases.',
         },
       },
+      tech: {
+        stack: {
+          react: 'Bibliothèque d\'interface utilisateur',
+          typescript: 'Sur-ensemble typé de JavaScript',
+          redux: 'État global prévisible',
+          cypress: 'Tests de bout en bout',
+          jest: 'Framework de tests unitaires',
+        },
+        badges: {
+          reactRouter: 'Routage côté client',
+          reactDnd: 'Interactions glisser-déposer',
+          contextApi: 'État partagé & traductions',
+          websockets: 'Flux de données en temps réel',
+          jwts: 'Authentification par jeton',
+        },
+      },
+    },
+techSection: {
+      usedHeading: 'Verwendete Technologien',
+      heading: 'Technologien',
+      coreStack: 'Core-Stack',
+      librariesTooling: 'Bibliotheken & Tools',
+    },
+    goTodoList: {
+      featuresHeading: 'Hauptfunktionen',
+      description: 'Eine robuste REST-API zur Aufgabenverwaltung, erstellt mit Go und SQLite, basierend auf einer sauberen Schichtenarchitektur und JWT-Authentifizierung.',
+      features: {
+        layeredArchitecture: {
+          title: 'Schichtenarchitektur',
+          description: 'Trennung von Verantwortlichkeiten durch Controller, Services und Repositories für wartbaren und testbaren Code.'
+        },
+        taskScheduling: {
+          title: 'Aufgabenplanung',
+          description: 'Hintergrundprozesse, die regelmäßig abgelaufene JWT-Token und veraltete Daten bereinigen.'
+        },
+        jwtAuth: {
+          title: 'JWT-Authentifizierung',
+          description: 'Sichere Endpunkte durch zustandslose JWTs für skalierbare Authentifizierung.'
+        },
+        dockerBuild: {
+          title: 'Docker-Build',
+          description: 'Mehrstufiges Dockerfile für schlanke und sichere Deployments.'
+        }
+      },
+      tech: {
+        stack: {
+          go: 'Backend-Sprache',
+          sqlite: 'Persistente Datenspeicherung',
+          javascript: 'Frontend-Logik',
+          docker: 'Containerisierung',
+          html5: 'Markup',
+          css3: 'Styling',
+        },
+        badges: {
+          chiRouter: 'Leichtgewichtiges idiomatisches Routing',
+          sqlx: 'SQL-Toolkit für Go',
+          jwtAuth: 'Sichere Token-Authentifizierung',
+          testify: 'Unit-Testing-Dienstprogramme',
+        },
+      },
+    },
+    dataAnalysis: {
+      heroEyebrow: 'Datenanalyse-Projekt',
+      keyFindings: 'Wichtigste Erkenntnisse',
+      findings: {
+        correlation: {
+          title: 'Korrelationsanalyse',
+          description: 'Es wurden starke Korrelationen zwischen bestimmten demografischen Faktoren und dem Kreditrisiko identifiziert.'
+        },
+        creditHistory: {
+          title: 'Einfluss der Kredithistorie',
+          description: 'Historische Kreditdaten waren der signifikanteste Prädiktor für die zukünftige Kreditleistung.'
+        },
+        conclusion: {
+          title: 'Fazit',
+          description: 'Die Erkenntnisse führten zur Entwicklung eines genaueren Kreditbewertungsmodells.'
+        }
+      }
+    },
+    demoCredentials: {
+      toggle: 'Demo-Zugangsdaten',
+      accessLabel: 'Demo-Zugang',
+      email: 'E-Mail:',
+      password: 'Passwort:',
+    },
+    projectLinks: {
+      liveDemo: 'Live-Demo',
+      github: 'GitHub',
+      linkedinPost: 'LinkedIn-Beitrag',
+    },
+    skills: {
+      heading: 'MEINE FÄHIGKEITEN',
+      categories: { softwareDev: 'Softwareentwicklung', cloudDevops: 'Cloud & DevOps', dataScience: 'Data Science' },
+    tooltips: {
+      frontendFramework: "Frontend-Framework",
+      jsTranspiler: "JS-Transpiler",
+      webStyling: "Web-Styling",
+      e2eTesting: "E2E-Testing",
+      backendLanguage: "Backend-Sprache",
+      templateEngine: "Template-Engine",
+      webMarkup: "Web-Markup",
+      unitTesting: "Unit-Testing",
+      webScripting: "Web-Skripting",
+      relationalDatabase: "Relationale Datenbank",
+      reactFramework: "React-Framework",
+      stateManagement: "State-Management",
+      jsRuntime: "JS-Laufzeitumgebung",
+      cssProcessor: "CSS-Prozessor",
+      databaseORM: "Datenbank-ORM",
+      uiLibrary: "UI-Bibliothek",
+      mobileFramework: "Mobile-Framework",
+      systemsLanguage: "Systemsprache",
+      reactiveProgramming: "Reaktive Programmierung",
+      cssPreprocessor: "CSS-Präprozessor",
+      queryLanguage: "Abfragesprache",
+      embeddedDatabase: "Eingebettete Datenbank",
+      typedJavaScript: "Typisiertes JavaScript",
+      configAutomation: "Konfigurationsautomatisierung",
+      cloudPlatform: "Cloud-Plattform",
+      containerization: "Containerisierung",
+      ciCDPipelines: "CI/CD-Pipelines",
+      metricsVisualization: "Metrik-Visualisierung",
+      k8sPackaging: "K8s-Paketierung",
+      ciCDAutomation: "CI/CD-Automatisierung",
+      containerOrchestration: "Container-Orchestrierung",
+      artifactRepository: "Artefakt-Repository",
+      metricsMonitoring: "Metrik-Überwachung",
+      codeQuality: "Code-Qualität",
+      infrastructureAsCode: "Infrastruktur als Code",
+      bigDataProcessing: "Big-Data-Verarbeitung",
+      gradientBoosting: "Gradient Boosting",
+      cloudNotebooks: "Cloud-Notebooks",
+      interactiveNotebooks: "Interaktive Notebooks",
+      neuralNetworkAPI: "Neuronale Netz-API",
+      dataVisualization: "Datenvisualisierung",
+      numericalComputing: "Numerisches Rechnen",
+      dataAnalysis: "Datenanalyse",
+      dataLanguage: "Datensprache",
+      deepLearning: "Deep Learning",
+      mlLibrary: "ML-Bibliothek",
+      scientificComputing: "Wissenschaftliches Rechnen",
+      mlFramework: "ML-Framework",
+    }
     },
     projectFooter: {
       heading: 'Hast du ein Projekt im Kopf?',
@@ -354,6 +920,67 @@ export const dictionaries: Record<Locale, Dictionary> = {
       closeMenu: 'Fermer le menu',
       back: 'Retour',
       backToHome: "Retour à l'accueil",
+    },
+experience: {
+      heading: 'EXPÉRIENCE',
+teals: {
+        company: "Programme Microsoft TEALS · Bénévolat",
+        role: "Assistant d'enseignement",
+        duration: "Mai 2024 - Août 2024",
+        about: "Microsoft TEALS est un programme bénévole qui s'associe aux lycées pour développer des programmes d'informatique durables grâce au soutien de professionnels de l'industrie.",
+        description1: "Animé des sessions interactives de programmation en Python pour des élèves de 3ème, en encourageant l'enthousiasme pour le codage et la résolution de problèmes.",
+        description2: "Établi et maintenu un environnement d'apprentissage qui valorise la diversité et l'inclusion, en veillant à ce que tous les élèves se sentent respectés et soutenus.",
+        description3: "Évalué les progrès des élèves par le biais d'évaluations régulières et de retours, en adaptant les méthodes d'enseignement pour répondre aux divers besoins d'apprentissage.",
+        description4: "Aidé les élèves face à des difficultés individuelles de compréhension du matériel de cours, en fournissant un soutien ciblé pour améliorer les résultats d'apprentissage."
+      },
+      ifs: {
+        company: 'IFS Copperleaf · Stage',
+        role: 'Stagiaire en développement logiciel',
+        duration: 'Mai 2024 - Déc 2024',
+        about: "IFS Copperleaf est une entreprise SaaS fournissant une planification des investissements en actifs basée sur l'IA et des analyses décisionnelles pour les infrastructures critiques.",
+        description1: "Contribué au développement d’un design system évolutif utilisant Angular et TypeScript, en créant des composants réutilisables afin d’améliorer la cohérence de l’interface utilisateur dans les applications de l’entreprise.",
+        description2: "Aidé à la mise en place de solutions de gestion d’état avec NgRx et intégré RxJS pour la programmation réactive afin de gérer les opérations asynchrones et simplifier les flux de récupération des données.",
+        description3: "Soutenu le développement full-stack d’une plateforme critique de tests de régression visuelle en utilisant Prisma avec NestJS et PostgreSQL dans un environnement Docker, en améliorant les scripts de migration SQL et en utilisant pgAdmin pour une gestion efficace des bases de données."
+      },
+
+      cjsf: {
+        company: "CJSF 90.1 · Temps partiel permanent",
+        role: "Développeur d'applications mobiles",
+        duration: "Sep 2023 - Mai 2024",
+        about: "CJSF 90.1 FM est la station de radio communautaire et de campus indépendante de l'Université Simon Fraser, diffusant de la musique, des nouvelles et de la culture.",
+        description1: "Amélioration de la réactivité et de la convivialité de l'interface utilisateur, avec une augmentation de 30 % de l'engagement global des utilisateurs.",
+        description2: "Optimisation de l'efficacité de la gestion des états avec l'API React Context, ce qui a entraîné une augmentation de 40 % des performances de l'application.",
+        description3: "Résolution réussie de bogues liés à l'adaptabilité, améliorant les performances de l'application et l'expérience utilisateur de 50 %.",
+        description4: "Augmentation de l'engagement des utilisateurs de 25 % grâce à la mise en œuvre d'une fonctionnalité robuste de 'favoris', améliorant ainsi la convivialité générale de l'application."
+      },
+      sfu: {
+        company: "SFU · Temps partiel permanent",
+        role: "Assistant de recherche",
+        duration: "Sep 2024 - Déc 2025",
+        about: "",
+        description1: "Contributeur principal au sein du groupe de recherche People and Data-Centric Computing de la SFU sur un projet visant à comprendre les données d’entraînement de l’IA et à concevoir des moyens innovants de communiquer les caractéristiques des ensembles de données.",
+        description2: "Construit une infrastructure de recherche de bout en bout : pipelines de données reproductibles et flux de gestion des données, ainsi qu’un backend complet avec une API fonctionnelle pour l’exploration extensible des données.",
+        description3: "Conçu et implémenté l’interface front-end du site web du projet, incluant des visualisations interactives personnalisées pour mettre en évidence les propriétés clés des données d’entraînement de l’IA.",
+        description4: "Appliqué de manière constante de solides pratiques d’ingénierie logicielle (contrôle de version, documentation, gestion de projet) tout en faisant progresser le projet de façon autonome à travers divers axes de recherche."
+      },
+
+      infoblox: {
+        company: "Infoblox · Temps plein permanent",
+        role: "Ingénieur logiciel associé",
+        duration: "Mars 2026 - Présent",
+        about: "Infoblox est une entreprise de mise en réseau axée sur le cloud, spécialisée dans la gestion DNS, DHCP et des adresses IP (DDI) ainsi que dans la cybersécurité.",
+        description1: "Création et maintenance de microservices backend en Go (Golang), déployés sur Kubernetes via des charts Helm et surveillés avec des tableaux de bord Grafana et des alertes.",
+        description2: "Conception de pipelines de données basés sur les événements utilisant Kafka pour le traitement asynchrone des messages à travers des services distribués.",
+        description3: "Responsable du développement des fonctionnalités frontend en Angular, architecture de micro-frontends pour un déploiement indépendant et une interface utilisateur cohérente entre les équipes.",
+        description4: "Intégration avec Databricks pour interroger et ingérer des ensembles de données à grande échelle pour des analyses en aval."
+      },
+      gdsc: {
+        company: "SFU Google Developer Student Club",
+        role: "Mentor invité",
+        duration: "Mars 2026",
+        about: "GDSC est une communauté étudiante soutenue par Google à la SFU.",
+        description1: "Aidé les étudiants à naviguer dans le processus d'obtention de leur premier stage."
+      }
     },
     education: {
       heading: 'Formation',
@@ -386,6 +1013,9 @@ export const dictionaries: Record<Locale, Dictionary> = {
       direct: 'Direct',
       socials: 'Réseaux',
       pages: 'Pages',
+    },
+rights: {
+      allRightsReserved: 'Tous droits réservés.',
     },
     references: {
       heading: 'Références',
@@ -438,6 +1068,149 @@ export const dictionaries: Record<Locale, Dictionary> = {
             "La livraison continue déploie l'application sur GitHub Pages, transformant chaque push sur la branche main en build et déploiement automatisés pour des releases rapides et reproductibles.",
         },
       },
+      tech: {
+        stack: {
+          react: 'Bibliothèque d\'interface utilisateur',
+          typescript: 'Sur-ensemble typé de JavaScript',
+          redux: 'État global prévisible',
+          cypress: 'Tests de bout en bout',
+          jest: 'Framework de tests unitaires',
+        },
+        badges: {
+          reactRouter: 'Routage côté client',
+          reactDnd: 'Interactions glisser-déposer',
+          contextApi: 'État partagé & traductions',
+          websockets: 'Flux de données en temps réel',
+          jwts: 'Authentification par jeton',
+        },
+      },
+    },
+techSection: {
+      usedHeading: 'Technologies utilisées',
+      heading: 'Technologies',
+      coreStack: 'Stack Principal',
+      librariesTooling: 'Bibliothèques & Outils',
+    },
+    goTodoList: {
+      featuresHeading: 'Fonctionnalités clés',
+      description: 'Une API REST robuste pour la gestion des tâches, construite avec Go et SQLite, utilisant une architecture en couches propre et une authentification JWT.',
+      features: {
+        layeredArchitecture: {
+          title: 'Architecture en couches',
+          description: 'Séparation des responsabilités via des contrôleurs, services et dépôts pour un code maintenable et testable.'
+        },
+        taskScheduling: {
+          title: 'Planification des tâches',
+          description: 'Des workers en arrière-plan qui nettoient périodiquement les tokens JWT expirés et les données obsolètes.'
+        },
+        jwtAuth: {
+          title: 'Authentification JWT',
+          description: 'Points finaux sécurisés via des JWT sans état pour une authentification évolutive.'
+        },
+        dockerBuild: {
+          title: 'Build Docker',
+          description: 'Dockerfile multi-étapes pour des déploiements légers et sécurisés.'
+        }
+      },
+      tech: {
+        stack: {
+          go: 'Langage backend',
+          sqlite: 'Stockage de données persistant',
+          javascript: 'Logique frontend',
+          docker: 'Conteneurisation',
+          html5: 'Balisage',
+          css3: 'Style',
+        },
+        badges: {
+          chiRouter: 'Routage idiomatique léger',
+          sqlx: 'Boîte à outils SQL pour Go',
+          jwtAuth: 'Authentification sécurisée par jeton',
+          testify: 'Utilitaires de tests unitaires',
+        },
+      },
+    },
+    dataAnalysis: {
+      heroEyebrow: 'Projet d\'analyse de données',
+      keyFindings: 'Résultats clés',
+      findings: {
+        correlation: {
+          title: 'Analyse de corrélation',
+          description: 'Identification de fortes corrélations entre des facteurs démographiques spécifiques et le risque de défaut de crédit.'
+        },
+        creditHistory: {
+          title: 'Impact de l\'historique de crédit',
+          description: 'Les données de crédit historiques ont été le prédicteur le plus significatif de la performance future du prêt.'
+        },
+        conclusion: {
+          title: 'Conclusion',
+          description: 'Les informations ont guidé le développement d\'un modèle de notation de crédit plus précis.'
+        }
+      }
+    },
+    demoCredentials: {
+      toggle: 'Identifiants de démo',
+      accessLabel: 'Accès Démo',
+      email: 'E-mail :',
+      password: 'Mot de passe :',
+    },
+    projectLinks: {
+      liveDemo: 'Démo en direct',
+      github: 'GitHub',
+      linkedinPost: 'Post LinkedIn',
+    },
+    skills: {
+      heading: 'MES COMPÉTENCES',
+      categories: { softwareDev: 'Développement Logiciel', cloudDevops: 'Cloud & DevOps', dataScience: 'Science des Données' },
+    tooltips: {
+      frontendFramework: "Framework Frontend",
+      jsTranspiler: "Transpileur JS",
+      webStyling: "Style Web",
+      e2eTesting: "Tests E2E",
+      backendLanguage: "Langage Backend",
+      templateEngine: "Moteur de templates",
+      webMarkup: "Balisage Web",
+      unitTesting: "Tests unitaires",
+      webScripting: "Scripting Web",
+      relationalDatabase: "Base de données relationnelle",
+      reactFramework: "Framework React",
+      stateManagement: "Gestion d'état",
+      jsRuntime: "Environnement d'exécution JS",
+      cssProcessor: "Processeur CSS",
+      databaseORM: "ORM de base de données",
+      uiLibrary: "Bibliothèque UI",
+      mobileFramework: "Framework mobile",
+      systemsLanguage: "Langage système",
+      reactiveProgramming: "Programmation réactive",
+      cssPreprocessor: "Préprocesseur CSS",
+      queryLanguage: "Langage de requête",
+      embeddedDatabase: "Base de données embarquée",
+      typedJavaScript: "JavaScript typé",
+      configAutomation: "Automatisation de la configuration",
+      cloudPlatform: "Plateforme cloud",
+      containerization: "Conteneurisation",
+      ciCDPipelines: "Pipelines CI/CD",
+      metricsVisualization: "Visualisation de métriques",
+      k8sPackaging: "Package K8s",
+      ciCDAutomation: "Automatisation CI/CD",
+      containerOrchestration: "Orchestration de conteneurs",
+      artifactRepository: "Référentiel d'artefacts",
+      metricsMonitoring: "Surveillance des métriques",
+      codeQuality: "Qualité du code",
+      infrastructureAsCode: "Infrastructure en tant que code",
+      bigDataProcessing: "Traitement de métadonnées",
+      gradientBoosting: "Gradient boosting",
+      cloudNotebooks: "Notebooks cloud",
+      interactiveNotebooks: "Notebooks interactifs",
+      neuralNetworkAPI: "API de réseaux de neurones",
+      dataVisualization: "Visualisation de données",
+      numericalComputing: "Calcul numérique",
+      dataAnalysis: "Analyse de données",
+      dataLanguage: "Langage de données",
+      deepLearning: "Apprentissage profond",
+      mlLibrary: "Bibliothèque ML",
+      scientificComputing: "Calcul scientifique",
+      mlFramework: "Framework ML",
+    }
     },
     projectFooter: {
       heading: 'Vous avez un projet en tête ?',
