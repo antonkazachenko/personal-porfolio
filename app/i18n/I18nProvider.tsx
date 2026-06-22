@@ -25,6 +25,19 @@ function isLocale(value: string | null): value is Locale {
   return value !== null && (LOCALES as readonly string[]).includes(value);
 }
 
+/**
+ * Pick a supported locale from the browser's language preferences, falling back
+ * to the default. Only German and French are matched; everything else stays English.
+ */
+function detectBrowserLocale(): Locale {
+  const preferred = navigator.languages ?? [navigator.language];
+  for (const lang of preferred) {
+    const base = lang.toLowerCase().split('-')[0];
+    if (isLocale(base)) return base;
+  }
+  return DEFAULT_LOCALE;
+}
+
 function resolve(dict: unknown, key: string): unknown {
   return key.split('.').reduce<unknown>((acc, part) => {
     if (acc && typeof acc === 'object') return (acc as Record<string, unknown>)[part];
@@ -38,11 +51,12 @@ export function I18nProvider({ children }: { children: ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>(DEFAULT_LOCALE);
 
   useEffect(() => {
+    // A stored choice (from the language switcher) always wins; otherwise fall
+    // back to the browser's preferred language (German/French, else English).
     const stored = window.localStorage.getItem(LOCALE_STORAGE_KEY);
-    if (isLocale(stored)) {
-      setLocaleState(stored);
-      document.documentElement.lang = stored;
-    }
+    const next = isLocale(stored) ? stored : detectBrowserLocale();
+    setLocaleState(next);
+    document.documentElement.lang = next;
   }, []);
 
   const setLocale = useCallback((next: Locale) => {
