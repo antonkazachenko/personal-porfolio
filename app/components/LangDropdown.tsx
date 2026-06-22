@@ -2,12 +2,12 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
-
-const LANGUAGES = ['En', 'De', 'Fr', 'It'];
+import { useI18n } from '@/app/i18n/I18nProvider';
+import { LOCALES, LOCALE_LABELS } from '@/app/i18n/dictionaries';
 
 export default function LangDropdown() {
+  const { locale, setLocale } = useI18n();
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState('En');
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -20,12 +20,12 @@ export default function LangDropdown() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const options = LANGUAGES.filter(l => l !== selected);
+  const options = LOCALES.filter(l => l !== locale);
 
   return (
     <div className="lang-dropdown" ref={ref}>
       <button className="lang-dropdown-trigger" onClick={() => setIsOpen(o => !o)}>
-        {selected}
+        {LOCALE_LABELS[locale]}
         <ChevronDown
           size={14}
           className={`lang-dropdown-chevron ${isOpen ? 'lang-dropdown-chevron--open' : ''}`}
@@ -34,8 +34,8 @@ export default function LangDropdown() {
 
       <ul className={`lang-dropdown-menu ${isOpen ? 'lang-dropdown-menu--open' : ''}`}>
         {options.map(lang => (
-          <li key={lang} onClick={() => { setSelected(lang); setIsOpen(false); }}>
-            {lang}
+          <li key={lang} onClick={() => { setLocale(lang); setIsOpen(false); }}>
+            {LOCALE_LABELS[lang]}
           </li>
         ))}
       </ul>

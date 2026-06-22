@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Construction } from 'lucide-react';
 import { WebIcon, CloudIcon, AtomIcon } from '@/public/icons';
+import { useI18n } from '@/app/i18n/I18nProvider';
 
 type Category = 'Software Development' | 'Cloud & DevOps' | 'Data Science';
 
@@ -30,6 +31,19 @@ const filters: { label: Category; icon: React.ReactNode }[] = [
   { label: 'Data Science', icon: <AtomIcon /> },
 ];
 
+// The Category string is the logical key (filtering/state); these map it to the
+// translation key for display only. Subtitles map likewise.
+const CATEGORY_LABEL_KEY: Record<Category, string> = {
+  'Software Development': 'projects.catSoftware',
+  'Cloud & DevOps': 'projects.catCloud',
+  'Data Science': 'projects.catData',
+};
+
+const SUBTITLE_KEY: Record<string, string> = {
+  'React Application': 'projects.subtitleReact',
+  'Go Application': 'projects.subtitleGo',
+};
+
 const ArrowButton = ({ color }: { color: string }) => (
   <div className="project-arrow-btn" style={{ backgroundColor: color }}>
     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -45,7 +59,9 @@ const ArrowButton = ({ color }: { color: string }) => (
 );
 
 const ProjectCard = ({ project, isMobile }: { project: Project; isMobile: boolean }) => {
+  const { t } = useI18n();
   const videoRef = React.useRef<HTMLVideoElement>(null);
+  const subtitle = SUBTITLE_KEY[project.subtitle] ? t(SUBTITLE_KEY[project.subtitle]) : project.subtitle;
 
   const playVideo = () => {
     const v = videoRef.current;
@@ -94,7 +110,7 @@ const ProjectCard = ({ project, isMobile }: { project: Project; isMobile: boolea
         <div className="project-card-image project-card-image--wip">
           <span className="project-status-badge">
             <span className="project-status-dot" />
-            In Progress
+            {t('projects.inProgress')}
           </span>
           <Construction className="project-card-construction" aria-hidden="true" />
         </div>
@@ -104,7 +120,7 @@ const ProjectCard = ({ project, isMobile }: { project: Project; isMobile: boolea
       <div className="project-card-footer">
         <div>
           <p className="project-card-name">{project.name}</p>
-          <p className="project-card-subtitle">{project.subtitle}</p>
+          <p className="project-card-subtitle">{subtitle}</p>
         </div>
         <ArrowButton color={project.color} />
       </div>
@@ -114,6 +130,7 @@ const ProjectCard = ({ project, isMobile }: { project: Project; isMobile: boolea
 };
 
 export default function ProjectsSection() {
+  const { t } = useI18n();
   const [activeFilter, setActiveFilter] = useState<Category>('Software Development');
   const [isMobile, setIsMobile] = useState(false);
   const [showAll, setShowAll] = useState(false);
@@ -143,8 +160,8 @@ export default function ProjectsSection() {
   return (
     <section className="projects-section">
       <div className="skills-header-container">
-        <h1 className="section-header-bg">PROJECTS</h1>
-        <h2 className="section-header">PROJECTS</h2>
+        <h1 className="section-header-bg">{t('projects.heading')}</h1>
+        <h2 className="section-header">{t('projects.heading')}</h2>
       </div>
 
       <div className="categories-container">
@@ -155,7 +172,7 @@ export default function ProjectsSection() {
             onClick={() => selectFilter(f.label)}
           >
             {f.icon}
-            <span>{f.label}</span>
+            <span>{t(CATEGORY_LABEL_KEY[f.label])}</span>
           </div>
         ))}
       </div>
@@ -168,7 +185,7 @@ export default function ProjectsSection() {
           {(activeFilter === 'Data Science' || activeFilter === 'Cloud & DevOps') && (
             <div className="category-wip-indicator">
               <Construction size={40} className="category-wip-icon" aria-hidden="true" />
-              <p>Work in progress</p>
+              <p>{t('projects.workInProgress')}</p>
             </div>
           )}
         </div>
@@ -180,7 +197,7 @@ export default function ProjectsSection() {
           className="projects-show-more"
           onClick={() => setShowAll(v => !v)}
         >
-          {showAll ? 'Show less' : 'Show more'}
+          {showAll ? t('projects.showLess') : t('projects.showMore')}
         </button>
       )}
     </section>

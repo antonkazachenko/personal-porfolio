@@ -9,11 +9,13 @@ import LangDropdown from '@/app/components/LangDropdown';
 import RightsSection from '@/app/components/RightsSection';
 import TechBadge from '@/app/components/TechBadge';
 import DemoCredentials from '@/app/components/DemoCredentials';
+import { useI18n } from '@/app/i18n/I18nProvider';
 import '@/app/components/styles.css';
 
 const PROJECT_COLOR = '#9205af';
 
-const NAV_ITEMS = ['Skills', 'Experience', 'Projects', 'Education', 'Contacts'];
+// Nav keys map to the shared nav.* dictionary entries (links go home).
+const NAV_KEYS = ['skills', 'experience', 'projects', 'education', 'contacts'] as const;
 
 const TECH_STACK = [
   { name: 'React', description: 'Component-based UI library', Icon: ReactIcon },
@@ -31,40 +33,12 @@ const BADGES = [
   { label: 'JWTs', Icon: Key, color: '#f59e0b', description: 'Token-based authentication' },
 ];
 
-const FEATURES = [
-  {
-    title: 'Drag & Drop',
-    description:
-      'Assemble a burger by dragging ingredients straight into the constructor. React DnD manages the drag sources, drop targets, and live reordering, so composing and rearranging a build feels natural and responsive.',
-  },
-  {
-    title: 'State & Localization',
-    description:
-      'Global state is centralised with Redux and @reduxjs/toolkit, keeping the cart, ingredients, and order flow predictable, while the React Context API powers in-app translations for a fully multilingual interface.',
-  },
-  {
-    title: 'Testing',
-    description:
-      'A two-layer test suite keeps changes safe: Cypress drives end-to-end flows through the real UI, while Jest covers units and reducers — together guarding against regressions on every commit.',
-  },
-  {
-    title: 'Auth',
-    description:
-      'Registration and login are secured with JSON Web Tokens. Tokens are stored securely and attached to protected requests, with guarded routes that redirect unauthenticated users away from private pages.',
-  },
-  {
-    title: 'Live Data',
-    description:
-      'A persistent WebSocket connection streams the public order feed and the user’s personal order history in real time, so statuses update instantly with no manual refreshes or polling.',
-  },
-  {
-    title: 'CD / Deploy',
-    description:
-      'Continuous delivery ships the app to GitHub Pages, turning every push to the main branch into an automated build and deploy for fast, repeatable releases.',
-  },
-];
+// Feature keys map to the reactBurger.features.* dictionary entries; titles and
+// descriptions are resolved via t() at render time.
+const FEATURE_KEYS = ['dragDrop', 'state', 'testing', 'auth', 'liveData', 'deploy'] as const;
 
 export default function ReactBurgerPage() {
+  const { t } = useI18n();
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -73,15 +47,15 @@ export default function ReactBurgerPage() {
         {/* Header */}
         <header className="header">
           <div className="left-menu">
-            <Link href="/" className="mobile-logo" aria-label="Home">
+            <Link href="/" className="mobile-logo" aria-label={t('header.home')}>
               <TabIcon className="mobile-logo-svg" />
             </Link>
             <ThemeSwitcher />
             <LangDropdown />
           </div>
           <ul className="menu-list">
-            {NAV_ITEMS.map((label) => (
-              <li key={label}><Link href="/">{label}</Link></li>
+            {NAV_KEYS.map((key) => (
+              <li key={key}><Link href="/">{t(`nav.${key}`)}</Link></li>
             ))}
           </ul>
           <div className="right-menu">
@@ -100,7 +74,7 @@ export default function ReactBurgerPage() {
             <button
               type="button"
               className="hamburger"
-              aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+              aria-label={menuOpen ? t('header.closeMenu') : t('header.openMenu')}
               aria-expanded={menuOpen}
               onClick={() => setMenuOpen((open) => !open)}
             >
@@ -114,14 +88,14 @@ export default function ReactBurgerPage() {
             <>
               <div className="mobile-drawer-backdrop" onClick={() => setMenuOpen(false)} />
               <nav className="mobile-drawer">
-                {NAV_ITEMS.map((label) => (
+                {NAV_KEYS.map((key) => (
                   <Link
-                    key={label}
+                    key={key}
                     href="/"
                     className="mobile-drawer-link"
                     onClick={() => setMenuOpen(false)}
                   >
-                    {label}
+                    {t(`nav.${key}`)}
                   </Link>
                 ))}
               </nav>
@@ -130,13 +104,13 @@ export default function ReactBurgerPage() {
         </header>
 
         {/* Back to home (desktop) */}
-        <Link href="/" className="project-back-btn" aria-label="Back to home">
+        <Link href="/" className="project-back-btn" aria-label={t('header.backToHome')}>
           <ArrowLeft size={14} />
-          Back
+          {t('header.back')}
         </Link>
 
         {/* Back to home (mobile) */}
-        <Link href="/" className="mobile-home-button" aria-label="Home">
+        <Link href="/" className="mobile-home-button" aria-label={t('header.home')}>
           <svg
             className="mobile-home-button-chevron"
             viewBox="0 0 4 8"
@@ -146,7 +120,7 @@ export default function ReactBurgerPage() {
           >
             <path d="M3.5 0.5L0.5 4L3.5 7.5" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-          Home
+          {t('header.home')}
         </Link>
 
         {/* Hero */}
@@ -154,8 +128,7 @@ export default function ReactBurgerPage() {
           <div className="project-page-hero-text">
             <h1 className="project-page-title">React Burger</h1>
             <p className="project-page-subtitle">
-              A full-stack burger-ordering SPA built with React, featuring drag-and-drop ingredient
-              selection, real-time order tracking, and JWT-secured accounts.
+              {t('reactBurger.description')}
             </p>
           </div>
 
@@ -265,14 +238,14 @@ export default function ReactBurgerPage() {
         {/* Key Features */}
         <section className="project-features-section" id="features">
           <div className="skills-header-container">
-            <h1 className="section-header-bg">KEY FEATURES</h1>
-            <h2 className="section-header">KEY FEATURES</h2>
+            <h1 className="section-header-bg">{t('reactBurger.featuresHeading')}</h1>
+            <h2 className="section-header">{t('reactBurger.featuresHeading')}</h2>
           </div>
           <div className="project-features-grid">
-            {FEATURES.map((f) => (
-              <div key={f.title} className="project-feature-card">
-                <h3 className="project-feature-title">{f.title}</h3>
-                <p className="project-feature-desc">{f.description}</p>
+            {FEATURE_KEYS.map((k) => (
+              <div key={k} className="project-feature-card">
+                <h3 className="project-feature-title">{t(`reactBurger.features.${k}.title`)}</h3>
+                <p className="project-feature-desc">{t(`reactBurger.features.${k}.description`)}</p>
               </div>
             ))}
           </div>
@@ -280,17 +253,17 @@ export default function ReactBurgerPage() {
           {/* Key Features (mobile) — Figma finding-card layout */}
           <div className="features-mobile">
             <div className="features-mobile-head">
-              <h2 className="features-mobile-title">Key Features</h2>
+              <h2 className="features-mobile-title">{t('reactBurger.featuresHeading')}</h2>
               <span className="features-mobile-index">03</span>
             </div>
             <div className="features-mobile-list">
-              {FEATURES.map((f, i) => (
-                <article key={f.title} className="feature-card-m">
+              {FEATURE_KEYS.map((k, i) => (
+                <article key={k} className="feature-card-m">
                   <div className="feature-card-m-head">
-                    <h3 className="feature-card-m-title">{f.title}</h3>
+                    <h3 className="feature-card-m-title">{t(`reactBurger.features.${k}.title`)}</h3>
                     <span className="feature-card-m-index">{String(i + 1).padStart(2, '0')}</span>
                   </div>
-                  <p className="feature-card-m-desc">{f.description}</p>
+                  <p className="feature-card-m-desc">{t(`reactBurger.features.${k}.description`)}</p>
                 </article>
               ))}
             </div>
@@ -301,26 +274,26 @@ export default function ReactBurgerPage() {
         <footer className="footer">
           <div className="footer-content">
             <div className="footer-contact">
-              <h3 className="footer-heading">Have any project in mind?</h3>
-              <p className="footer-subheading">I&apos;m available for freelancing</p>
+              <h3 className="footer-heading">{t('projectFooter.heading')}</h3>
+              <p className="footer-subheading">{t('projectFooter.subheading')}</p>
               <form className="footer-form" onSubmit={(e) => e.preventDefault()}>
                 <div className="footer-field">
                   <User className="footer-field-icon" size={18} />
-                  <input type="text" name="fullName" placeholder="Full Name" />
+                  <input type="text" name="fullName" placeholder={t('footer.nameLabel')} />
                 </div>
                 <div className="footer-field">
                   <Mail className="footer-field-icon" size={18} />
-                  <input type="email" name="email" placeholder="Email" />
+                  <input type="email" name="email" placeholder={t('footer.emailLabel')} />
                 </div>
-                <textarea className="footer-message" name="message" placeholder="Message" rows={4} />
-                <button type="submit" className="footer-submit">Submit</button>
+                <textarea className="footer-message" name="message" placeholder={t('footer.messageLabel')} rows={4} />
+                <button type="submit" className="footer-submit">{t('projectFooter.submit')}</button>
               </form>
             </div>
 
             <div className="footer-info">
               <div className="footer-info-card">
                 <div className="footer-column">
-                  <h4 className="footer-column-title">Direct</h4>
+                  <h4 className="footer-column-title">{t('footer.direct')}</h4>
                   <a className="footer-contact-link" href="tel:+17789280654">
                     <span className="footer-icon-circle"><Phone size={14} /></span>
                     <span>+1 778-928-0654</span>
@@ -332,7 +305,7 @@ export default function ReactBurgerPage() {
                 </div>
 
                 <div className="footer-column footer-column--socials">
-                  <h4 className="footer-column-title">Socials</h4>
+                  <h4 className="footer-column-title">{t('footer.socials')}</h4>
                   <div className="footer-socials">
                     <a href="https://github.com/antonkazachenko" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="footer-social-link">
                       <GithubIcon className="social-icon-desktop" />
@@ -346,10 +319,10 @@ export default function ReactBurgerPage() {
                 </div>
 
                 <div className="footer-column footer-card-pages">
-                  <h4 className="footer-column-title">Pages</h4>
-                  <a className="footer-page-link" href="#overview">Overview</a>
-                  <a className="footer-page-link" href="#technologies">Technologies</a>
-                  <a className="footer-page-link" href="#features">Key Features</a>
+                  <h4 className="footer-column-title">{t('footer.pages')}</h4>
+                  <a className="footer-page-link" href="#overview">{t('projectFooter.overview')}</a>
+                  <a className="footer-page-link" href="#technologies">{t('projectFooter.technologies')}</a>
+                  <a className="footer-page-link" href="#features">{t('reactBurger.featuresHeading')}</a>
                 </div>
               </div>
             </div>

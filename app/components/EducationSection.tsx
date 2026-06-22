@@ -2,13 +2,16 @@
 
 import React from 'react';
 import { SFUIcon } from '@/public/icons';
+import { useI18n } from '@/app/i18n/I18nProvider';
 
 export default function EducationSection() {
+  const { t } = useI18n();
+
   return (
     <section className="education-section">
       <div className="skills-header-container">
-        <h1 className="section-header-bg">EDUCATION</h1>
-        <h2 className="section-header">EDUCATION</h2>
+        <h1 className="section-header-bg">{t('education.heading')}</h1>
+        <h2 className="section-header">{t('education.heading')}</h2>
       </div>
 
       {/* SFU Card */}
@@ -21,18 +24,18 @@ export default function EducationSection() {
             </div>
             <div>
               <p className="education-institution">Simon Fraser University</p>
-              <h3 className="education-degree">BSc with Distinction · Computing Science</h3>
+              <h3 className="education-degree">{t('education.degree')}</h3>
             </div>
           </div>
 
           <p className="education-description">
-            Computing Science graduate from Simon Fraser University, specializing in algorithms, AI, and software development.
+            {t('education.description')}
           </p>
 
           <ul className="education-list">
-            <li>GPA 3.57</li>
-            <li>President&apos;s Honour Roll (4.0+ GPA): Fall 2023</li>
-            <li>Dean&apos;s Honour Roll (3.5+ GPA): Spring 2025, Summer 2025, Fall 2025</li>
+            <li>{t('education.gpa')}</li>
+            <li>{t('education.presidents')}</li>
+            <li>{t('education.deans')}</li>
           </ul>
         </div>
 
@@ -40,7 +43,7 @@ export default function EducationSection() {
         <div className="education-card-image">
           <img
             src="/images/sfu.jpg"
-            alt="Simon Fraser University campus"
+            alt={t('education.campusAlt')}
             className="education-campus-img"
             onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
           />

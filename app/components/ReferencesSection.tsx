@@ -3,6 +3,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { LinkedinMobileIcon } from '@/public/icons';
+import { useI18n } from '@/app/i18n/I18nProvider';
 
 // -------------------------------------------------------------
 // Types
@@ -107,6 +108,7 @@ const DEFAULT_REFERENCES: ReferenceItem[] = [
 // Component
 // -------------------------------------------------------------
 export default function ReferencesCarousel({ items = DEFAULT_REFERENCES }: { items?: ReferenceItem[] }) {
+  const { t } = useI18n();
   const [index, setIndex] = useState(0);
   const [dir, setDir] = useState<1 | -1>(1);
   const [windowWidth, setWindowWidth] = useState(0);
@@ -218,8 +220,8 @@ export default function ReferencesCarousel({ items = DEFAULT_REFERENCES }: { ite
   return (
     <section className="relative w-full py-20">
       <div className="skills-header-container">
-        <h1 className="section-header-bg">References</h1>
-        <h2 className="section-header">References</h2>
+        <h1 className="section-header-bg">{t('references.heading')}</h1>
+        <h2 className="section-header">{t('references.heading')}</h2>
       </div>
 
       <div className="references-desktop container mx-auto px-4 h-auto py-10 md:py-0 md:h-[600px] flex items-center">

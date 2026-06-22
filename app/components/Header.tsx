@@ -5,6 +5,7 @@ import Link from 'next/link';
 import ThemeSwitcher from './ThemeSwitcher';
 import { GithubIcon, GithubMobileIcon, LinkedinIcon, LinkedinMobileIcon, TabIcon } from "@/public/icons";
 import LangDropdown from "@/app/components/LangDropdown";
+import { useI18n } from "@/app/i18n/I18nProvider";
 
 interface HeaderProps {
   onScrollToSkills: () => void;
@@ -22,13 +23,14 @@ const Header: React.FC<HeaderProps> = ({
   onScrollToContacts,
 }) => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { t } = useI18n();
 
-  const navItems: { label: string; onClick: () => void }[] = [
-    { label: "Skills", onClick: onScrollToSkills },
-    { label: "Experience", onClick: onScrollToExperience },
-    { label: "Projects", onClick: onScrollToProjects },
-    { label: "Education", onClick: onScrollToEducation },
-    { label: "Contacts", onClick: onScrollToContacts },
+  const navItems: { key: string; label: string; onClick: () => void }[] = [
+    { key: "skills", label: t("nav.skills"), onClick: onScrollToSkills },
+    { key: "experience", label: t("nav.experience"), onClick: onScrollToExperience },
+    { key: "projects", label: t("nav.projects"), onClick: onScrollToProjects },
+    { key: "education", label: t("nav.education"), onClick: onScrollToEducation },
+    { key: "contacts", label: t("nav.contacts"), onClick: onScrollToContacts },
   ];
 
   const handleNavClick = (onClick: () => void) => () => {
@@ -39,7 +41,7 @@ const Header: React.FC<HeaderProps> = ({
   return (
     <header className="header">
       <div className="left-menu">
-        <Link href="/" className="mobile-logo" aria-label="Home">
+        <Link href="/" className="mobile-logo" aria-label={t("header.home")}>
           <TabIcon className="mobile-logo-svg" />
         </Link>
         <ThemeSwitcher />
@@ -47,7 +49,7 @@ const Header: React.FC<HeaderProps> = ({
       </div>
       <ul className="menu-list">
         {navItems.map((item) => (
-          <li key={item.label} onClick={item.onClick}>{item.label}</li>
+          <li key={item.key} onClick={item.onClick}>{item.label}</li>
         ))}
       </ul>
       <div className="right-menu">
@@ -66,7 +68,7 @@ const Header: React.FC<HeaderProps> = ({
         <button
           type="button"
           className="hamburger"
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-label={menuOpen ? t("header.closeMenu") : t("header.openMenu")}
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen((open) => !open)}
         >
@@ -82,7 +84,7 @@ const Header: React.FC<HeaderProps> = ({
           <nav className="mobile-drawer">
             {navItems.map((item) => (
               <button
-                key={item.label}
+                key={item.key}
                 type="button"
                 className="mobile-drawer-link"
                 onClick={handleNavClick(item.onClick)}

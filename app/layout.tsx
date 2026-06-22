@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import {ReactNode} from "react";
+import { I18nProvider } from "@/app/i18n/I18nProvider";
 
 // const PoppinsBlack = localFont({
 //   src: "./fonts/Poppins-Black.ttf",
@@ -133,7 +134,9 @@ export default function Layout({ children }: LayoutProps) {
         <link rel="icon" href="/icons/AK.svg" type="image/svg+xml" />
       </head>
     <body>
-    <main>{children}</main>
+    <I18nProvider>
+      <main>{children}</main>
+    </I18nProvider>
     </body>
     </html>
   );
