@@ -38,9 +38,22 @@ const SkillsSection = forwardRef<HTMLDivElement, object>((props, ref: ForwardedR
       {/* Display Skills of the Active Category */}
       <div className="skills-icons">
         {skillsData[activeCategoryIndex].skills.map((skill, index) => (
-          <div key={index} className="skill-icon-wrapper">
+          <div
+            key={index}
+            className={`skill-icon-wrapper${skill.hideInLight ? " skill-hide-light" : ""}`}
+          >
             <div className="skill-icon">
-              <skill.icon />
+              {skill.lightIcon ? (
+                <>
+                  {/* Default (dark theme) logo. */}
+                  <skill.icon className="skill-icon-dark" />
+                  {/* Dark-colored variant shown only in light theme (see styles.css). */}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img className="skill-icon-light" src={skill.lightIcon} alt={skill.name} />
+                </>
+              ) : (
+                <skill.icon />
+              )}
             </div>
             <div className="skill-tooltip">
               <span className="skill-tooltip-name">{skill.name}</span>

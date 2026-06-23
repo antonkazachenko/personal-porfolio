@@ -398,6 +398,28 @@
     align-items: center;
 }
 
+/* Light-mode logo swap: some logos are near-white and vanish on the light
+   background, so a dark-colored variant is shown instead. */
+.skill-icon-light {
+    display: none;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+[data-theme="light"] .skill-icon-dark {
+    display: none;
+}
+
+[data-theme="light"] .skill-icon-light {
+    display: block;
+}
+
+/* Skills with no usable light-mode logo are dropped from the light theme. */
+[data-theme="light"] .skill-hide-light {
+    display: none;
+}
+
 .skill-tooltip {
     position: absolute;
     bottom: calc(100% + 8px);
@@ -2359,7 +2381,8 @@ button.footer-page-link {
         border-radius: 14px;
     }
 
-    .skill-icon svg {
+    .skill-icon svg,
+    .skill-icon .skill-icon-light {
         width: 26px;
         height: 26px;
     }
