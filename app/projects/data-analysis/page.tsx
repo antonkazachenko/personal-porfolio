@@ -18,6 +18,7 @@ import MatplotlibLogo from '@/public/icons/projects/data-analysis/matplotlib.svg
 import MySqlLogo from '@/public/icons/projects/data-analysis/mysql.svg';
 import SparkLogo from '@/public/icons/projects/data-analysis/spark.svg';
 import ThemeSwitcher from '@/app/components/ThemeSwitcher';
+import TechLogo from '@/app/components/TechLogo';
 import LangDropdown from '@/app/components/LangDropdown';
 import RightsSection from '@/app/components/RightsSection';
 import { useI18n } from '@/app/i18n/I18nProvider';
@@ -31,12 +32,12 @@ const LINKEDIN_URL = 'https://linkedin.com/in/antonkazachenko';
 // Libraries & Databases — SVG brand logos
 const LIBRARIES = [
   { name: 'NumPy', Icon: NumpyLogo },
-  { name: 'pandas', Icon: PandasLogo },
+  { name: 'pandas', Icon: PandasLogo, light: '/icons/data_science/pandas-light.svg' },
   { name: 'PostgreSQL', Icon: PostgresLogo },
-  { name: 'PyTorch', Icon: PyTorchLogo },
+  { name: 'PyTorch', Icon: PyTorchLogo, light: '/icons/data_science/pytorch-light.svg' },
   { name: 'matplotlib', Icon: MatplotlibLogo },
   { name: 'MySQL', Icon: MySqlLogo },
-  { name: 'Spark', Icon: SparkLogo },
+  { name: 'Spark', Icon: SparkLogo, light: '/icons/data_science/apache-light.svg' },
 ];
 
 // Infrastructure & Tooling — lucide line icons
@@ -178,9 +179,9 @@ export default function DataAnalysisPage() {
           <div className="dap-group">
             <p className="dap-microlabel">Libraries &amp; Databases</p>
             <div className="dap-chips">
-              {LIBRARIES.map(({ name, Icon }) => (
+              {LIBRARIES.map(({ name, Icon, light }) => (
                 <div key={name} className="dap-chip">
-                  <span className="dap-chip-logo"><Icon /></span>
+                  <span className="dap-chip-logo"><TechLogo Icon={Icon} light={light} name={name} /></span>
                   <span className="dap-chip-text">{name}</span>
                 </div>
               ))}

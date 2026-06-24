@@ -8,6 +8,7 @@ import ThemeSwitcher from '@/app/components/ThemeSwitcher';
 import LangDropdown from '@/app/components/LangDropdown';
 import RightsSection from '@/app/components/RightsSection';
 import TechBadge from '@/app/components/TechBadge';
+import TechLogo from '@/app/components/TechLogo';
 import DemoCredentials from '@/app/components/DemoCredentials';
 import { useI18n } from '@/app/i18n/I18nProvider';
 import '@/app/components/styles.css';
@@ -18,10 +19,10 @@ const PROJECT_COLOR = '#9205af';
 const NAV_KEYS = ['skills', 'experience', 'projects', 'education', 'contacts'] as const;
 
 const TECH_STACK = [
-  { key: 'react', name: 'React', Icon: ReactIcon },
+  { key: 'react', name: 'React', Icon: ReactIcon, light: '/icons/web/react-light.svg' },
   { key: 'typescript', name: 'TypeScript', Icon: TypeScriptIcon },
   { key: 'redux', name: 'Redux', Icon: ReduxIcon },
-  { key: 'cypress', name: 'Cypress', Icon: CypressIcon },
+  { key: 'cypress', name: 'Cypress', Icon: CypressIcon, light: '/icons/web/cypress-light.svg' },
   { key: 'jest', name: 'Jest', Icon: JestIcon },
 ];
 
@@ -184,9 +185,9 @@ export default function ReactBurgerPage() {
           <p className="project-tech-label">{t('techSection.usedHeading')}</p>
           <div className="project-tech-container">
             <div className="project-tech-logos">
-              {TECH_STACK.map(({ key, name, Icon }) => (
+              {TECH_STACK.map(({ key, name, Icon, light }) => (
                 <div key={key} className="project-tech-icon">
-                  <Icon />
+                  <TechLogo Icon={Icon} light={light} name={name} />
                   <div className="skill-tooltip">
                     <span className="skill-tooltip-name">{name}</span>
                     <span className="skill-tooltip-desc">{t(`reactBurger.tech.stack.${key}`)}</span>
@@ -212,9 +213,9 @@ export default function ReactBurgerPage() {
           <div className="tech-mobile-group">
             <p className="tech-mobile-label">{t('techSection.coreStack')}</p>
             <div className="tech-mobile-chips">
-              {TECH_STACK.map(({ name, Icon }) => (
+              {TECH_STACK.map(({ name, Icon, light }) => (
                 <div key={name} className="tech-chip">
-                  <span className="tech-chip-logo"><Icon /></span>
+                  <span className="tech-chip-logo"><TechLogo Icon={Icon} light={light} name={name} /></span>
                   <span className="tech-chip-text">{name}</span>
                 </div>
               ))}

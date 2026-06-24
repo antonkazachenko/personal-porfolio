@@ -420,6 +420,23 @@
     display: none;
 }
 
+/* Generic light-mode logo swap (shared by the project tech sections via
+   <TechLogo>). Sizing adapts to whatever fixed-size container it sits in. */
+.logo-light {
+    display: none;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+[data-theme="light"] .logo-dark {
+    display: none;
+}
+
+[data-theme="light"] .logo-light {
+    display: block;
+}
+
 .skill-tooltip {
     position: absolute;
     bottom: calc(100% + 8px);
