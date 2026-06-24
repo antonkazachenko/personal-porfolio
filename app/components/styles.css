@@ -2383,30 +2383,70 @@ button.footer-page-link {
     }
 
     .profile-picture-container {
-        width: 148px;
-        height: 148px;
-        padding: 3px;
-        box-shadow: 0 0 14px var(--color-accent);
+        width: 186px;
+        height: 186px;
+        padding: 4px;
+        box-shadow: 0 0 16px rgba(14, 171, 0, 0.35), 0 0 50px rgba(14, 171, 0, 0.15);
     }
 
     .profile-picture {
-        padding: 4px;
+        padding: 2px;
     }
 
+    /* Mobile hero typography + stacked actions (Figma node 2018:809) */
     .hero-title {
         font-size: 28px;
         letter-spacing: 1.4px;
-        margin-top: 24px;
+        margin-top: 32px;
     }
 
     .hero-subtitle {
-        font-size: 18px;
+        font-size: 14px;
+        letter-spacing: 1.4px;
+        margin-top: 15px;
     }
 
     .hero-description {
-        font-size: 14px;
+        font-size: 13px;
         width: 90%;
-        margin-top: 16px;
+        margin-top: 15px;
+    }
+
+    /* Badges stack vertically on mobile; the CTA sits 20px below them */
+    .hero-actions {
+        margin-top: 40px;
+        gap: 20px;
+    }
+
+    .hero-badges {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .hero-badge {
+        padding: 8px 17px;
+        gap: 7px;
+    }
+
+    .hero-badge-icon {
+        width: 13px;
+        height: 13px;
+    }
+
+    .hero-badge-dot {
+        width: 5px;
+        height: 5px;
+        box-shadow: 0 0 5px 0 rgba(14, 171, 0, 0.6);
+    }
+
+    .hero-resume {
+        padding: 14px 31px;
+        font-size: 15px;
+    }
+
+    .hero-resume-icon {
+        width: 16px;
+        height: 16px;
     }
 }
 
