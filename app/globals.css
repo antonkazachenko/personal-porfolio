@@ -88,6 +88,17 @@
   --color-btn-secondary-text: rgb(var(--neutral-50) / 1);
   --color-btn-secondary-hover-bg: rgb(255 255 255 / 0.05);
 
+  /* Outlined "Download Resume" CTA: on hover the colours invert — the green
+     outline fills the background and the label flips to the page background
+     colour (dark text on dark theme). */
+  --color-cta-outline-hover-text: var(--color-background);
+
+  /* Location chips: a SOLID (alpha = 1) equivalent of muted text. The muted
+     token is an opacity step of #F5F5F5, and browsers apply that alpha to
+     colour-emoji too, which dimmed the 🇺🇸/🇨🇦 flags. This flattened value keeps
+     the words looking muted while letting the flags render at full opacity. */
+  --color-badge-text: #9a9a9a;
+
   /* --- Backwards-compatible aliases (existing code) --- */
   --background: var(--color-background);
   --foreground: var(--color-text-primary);
@@ -154,6 +165,9 @@
   --color-btn-secondary-border: #dadde3;
   --color-btn-secondary-text: #111111;
   --color-btn-secondary-hover-bg: #f1f3f5;
+
+  /* Light muted is already a solid colour, so emoji stay vivid. */
+  --color-badge-text: #6b7280;
 }
 
 body {

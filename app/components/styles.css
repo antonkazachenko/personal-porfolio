@@ -240,6 +240,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    /* Uniform vertical rhythm between the stacked hero elements (title →
+       subtitle → description → badges → Download Resume). */
+    --hero-gap: 2.5vh;
 }
 
 .hero-title {
@@ -257,7 +260,7 @@
 .hero-subtitle {
     color: var(--color-accent);
     text-align: center;
-    margin-top: 1vh;
+    margin-top: var(--hero-gap);
     font-family: var(--font-poppins-semi-bold), serif;
     font-size: 30px;
     font-style: normal;
@@ -269,13 +272,94 @@
 .hero-description {
     color: var(--color-text-secondary);
     text-align: center;
-    margin-top: 2.7vh;
+    margin-top: var(--hero-gap);
     font-family: var(--font-poppins-light), serif;
     font-size: 20px;
     font-style: normal;
     font-weight: 300;
     line-height: normal;
     width: 70%;
+}
+
+/* ---- Hero actions: location badges + Download Resume CTA (Figma 2156:1950) ---- */
+.hero-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Same rhythm as the rest of the stack: description → badges and
+       badges → Download Resume both use the shared hero gap. */
+    gap: var(--hero-gap);
+    margin-top: var(--hero-gap);
+}
+
+.hero-badges {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 17px;
+    border-radius: 9999px;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface-soft);
+    color: var(--color-badge-text);
+    font-family: var(--font-poppins-regular), sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 19.5px;
+    white-space: nowrap;
+}
+
+.hero-badge-icon {
+    flex-shrink: 0;
+    width: 14px;
+    height: 14px;
+    color: var(--color-badge-text);
+}
+
+.hero-badge-dot {
+    flex-shrink: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 9999px;
+    background: var(--color-accent);
+    box-shadow: 0 0 6px 0 rgba(14, 171, 0, 0.6);
+}
+
+.hero-resume {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 33px;
+    border-radius: 9999px;
+    border: 1px solid var(--color-accent);
+    background: transparent;
+    color: var(--color-text-primary);
+    font-family: var(--font-poppins-regular), sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    white-space: nowrap;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.hero-resume-icon {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+}
+
+/* Hover inverts the colours: text goes dark, background fills green. */
+.hero-resume:hover {
+    background: var(--color-accent);
+    color: var(--color-cta-outline-hover-text);
 }
 
 .main-page {

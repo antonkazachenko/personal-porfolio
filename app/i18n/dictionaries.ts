@@ -32,6 +32,9 @@ type Dictionary = {
   hero: {
     subtitle: string;
     description: string;
+    location: string;
+    relocation: string;
+    downloadResume: string;
   };
 experience: {
     heading: string;
@@ -585,6 +588,9 @@ techSection: {
     },
     hero: {
       subtitle: 'Software Developer',
+      location: 'Vancouver, BC 🇨🇦',
+      relocation: 'Open to relocation 🇺🇸 / 🇨🇦',
+      downloadResume: 'Download Resume',
       description: 'SWE I @ Infoblox',
     },
   },
@@ -903,6 +909,9 @@ techSection: {
     },
     hero: {
       subtitle: 'Softwareentwickler',
+      location: 'Vancouver, BC 🇨🇦',
+      relocation: 'Umzugsbereit 🇺🇸 / 🇨🇦',
+      downloadResume: 'Lebenslauf herunterladen',
       description: 'SWE I @ Infoblox',
     },
   },
@@ -1221,6 +1230,9 @@ techSection: {
     },
     hero: {
       subtitle: 'Développeur logiciel',
+      location: 'Vancouver, BC 🇨🇦',
+      relocation: 'Ouvert à la relocalisation 🇺🇸 / 🇨🇦',
+      downloadResume: 'Télécharger le CV',
       description: 'SWE I @ Infoblox',
     },
   },
