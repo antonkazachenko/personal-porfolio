@@ -1303,6 +1303,26 @@
     opacity: 0.85;
 }
 
+.footer-submit:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+.footer-form-status {
+    margin: 0;
+    font-family: var(--font-poppins-light), serif;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.footer-form-status--success {
+    color: var(--color-accent);
+}
+
+.footer-form-status--error {
+    color: #e5484d;
+}
+
 /* On desktop the info wrappers collapse so the form, Contacts, Pages and
    Socials columns become siblings of .footer-content and distribute evenly
    across the full width (matches Figma node 827:1286). The mobile media

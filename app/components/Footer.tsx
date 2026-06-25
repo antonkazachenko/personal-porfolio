@@ -16,10 +16,29 @@ interface FooterProps {
 const Footer = ({ onScrollToSkills, onScrollToExperience, onScrollToProjects, onScrollToEducation }: FooterProps) => {
   const { t } = useI18n();
 
-  // TODO: wire up actual email sending. Stubbed for now.
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const [status, setStatus] = React.useState<"idle" | "sending" | "success" | "error">("idle");
+
+  // Submissions are handled by Netlify Forms. Netlify detects the form from the
+  // static public/__forms.html stand-in (the React form below isn't in any
+  // static HTML), so we POST the url-encoded payload there with a matching
+  // `form-name`. Keep field names in sync with public/__forms.html.
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // No-op stub — form submission is not implemented yet.
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    setStatus("sending");
+    try {
+      const res = await fetch("/__forms.html", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(data as unknown as Record<string, string>).toString(),
+      });
+      if (!res.ok) throw new Error(`Request failed: ${res.status}`);
+      setStatus("success");
+      form.reset();
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -29,7 +48,20 @@ const Footer = ({ onScrollToSkills, onScrollToExperience, onScrollToProjects, on
           <h3 className="footer-heading">{t('footer.heading')}</h3>
           <p className="footer-subheading">{t('footer.subheading')}</p>
 
-          <form className="footer-form" onSubmit={handleSubmit}>
+          <form
+            className="footer-form"
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            onSubmit={handleSubmit}
+          >
+            <input type="hidden" name="form-name" value="contact" />
+            <p hidden>
+              <label>
+                Don’t fill this out: <input name="bot-field" />
+              </label>
+            </p>
             <div className="footer-field-group">
               <label className="footer-field-label">{t('footer.nameLabel')}</label>
               <div className="footer-field">
@@ -56,9 +88,20 @@ const Footer = ({ onScrollToSkills, onScrollToExperience, onScrollToProjects, on
               />
             </div>
 
-            <button type="submit" className="footer-submit">
-              {t('footer.send')}
+            <button type="submit" className="footer-submit" disabled={status === "sending"}>
+              {status === "sending" ? t('footer.sending') : t('footer.send')}
             </button>
+
+            {status === "success" && (
+              <p className="footer-form-status footer-form-status--success" role="status">
+                {t('footer.success')}
+              </p>
+            )}
+            {status === "error" && (
+              <p className="footer-form-status footer-form-status--error" role="alert">
+                {t('footer.error')}
+              </p>
+            )}
           </form>
         </div>
 

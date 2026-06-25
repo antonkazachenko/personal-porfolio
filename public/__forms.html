@@ -1,0 +1,23 @@
+<!--
+  Static form for Netlify Forms detection.
+
+  Netlify scans deployed static HTML at build time to register forms. Our real
+  form lives in a React client component (app/components/Footer.tsx) and is not
+  present in any static HTML, so Netlify cannot detect it on its own. This file
+  is the detected stand-in: its `name` and field names must stay in sync with
+  the React form, which POSTs here via fetch.
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="contact" />
+      <input type="text" name="fullName" />
+      <input type="email" name="email" />
+      <textarea name="message"></textarea>
+      <input name="bot-field" />
+    </form>
+  </body>
+</html>

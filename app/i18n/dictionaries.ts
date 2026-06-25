@@ -124,6 +124,9 @@ teals: {
     emailPlaceholder: string;
     messagePlaceholder: string;
     send: string;
+    sending: string;
+    success: string;
+    error: string;
     direct: string;
     socials: string;
     pages: string;
@@ -377,6 +380,9 @@ teals: {
       emailPlaceholder: 'john@example.com',
       messagePlaceholder: 'Hello Anton...',
       send: 'Send Message',
+      sending: 'Sending…',
+      success: 'Thanks! Your message has been sent.',
+      error: 'Something went wrong. Please try again or email me directly.',
       direct: 'Direct',
       socials: 'Socials',
       pages: 'Pages',
@@ -698,6 +704,9 @@ teals: {
       emailPlaceholder: 'max@example.com',
       messagePlaceholder: 'Hallo Anton...',
       send: 'Nachricht senden',
+      sending: 'Wird gesendet…',
+      success: 'Danke! Deine Nachricht wurde gesendet.',
+      error: 'Etwas ist schiefgelaufen. Bitte versuche es erneut oder schreibe mir direkt.',
       direct: 'Direkt',
       socials: 'Social Media',
       pages: 'Seiten',
@@ -1019,6 +1028,9 @@ teals: {
       emailPlaceholder: 'jean@example.com',
       messagePlaceholder: 'Bonjour Anton...',
       send: 'Envoyer le message',
+      sending: 'Envoi…',
+      success: 'Merci ! Votre message a été envoyé.',
+      error: "Une erreur s'est produite. Veuillez réessayer ou m'écrire directement.",
       direct: 'Direct',
       socials: 'Réseaux',
       pages: 'Pages',
