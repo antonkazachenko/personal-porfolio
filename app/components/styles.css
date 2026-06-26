@@ -1308,19 +1308,193 @@
     cursor: default;
 }
 
-.footer-form-status {
+/* ===== Contact form: animated states (idle / sending / success / error) =====
+   Four discrete states matching the Figma "Form" frames. The form crossfades
+   into a success or error result panel; the icon pops in and the copy staggers
+   up beneath it. */
+
+.footer-form-wrap {
+    position: relative;
+    min-height: 360px;
+}
+
+/* Sending: dim the fields and lock interaction while the request is in flight */
+.footer-form--sending .footer-field,
+.footer-form--sending .footer-message {
+    opacity: 0.85;
+    pointer-events: none;
+}
+
+.footer-submit {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-submit-spinner {
+    animation: footer-spin 0.8s linear infinite;
+}
+
+/* Result panel (success + error share layout) */
+.footer-result {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-top: 40px;
+    padding-bottom: 40px;
+    max-width: 390px;
+    animation: footer-result-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.footer-result-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 1px solid var(--color-accent);
+    background: rgb(14 171 0 / 0.12);
+    color: var(--color-accent);
+    animation: footer-icon-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.footer-result--error .footer-result-icon {
+    border-color: #e55353;
+    background: rgb(229 83 83 / 0.12);
+    color: #e55353;
+}
+
+.footer-result-text {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    animation: footer-result-rise 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: 0.08s;
+}
+
+.footer-result-title {
     margin: 0;
+    color: var(--color-text-primary);
+    font-family: var(--font-poppins-semi-bold), serif;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 33px;
+}
+
+.footer-result-body {
+    margin: 0;
+    color: var(--color-text-muted);
     font-family: var(--font-poppins-light), serif;
     font-size: 14px;
     font-weight: 300;
+    line-height: 23.1px;
 }
 
-.footer-form-status--success {
+.footer-result-email {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-result-email:hover {
     color: var(--color-accent);
 }
 
-.footer-form-status--error {
-    color: #e5484d;
+.footer-result-link {
+    background: none;
+    border: none;
+    padding: 4px 0 0;
+    cursor: pointer;
+    color: var(--color-text-muted);
+    font-family: var(--font-poppins-light), serif;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 19.5px;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s ease;
+    animation: footer-result-rise 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: 0.16s;
+}
+
+.footer-result-link:hover {
+    color: var(--color-text-primary);
+}
+
+.footer-result-btn {
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid var(--color-border-strong);
+    border-radius: 40px;
+    padding: 12px 31px;
+    color: var(--color-text-primary);
+    font-family: var(--font-poppins-light), serif;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 21px;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+    animation: footer-result-rise 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: 0.16s;
+}
+
+.footer-result-btn:hover {
+    border-color: var(--color-text-primary);
+    background: var(--color-surface-soft);
+}
+
+@keyframes footer-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes footer-result-in {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes footer-result-rise {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes footer-icon-pop {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .footer-result,
+    .footer-result-icon,
+    .footer-result-text,
+    .footer-result-link,
+    .footer-result-btn {
+        animation: none;
+    }
+
+    .footer-submit-spinner {
+        animation-duration: 1.6s;
+    }
 }
 
 /* On desktop the info wrappers collapse so the form, Contacts, Pages and
@@ -1503,6 +1677,7 @@ button.footer-page-link {
     .footer-submit {
         width: 100%;
         align-self: stretch;
+        justify-content: center;
         border-radius: 16px;
         font-family: var(--font-poppins-semi-bold), serif;
         font-size: 12px;
@@ -1513,6 +1688,31 @@ button.footer-page-link {
         padding: 12px 32px;
         height: 42px;
         margin-top: 4px;
+    }
+
+    .footer-form-wrap {
+        min-height: 320px;
+    }
+
+    .footer-result {
+        max-width: none;
+        width: 100%;
+        margin-top: 32px;
+        padding-bottom: 32px;
+    }
+
+    .footer-result-title {
+        font-size: 20px;
+        line-height: 30px;
+    }
+
+    .footer-result-body {
+        font-size: 13px;
+    }
+
+    .footer-result-btn {
+        width: 100%;
+        text-align: center;
     }
 
     .footer-info {

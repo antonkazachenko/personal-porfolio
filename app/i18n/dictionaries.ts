@@ -127,6 +127,12 @@ teals: {
     sending: string;
     success: string;
     error: string;
+    successTitle: string;
+    successBody: string;
+    sendAnother: string;
+    errorTitle: string;
+    errorBody: string;
+    tryAgain: string;
     direct: string;
     socials: string;
     pages: string;
@@ -383,6 +389,12 @@ teals: {
       sending: 'Sending…',
       success: 'Thanks! Your message has been sent.',
       error: 'Something went wrong. Please try again or email me directly.',
+      successTitle: 'Message sent!',
+      successBody: "Thanks for reaching out. I'll get back to you soon.",
+      sendAnother: 'Send another message',
+      errorTitle: 'Something went wrong',
+      errorBody: 'Please try again or contact me directly at',
+      tryAgain: 'Try again',
       direct: 'Direct',
       socials: 'Socials',
       pages: 'Pages',
@@ -707,6 +719,12 @@ teals: {
       sending: 'Wird gesendet…',
       success: 'Danke! Deine Nachricht wurde gesendet.',
       error: 'Etwas ist schiefgelaufen. Bitte versuche es erneut oder schreibe mir direkt.',
+      successTitle: 'Nachricht gesendet!',
+      successBody: 'Danke für deine Nachricht. Ich melde mich bald bei dir.',
+      sendAnother: 'Weitere Nachricht senden',
+      errorTitle: 'Etwas ist schiefgelaufen',
+      errorBody: 'Bitte versuche es erneut oder kontaktiere mich direkt unter',
+      tryAgain: 'Erneut versuchen',
       direct: 'Direkt',
       socials: 'Social Media',
       pages: 'Seiten',
@@ -1031,6 +1049,12 @@ teals: {
       sending: 'Envoi…',
       success: 'Merci ! Votre message a été envoyé.',
       error: "Une erreur s'est produite. Veuillez réessayer ou m'écrire directement.",
+      successTitle: 'Message envoyé !',
+      successBody: 'Merci de votre message. Je vous répondrai bientôt.',
+      sendAnother: 'Envoyer un autre message',
+      errorTitle: "Une erreur s'est produite",
+      errorBody: 'Veuillez réessayer ou me contacter directement à',
+      tryAgain: 'Réessayer',
       direct: 'Direct',
       socials: 'Réseaux',
       pages: 'Pages',
