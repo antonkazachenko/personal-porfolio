@@ -22,7 +22,7 @@ interface Project {
 const projects: Project[] = [
   { name: 'React Burger', subtitle: 'React Application', color: '#9205af', category: 'Software Development', href: '/projects/react-burger', video: '/react-burger-demo.mp4', poster: '/react-burger-demo-poster.jpg' },
   { name: 'Go Todo List', subtitle: 'Go Application', color: '#00b8be', category: 'Software Development', href: '/projects/go-todo-list', video: '/go-todo-list-demo.mp4', poster: '/go-todo-list-demo-poster.jpg' },
-  { name: 'Go Client Server app', subtitle: 'Go Application', color: '#00b8be', category: 'Software Development', wip: true },
+  { name: 'Go Metrics Collector', subtitle: 'Go Application', color: '#00b8be', category: 'Software Development', wip: true },
 ];
 
 const filters: { label: Category; icon: React.ReactNode }[] = [
