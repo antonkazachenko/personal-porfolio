@@ -342,7 +342,7 @@ teals: {
 
       infoblox: {
         company: "Infoblox · Permanent Full-time",
-        role: "Associate Software Engineer",
+        role: "Software Engineer",
         duration: "Mar 2026 - Present",
         about: "Infoblox is a cloud-first networking company specializing in DNS, DHCP, and IP address management (DDI) and cybersecurity.",
         description1: "Built and maintained backend microservices in Go (Golang), deployed to Kubernetes via Helm charts and monitored with Grafana dashboards and alerting.",
@@ -672,7 +672,7 @@ teals: {
 
       infoblox: {
         company: "Infoblox · Feste Vollzeit",
-        role: "Associate Software Engineer",
+        role: "Software Engineer",
         duration: "März 2026 - Heute",
         about: "Infoblox ist ein Cloud-First-Netzwerkunternehmen, das sich auf DNS, DHCP und IP-Adressverwaltung (DDI) sowie Cybersicherheit spezialisiert hat.",
         description1: "Erstellung und Wartung von Backend-Microservices in Go (Golang), die über Helm-Charts in Kubernetes bereitgestellt und mit Grafana-Dashboards und Warnmeldungen überwacht wurden.",

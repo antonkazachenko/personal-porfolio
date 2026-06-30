@@ -31,7 +31,7 @@ const experiences: Experience[] = [
   {
     key: "infoblox",
     company: "Infoblox · Permanent Full-time",
-    role: "Associate Software Engineer",
+    role: "Software Engineer",
     duration: "Mar 2026 - Present",
     description: [
       "Built and maintained backend microservices in Go (Golang), deployed to Kubernetes via Helm charts and monitored with Grafana dashboards and alerting.",
