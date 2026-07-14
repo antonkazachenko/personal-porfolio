@@ -280,7 +280,7 @@ goTodoList: {
   };
 };
 
-//   = non-breaking space (was &nbsp; in the original Hero markup).
+//  = non-breaking space (was &nbsp; in the original Hero markup).
 export const dictionaries: Record<Locale, Dictionary> = {
   en: {
     nav: {
@@ -606,8 +606,8 @@ techSection: {
     },
     hero: {
       subtitle: 'Software Developer',
-      location: 'Vancouver, BC 🇨🇦',
-      relocation: 'Open to relocation 🇺🇸 / 🇨🇦',
+      location: 'Vancouver, BC  🇨🇦',
+      relocation: 'Open to relocation  🇺🇸 / 🇨🇭 / 🇨🇦',
       downloadResume: 'Download Resume',
       description: 'SWE I @ Infoblox',
     },
@@ -936,8 +936,8 @@ techSection: {
     },
     hero: {
       subtitle: 'Softwareentwickler',
-      location: 'Vancouver, BC 🇨🇦',
-      relocation: 'Umzugsbereit 🇺🇸 / 🇨🇦',
+      location: 'Vancouver, BC  🇨🇦',
+      relocation: 'Umzugsbereit  🇺🇸 / 🇨🇭 / 🇨🇦',
       downloadResume: 'Lebenslauf herunterladen',
       description: 'SWE I @ Infoblox',
     },
@@ -1266,8 +1266,8 @@ techSection: {
     },
     hero: {
       subtitle: 'Développeur logiciel',
-      location: 'Vancouver, BC 🇨🇦',
-      relocation: 'Ouvert à la relocalisation 🇺🇸 / 🇨🇦',
+      location: 'Vancouver, BC  🇨🇦',
+      relocation: 'Ouvert à la relocalisation  🇺🇸 / 🇨🇭 / 🇨🇦',
       downloadResume: 'Télécharger le CV',
       description: 'SWE I @ Infoblox',
     },
