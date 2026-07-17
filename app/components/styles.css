@@ -347,6 +347,42 @@
     }
 }
 
+.hero-cta-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.hero-contact {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 32px;
+    border-radius: 9999px;
+    border: 1px solid var(--color-accent);
+    background: var(--color-accent);
+    color: var(--color-text-on-accent);
+    font-family: var(--font-poppins-regular), sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.hero-contact-icon {
+    flex-shrink: 0;
+    width: 19px;
+    height: 19px;
+}
+
+.hero-contact:hover {
+    background: var(--color-accent-hover);
+    border-color: var(--color-accent-hover);
+}
+
 .hero-resume {
     display: inline-flex;
     align-items: center;
@@ -2673,6 +2709,22 @@ button.footer-page-link {
         width: 5px;
         height: 5px;
         box-shadow: 0 0 5px 0 rgba(14, 171, 0, 0.6);
+    }
+
+    /* Contact me / Resume stack vertically on mobile (Figma 2221:798) */
+    .hero-cta-group {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .hero-contact {
+        padding: 14px 31px;
+        font-size: 15px;
+    }
+
+    .hero-contact-icon {
+        width: 16px;
+        height: 16px;
     }
 
     .hero-resume {

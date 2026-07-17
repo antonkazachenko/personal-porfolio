@@ -35,6 +35,7 @@ type Dictionary = {
     location: string;
     relocation: string;
     downloadResume: string;
+    contactMe: string;
   };
 experience: {
     heading: string;
@@ -609,6 +610,7 @@ techSection: {
       location: 'Vancouver, BC  🇨🇦',
       relocation: 'Open to relocation  🇺🇸 / 🇨🇭 / 🇨🇦',
       downloadResume: 'Download Resume',
+      contactMe: 'Contact me',
       description: 'SWE I @ Infoblox',
     },
   },
@@ -939,6 +941,7 @@ techSection: {
       location: 'Vancouver, BC  🇨🇦',
       relocation: 'Umzugsbereit  🇺🇸 / 🇨🇭 / 🇨🇦',
       downloadResume: 'Lebenslauf herunterladen',
+      contactMe: 'Kontaktiere mich',
       description: 'SWE I @ Infoblox',
     },
   },
@@ -1269,6 +1272,7 @@ techSection: {
       location: 'Vancouver, BC  🇨🇦',
       relocation: 'Ouvert à la relocalisation  🇺🇸 / 🇨🇭 / 🇨🇦',
       downloadResume: 'Télécharger le CV',
+      contactMe: 'Me contacter',
       description: 'SWE I @ Infoblox',
     },
   },

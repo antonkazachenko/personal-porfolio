@@ -1,12 +1,16 @@
 'use client';
 
-import { Download, MapPin } from "lucide-react";
+import { Download, Mail, MapPin } from "lucide-react";
 import ProfilePicture from "@/app/components/ProfilePicture";
 import { useI18n } from "@/app/i18n/I18nProvider";
 
 const RESUME_URL = "/Software_Developer_Resume_Anton_Kazachenko.pdf";
 
-export default function Hero() {
+interface HeroProps {
+  onScrollToContacts: () => void;
+}
+
+export default function Hero({ onScrollToContacts }: HeroProps) {
   const { t } = useI18n();
 
   return (
@@ -28,14 +32,25 @@ export default function Hero() {
           </span>
         </div>
 
-        <a
-          className="hero-resume"
-          href={RESUME_URL}
-          download
-        >
-          <Download className="hero-resume-icon" strokeWidth={2} aria-hidden="true" />
-          {t('hero.downloadResume')}
-        </a>
+        <div className="hero-cta-group">
+          <button
+            type="button"
+            className="hero-contact"
+            onClick={onScrollToContacts}
+          >
+            <Mail className="hero-contact-icon" strokeWidth={2} aria-hidden="true" />
+            {t('hero.contactMe')}
+          </button>
+
+          <a
+            className="hero-resume"
+            href={RESUME_URL}
+            download
+          >
+            <Download className="hero-resume-icon" strokeWidth={2} aria-hidden="true" />
+            {t('hero.downloadResume')}
+          </a>
+        </div>
       </div>
     </div>
   );

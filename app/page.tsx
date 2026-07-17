@@ -34,7 +34,7 @@ export default function Home() {
             onScrollToEducation={scrollTo(educationSectionRef)}
             onScrollToContacts={scrollTo(contactsSectionRef)}
           />
-          <Hero />
+          <Hero onScrollToContacts={scrollTo(contactsSectionRef)} />
         </div>
         <SkillsSection ref={skillsSectionRef} />
         <ExperienceSection ref={experienceSectionRef} />
