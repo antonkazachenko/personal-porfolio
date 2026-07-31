@@ -608,7 +608,7 @@ techSection: {
     hero: {
       subtitle: 'Software Developer',
       location: 'Vancouver, BC  🇨🇦',
-      relocation: 'Open to relocation  🇺🇸 / 🇨🇭 / 🇨🇦',
+      relocation: 'Open to relocation  🇺🇸 / 🇨🇭 / 🇨🇦 / 🇩🇪',
       downloadResume: 'Download Resume',
       contactMe: 'Contact me',
       description: 'SWE I @ Infoblox',
@@ -939,7 +939,7 @@ techSection: {
     hero: {
       subtitle: 'Softwareentwickler',
       location: 'Vancouver, BC  🇨🇦',
-      relocation: 'Umzugsbereit  🇺🇸 / 🇨🇭 / 🇨🇦',
+      relocation: 'Umzugsbereit  🇺🇸 / 🇨🇭 / 🇨🇦 / 🇩🇪',
       downloadResume: 'Lebenslauf herunterladen',
       contactMe: 'Kontaktiere mich',
       description: 'SWE I @ Infoblox',
@@ -1270,7 +1270,7 @@ techSection: {
     hero: {
       subtitle: 'Développeur logiciel',
       location: 'Vancouver, BC  🇨🇦',
-      relocation: 'Ouvert à la relocalisation  🇺🇸 / 🇨🇭 / 🇨🇦',
+      relocation: 'Ouvert à la relocalisation  🇺🇸 / 🇨🇭 / 🇨🇦 / 🇩🇪',
       downloadResume: 'Télécharger le CV',
       contactMe: 'Me contacter',
       description: 'SWE I @ Infoblox',
