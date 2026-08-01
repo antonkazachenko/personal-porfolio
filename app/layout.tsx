@@ -1,99 +1,46 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import {ReactNode} from "react";
 import { I18nProvider } from "@/app/i18n/I18nProvider";
 
-// const PoppinsBlack = localFont({
-//   src: "./fonts/Poppins-Black.ttf",
-//   variable: "--font-poppins-black",
-//   weight: "100 900",
-// });
-// const PoppinsBlackItalic = localFont({
-//   src: "./fonts/Poppins-BlackItalic.ttf",
-//   variable: "--font-poppins-black-italic",
-//   weight: "100 900",
-// });
-const PoppinsBold = localFont({
-  src: "./fonts/Poppins-Bold.ttf",
-  variable: "--font-poppins-bold",
-  weight: "100 900",
-});
-// const PoppinsBoldItalic = localFont({
-//   src: "./fonts/Poppins-BoldItalic.ttf",
-//   variable: "--font-poppins-bold-italic",
-//   weight: "100 900",
-// });
-// const PoppinsExtraBold = localFont({
-//   src: "./fonts/Poppins-ExtraBold.ttf",
-//   variable: "--font-poppins-extra-bold",
-//   weight: "100 900",
-// });
-// const PoppinsExtraBoldItalic = localFont({
-//   src: "./fonts/Poppins-ExtraBoldItalic.ttf",
-//   variable: "--font-poppins-extra-bold-italic",
-//   weight: "100 900",
-// });
-// const PoppinsExtraLight = localFont({
-//   src: "./fonts/Poppins-ExtraLight.ttf",
-//   variable: "--font-poppins-extra-light",
-//   weight: "100 900",
-// });
-// const PoppinsExtraLightItalic = localFont({
-//   src: "./fonts/Poppins-ExtraLightItalic.ttf",
-//   variable: "--font-poppins-extra-light-italic",
-//   weight: "100 900",
-// });
-const PoppinsItalic = localFont({
-  src: "./fonts/Poppins-Italic.ttf",
-  variable: "--font-poppins-italic",
-  weight: "100 900",
-});
-const PoppinsLight = localFont({
-  src: "./fonts/Poppins-Light.ttf",
+// Poppins is self-hosted by next/font at build time (subsetted woff2, ~15 kB per
+// weight). It replaces six raw .ttf files that added up to ~950 kB of preloaded,
+// render-priority bytes on every page load.
+//
+// One declaration per weight, each keeping the CSS variable name it had as a
+// localFont, so the ~95 `font-family: var(--font-poppins-*)` rules in
+// components/styles.css keep resolving to the same weight they always did.
+const PoppinsLight = Poppins({
+  subsets: ["latin"],
+  display: "swap",
+  weight: "300",
   variable: "--font-poppins-light",
-  weight: "100 900",
 });
-// const PoppinsLightItalic = localFont({
-//   src: "./fonts/Poppins-LightItalic.ttf",
-//   variable: "--font-poppins-light-italic",
-//   weight: "100 900",
-// });
-const PoppinsMedium = localFont({
-  src: "./fonts/Poppins-Medium.ttf",
-  variable: "--font-poppins-medium",
-  weight: "100 900",
-});
-// const PoppinsMediumItalic = localFont({
-//   src: "./fonts/Poppins-MediumItalic.ttf",
-//   variable: "--font-poppins-medium-italic",
-//   weight: "100 900",
-// });
-const PoppinsRegular = localFont({
-  src: "./fonts/Poppins-Regular.ttf",
+const PoppinsRegular = Poppins({
+  subsets: ["latin"],
+  display: "swap",
+  weight: "400",
   variable: "--font-poppins-regular",
-  weight: "100 900",
 });
-const PoppinsSemiBold = localFont({
-  src: "./fonts/Poppins-SemiBold.ttf",
+const PoppinsMedium = Poppins({
+  subsets: ["latin"],
+  display: "swap",
+  weight: "500",
+  variable: "--font-poppins-medium",
+});
+const PoppinsSemiBold = Poppins({
+  subsets: ["latin"],
+  display: "swap",
+  weight: "600",
   variable: "--font-poppins-semi-bold",
-  weight: "100 900",
 });
-// const PoppinsSemiBoldItalic = localFont({
-//   src: "./fonts/Poppins-SemiBoldItalic.ttf",
-//   variable: "--font-poppins-semi-bold-italic",
-//   weight: "100 900",
-// });
-// const PoppinsThin = localFont({
-//   src: "./fonts/Poppins-Thin.ttf",
-//   variable: "--font-poppins-thin",
-//   weight: "100 900",
-// });
-// const PoppinsThinItalic = localFont({
-//   src: "./fonts/Poppins-ThinItalic.ttf",
-//   variable: "--font-poppins-thin-italic",
-//   weight: "100 900",
-// });
+const PoppinsBold = Poppins({
+  subsets: ["latin"],
+  display: "swap",
+  weight: "700",
+  variable: "--font-poppins-bold",
+});
 
 export const metadata: Metadata = {
   title: "Anton Kazachenko",
@@ -115,13 +62,13 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <html
       suppressHydrationWarning
-      className=
-        {`${PoppinsRegular.variable}
-        ${PoppinsBold.variable}
-        ${PoppinsItalic.variable}
-        ${PoppinsSemiBold.variable}
-        ${PoppinsLight.variable}
-        ${PoppinsMedium.variable}`}
+      className={[
+        PoppinsLight.variable,
+        PoppinsRegular.variable,
+        PoppinsMedium.variable,
+        PoppinsSemiBold.variable,
+        PoppinsBold.variable,
+      ].join(" ")}
     >
       <head>
         {/* Apply the saved theme before paint to avoid a flash of the wrong theme.

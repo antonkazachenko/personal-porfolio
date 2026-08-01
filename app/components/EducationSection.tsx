@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { SFUIcon } from '@/public/icons';
 import { useI18n } from '@/app/i18n/I18nProvider';
 
@@ -41,10 +42,13 @@ export default function EducationSection() {
 
         {/* Right: campus image */}
         <div className="education-card-image">
-          <img
+          <Image
             src="/images/sfu.jpg"
             alt={t('education.campusAlt')}
             className="education-campus-img"
+            width={394}
+            height={218}
+            sizes="(max-width: 768px) 90vw, 394px"
             onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
           />
         </div>

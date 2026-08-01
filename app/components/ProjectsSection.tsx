@@ -58,7 +58,7 @@ const ArrowButton = ({ color }: { color: string }) => (
   </div>
 );
 
-const ProjectCard = ({ project, isMobile }: { project: Project; isMobile: boolean }) => {
+const ProjectCard = ({ project, canHover }: { project: Project; canHover: boolean }) => {
   const { t } = useI18n();
   const videoRef = React.useRef<HTMLVideoElement>(null);
   const subtitle = SUBTITLE_KEY[project.subtitle] ? t(SUBTITLE_KEY[project.subtitle]) : project.subtitle;
@@ -76,9 +76,10 @@ const ProjectCard = ({ project, isMobile }: { project: Project; isMobile: boolea
     }
   };
 
-  // On mobile there's no hover to trigger playback, and the video first frame
-  // doesn't render reliably, so show a static poster image instead.
-  const showVideo = project.video && !isMobile;
+  // Without hover there's nothing to trigger playback, and the video first frame
+  // doesn't render reliably, so show a static poster image instead. This starts
+  // out false on every device so the initial HTML never references the MP4s.
+  const showVideo = project.video && canHover;
 
   const inner = (
     <div
@@ -133,11 +134,24 @@ export default function ProjectsSection() {
   const { t } = useI18n();
   const [activeFilter, setActiveFilter] = useState<Category>('Software Development');
   const [isMobile, setIsMobile] = useState(false);
+  const [canHover, setCanHover] = useState(false);
   const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 768px)');
     const update = () => setIsMobile(mq.matches);
+    update();
+    mq.addEventListener('change', update);
+    return () => mq.removeEventListener('change', update);
+  }, []);
+
+  // The demo videos only exist to play on hover, so hover capability — not
+  // viewport width — is the real precondition. Starting at `false` also keeps the
+  // multi-megabyte <video> elements out of the server-rendered HTML, so phones
+  // never pay for metadata requests on files they can't use.
+  useEffect(() => {
+    const mq = window.matchMedia('(hover: hover) and (pointer: fine)');
+    const update = () => setCanHover(mq.matches);
     update();
     mq.addEventListener('change', update);
     return () => mq.removeEventListener('change', update);
@@ -180,7 +194,7 @@ export default function ProjectsSection() {
       <div className="projects-carousel-wrapper">
         <div className={`projects-carousel ${shouldAnimate ? 'projects-carousel--animate' : 'projects-carousel--static'}`}>
           {carouselItems.map((project, i) => (
-            <ProjectCard key={`${project.name}-${i}`} project={project} isMobile={isMobile} />
+            <ProjectCard key={`${project.name}-${i}`} project={project} canHover={canHover} />
           ))}
           {(activeFilter === 'Data Science' || activeFilter === 'Cloud & DevOps') && (
             <div className="category-wip-indicator">

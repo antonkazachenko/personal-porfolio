@@ -43,16 +43,21 @@ const SkillsSection = forwardRef<HTMLDivElement, object>((props, ref: ForwardedR
             className={`skill-icon-wrapper${skill.hideInLight ? " skill-hide-light" : ""}`}
           >
             <div className="skill-icon">
-              {skill.lightIcon ? (
-                <>
-                  {/* Default (dark theme) logo. */}
-                  <skill.icon className="skill-icon-dark" />
-                  {/* Dark-colored variant shown only in light theme (see styles.css). */}
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img className="skill-icon-light" src={skill.lightIcon} alt={skill.name} />
-                </>
-              ) : (
-                <skill.icon />
+              {/* Default logo. A plain <img> rather than an inlined SVG component, so
+                  the markup stays out of the JS bundle and loads lazily. `skill-icon-dark`
+                  is only applied when a light variant exists to replace it — it carries
+                  `display: none` in the light theme (see styles.css). */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                className={`skill-icon-img${skill.lightIcon ? " skill-icon-dark" : ""}`}
+                src={skill.icon}
+                alt={skill.name}
+                loading="lazy"
+              />
+              {/* Dark-colored variant shown only in light theme. */}
+              {skill.lightIcon && (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img className="skill-icon-light" src={skill.lightIcon} alt={skill.name} loading="lazy" />
               )}
             </div>
             <div className="skill-tooltip">

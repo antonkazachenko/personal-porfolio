@@ -23,7 +23,7 @@ export default function TechLogo({ Icon, light, name }: TechLogoProps) {
     <>
       <Icon className="logo-dark" />
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img className="logo-light" src={light} alt={name ?? ''} />
+      <img className="logo-light" src={light} alt={name ?? ''} loading="lazy" />
     </>
   );
 }
