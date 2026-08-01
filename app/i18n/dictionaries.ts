@@ -112,6 +112,7 @@ teals: {
     english: string;
     russian: string;
     french: string;
+    german: string;
     bilingual: string;
     intermediate: string;
   };
@@ -374,6 +375,7 @@ teals: {
       english: 'English',
       russian: 'Russian',
       french: 'French',
+      german: 'German',
       bilingual: 'Bilingual proficiency',
       intermediate: 'Intermediate proficiency',
     },
@@ -705,6 +707,7 @@ teals: {
       english: 'Englisch',
       russian: 'Russisch',
       french: 'Französisch',
+      german: 'Deutsch',
       bilingual: 'Zweisprachige Kenntnisse',
       intermediate: 'Mittlere Kenntnisse',
     },
@@ -1036,6 +1039,7 @@ teals: {
       english: 'Anglais',
       russian: 'Russe',
       french: 'Français',
+      german: 'Allemand',
       bilingual: 'Bilingue',
       intermediate: 'Niveau intermédiaire',
     },

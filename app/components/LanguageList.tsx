@@ -1,6 +1,6 @@
 'use client';
 
-import {FrenchIcon, RussiaIcon, UKIcon} from "@/public/icons";
+import {FrenchIcon, GermanIcon, RussiaIcon, UKIcon} from "@/public/icons";
 import { useI18n } from "@/app/i18n/I18nProvider";
 
 
@@ -27,6 +27,13 @@ const LanguageList = () => {
         <FrenchIcon/>
         <span className="lang-emoji">🇫🇷</span>
         <h3>{t('languages.french')}</h3>
+        <p>{t('languages.intermediate')}</p>
+      </div>
+
+      <div>
+        <GermanIcon/>
+        <span className="lang-emoji">🇩🇪</span>
+        <h3>{t('languages.german')}</h3>
         <p>{t('languages.intermediate')}</p>
       </div>
     </div>

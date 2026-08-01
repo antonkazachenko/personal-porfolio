@@ -620,7 +620,9 @@
 
 .language-list {
     display: flex;
-    gap: 10vw;
+    /* 6vw rather than 10vw: with four languages a 10vw gap overflows the viewport
+       between the 768px mobile breakpoint and ~1000px. */
+    gap: 6vw;
     margin-top: 5.5vh;
 }
 
