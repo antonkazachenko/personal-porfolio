@@ -3,45 +3,34 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Construction } from 'lucide-react';
-import { WebIcon, CloudIcon, AtomIcon } from '@/public/icons';
+import { CATEGORY_KEYS, CATEGORY_META, CategoryKey } from '@/app/data/categories';
 import { useI18n } from '@/app/i18n/I18nProvider';
-
-type Category = 'Software Development' | 'Cloud & DevOps' | 'Data Science';
 
 interface Project {
   name: string;
   subtitle: string;
   color: string;
-  category: Category;
+  category: CategoryKey;
   href?: string;
+  external?: boolean;
   video?: string;
   poster?: string;
   wip?: boolean;
 }
 
 const projects: Project[] = [
-  { name: 'React Burger', subtitle: 'React Application', color: '#9205af', category: 'Software Development', href: '/projects/react-burger', video: '/react-burger-demo.mp4', poster: '/react-burger-demo-poster.jpg' },
-  { name: 'Go Todo List', subtitle: 'Go Application', color: '#00b8be', category: 'Software Development', href: '/projects/go-todo-list', video: '/go-todo-list-demo.mp4', poster: '/go-todo-list-demo-poster.jpg' },
-  { name: 'Go Metrics Collector', subtitle: 'Go Application', color: '#00b8be', category: 'Software Development', wip: true },
+  { name: 'Go Todo List', subtitle: 'Go Application', color: '#00b8be', category: 'backend', href: '/projects/go-todo-list', video: '/go-todo-list-demo.mp4', poster: '/go-todo-list-demo-poster.jpg' },
+  { name: 'React Burger', subtitle: 'React Application', color: '#9205af', category: 'frontend', href: '/projects/react-burger', video: '/react-burger-demo.mp4', poster: '/react-burger-demo-poster.jpg' },
+  { name: 'This Portfolio', subtitle: 'Next.js Application', color: '#4285F4', category: 'frontend', href: 'https://github.com/antonkazachenko/personal-porfolio', external: true, poster: '/portfolio-poster.jpg' },
+  { name: 'Go Metrics Collector', subtitle: 'Go Application', color: '#00b8be', category: 'mlInfra', wip: true },
 ];
 
-const filters: { label: Category; icon: React.ReactNode }[] = [
-  { label: 'Software Development', icon: <WebIcon /> },
-  { label: 'Cloud & DevOps', icon: <CloudIcon /> },
-  { label: 'Data Science', icon: <AtomIcon /> },
-];
-
-// The Category string is the logical key (filtering/state); these map it to the
-// translation key for display only. Subtitles map likewise.
-const CATEGORY_LABEL_KEY: Record<Category, string> = {
-  'Software Development': 'projects.catSoftware',
-  'Cloud & DevOps': 'projects.catCloud',
-  'Data Science': 'projects.catData',
-};
-
+// Subtitles are stored as English display strings; these map them to a
+// translation key. Category labels come from CATEGORY_META.
 const SUBTITLE_KEY: Record<string, string> = {
   'React Application': 'projects.subtitleReact',
   'Go Application': 'projects.subtitleGo',
+  'Next.js Application': 'projects.subtitleNext',
 };
 
 const ArrowButton = ({ color }: { color: string }) => (
@@ -127,12 +116,17 @@ const ProjectCard = ({ project, canHover }: { project: Project; canHover: boolea
       </div>
     </div>
   );
-  return project.href ? <Link href={project.href}>{inner}</Link> : inner;
+  if (!project.href) return inner;
+  return project.external ? (
+    <a href={project.href} target="_blank" rel="noopener noreferrer">{inner}</a>
+  ) : (
+    <Link href={project.href}>{inner}</Link>
+  );
 };
 
 export default function ProjectsSection() {
   const { t } = useI18n();
-  const [activeFilter, setActiveFilter] = useState<Category>('Software Development');
+  const [activeFilter, setActiveFilter] = useState<CategoryKey>('backend');
   const [isMobile, setIsMobile] = useState(false);
   const [canHover, setCanHover] = useState(false);
   const [showAll, setShowAll] = useState(false);
@@ -157,7 +151,7 @@ export default function ProjectsSection() {
     return () => mq.removeEventListener('change', update);
   }, []);
 
-  const selectFilter = (label: Category) => {
+  const selectFilter = (label: CategoryKey) => {
     setActiveFilter(label);
     setShowAll(false);
   };
@@ -179,16 +173,19 @@ export default function ProjectsSection() {
       </div>
 
       <div className="categories-container">
-        {filters.map(f => (
-          <div
-            key={f.label}
-            className={`category ${activeFilter === f.label ? 'active-category' : ''}`}
-            onClick={() => selectFilter(f.label)}
-          >
-            {f.icon}
-            <span>{t(CATEGORY_LABEL_KEY[f.label])}</span>
-          </div>
-        ))}
+        {CATEGORY_KEYS.map(key => {
+          const { icon: TabIcon, labelKey } = CATEGORY_META[key];
+          return (
+            <div
+              key={key}
+              className={`category ${activeFilter === key ? 'active-category' : ''}`}
+              onClick={() => selectFilter(key)}
+            >
+              <TabIcon />
+              <span>{t(labelKey)}</span>
+            </div>
+          );
+        })}
       </div>
 
       <div className="projects-carousel-wrapper">
@@ -196,7 +193,7 @@ export default function ProjectsSection() {
           {carouselItems.map((project, i) => (
             <ProjectCard key={`${project.name}-${i}`} project={project} canHover={canHover} />
           ))}
-          {(activeFilter === 'Data Science' || activeFilter === 'Cloud & DevOps') && (
+          {filtered.length === 0 && (
             <div className="category-wip-indicator">
               <Construction size={40} className="category-wip-icon" aria-hidden="true" />
               <p>{t('projects.workInProgress')}</p>

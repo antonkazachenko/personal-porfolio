@@ -470,10 +470,13 @@
 }
 
 
+/* The category labels are long ("Backend & Distributed Systems"), so three tabs
+   no longer fit a 1280px viewport at the old 75px gap — wrap instead of overflow. */
 .categories-container {
     display: flex;
     justify-content: center;
-    gap: 75px;
+    flex-wrap: wrap;
+    gap: 24px;
     margin-top: 60px;
     margin-bottom: 30px;
 }

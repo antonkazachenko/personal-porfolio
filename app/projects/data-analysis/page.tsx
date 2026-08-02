@@ -49,7 +49,9 @@ const TOOLING = [
   { name: 'Webhooks', Icon: Webhook },
 ];
 
-const FINDING_KEYS = ['children', 'marital', 'income', 'purpose', 'cleaning', 'categorization', 'conclusion'] as const;
+// Must stay in sync with `dataAnalysis.findings` in the dictionary — any key
+// listed here without a matching entry renders as the raw key string.
+const FINDING_KEYS = ['correlation', 'creditHistory', 'conclusion'] as const;
 
 export default function DataAnalysisPage() {
   const { t } = useI18n();
@@ -204,7 +206,7 @@ export default function DataAnalysisPage() {
         {/* Key Findings */}
         <section className="dap-section">
           <div className="dap-section-head">
-            <h2 className="dap-section-title">{t('dataAnalysis.findingsHeading')}</h2>
+            <h2 className="dap-section-title">{t('dataAnalysis.keyFindings')}</h2>
             <span className="dap-section-index">03</span>
           </div>
 
@@ -277,7 +279,7 @@ export default function DataAnalysisPage() {
               <p className="dap-microlabel">{t('footer.pages')}</p>
               <a href="#" className="dap-page-link">{t('projectFooter.overview')}</a>
               <a href="#" className="dap-page-link">{t('projectFooter.technologies')}</a>
-              <a href="#" className="dap-page-link">{t('dataAnalysis.findingsHeading')}</a>
+              <a href="#" className="dap-page-link">{t('dataAnalysis.keyFindings')}</a>
             </div>
           </div>
         </section>

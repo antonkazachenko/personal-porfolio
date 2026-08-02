@@ -145,13 +145,17 @@ rights: {
   references: {
     heading: string;
   };
+  /** Shared by the skills tabs and the projects tabs. */
+  categories: {
+    backend: string;
+    frontend: string;
+    mlInfra: string;
+  };
   projects: {
     heading: string;
-    catSoftware: string;
-    catCloud: string;
-    catData: string;
     subtitleReact: string;
     subtitleGo: string;
+    subtitleNext: string;
     inProgress: string;
     workInProgress: string;
     showMore: string;
@@ -201,7 +205,10 @@ goTodoList: {
   };
   dataAnalysis: {
     heroEyebrow: string;
+    title: string;
+    description: string;
     keyFindings: string;
+    findingsLead: string;
     findings: {
       correlation: { title: string; description: string };
       creditHistory: { title: string; description: string };
@@ -221,7 +228,6 @@ goTodoList: {
   };
   skills: {
     heading: string;
-    categories: { softwareDev: string; cloudDevops: string; dataScience: string; };
   tooltips: {
     frontendFramework: string;
     jsTranspiler: string;
@@ -271,6 +277,9 @@ goTodoList: {
     mlLibrary: string;
     scientificComputing: string;
     mlFramework: string;
+    eventStreaming: string;
+    dataPlatform: string;
+    nodeFramework: string;
   }
   };
   projectFooter: {
@@ -408,13 +417,16 @@ rights: {
     references: {
       heading: 'References',
     },
+    categories: {
+      backend: 'Backend & Distributed Systems',
+      frontend: 'Frontend & Web Platform',
+      mlInfra: 'Cloud & ML Infrastructure',
+    },
     projects: {
       heading: 'Projects',
-      catSoftware: 'Software Development',
-      catCloud: 'Cloud & DevOps',
-      catData: 'Data Science',
       subtitleReact: 'React Application',
       subtitleGo: 'Go Application',
+      subtitleNext: 'Next.js Application',
       inProgress: 'In Progress',
       workInProgress: 'Work in progress',
       showMore: 'Show more',
@@ -519,7 +531,11 @@ techSection: {
     },
     dataAnalysis: {
       heroEyebrow: 'Data Analysis Project',
+      title: 'Loan Reliability Analysis',
+      description:
+        'An exploratory analysis of borrower data — cleaning, categorising and correlating demographic and financial attributes against loan repayment outcomes to inform a credit scoring model.',
       keyFindings: 'Key Findings',
+      findingsLead: 'What the borrower data revealed once it was cleaned and categorised.',
       findings: {
         correlation: {
           title: 'Correlation Analysis',
@@ -548,7 +564,6 @@ techSection: {
     },
     skills: {
       heading: 'MY SKILLS',
-      categories: { softwareDev: 'Software Development', cloudDevops: 'Cloud & DevOps', dataScience: 'Data Science' },
     tooltips: {
       frontendFramework: "Frontend framework",
       jsTranspiler: "JS transpiler",
@@ -598,6 +613,9 @@ techSection: {
       mlLibrary: "ML library",
       scientificComputing: "Scientific computing",
       mlFramework: "ML framework",
+      eventStreaming: "Event streaming",
+      dataPlatform: "Data & AI platform",
+      nodeFramework: "Node.js framework",
     }
     },
     projectFooter: {
@@ -740,13 +758,16 @@ rights: {
     references: {
       heading: 'Referenzen',
     },
+    categories: {
+      backend: 'Backend & Verteilte Systeme',
+      frontend: 'Frontend & Web-Plattform',
+      mlInfra: 'Cloud & ML-Infrastruktur',
+    },
     projects: {
       heading: 'Projekte',
-      catSoftware: 'Softwareentwicklung',
-      catCloud: 'Cloud & DevOps',
-      catData: 'Data Science',
-      subtitleReact: 'React-Anwendung',
+      subtitleReact:'React-Anwendung',
       subtitleGo: 'Go-Anwendung',
+      subtitleNext: 'Next.js-Anwendung',
       inProgress: 'In Bearbeitung',
       workInProgress: 'In Arbeit',
       showMore: 'Mehr anzeigen',
@@ -851,7 +872,11 @@ techSection: {
     },
     dataAnalysis: {
       heroEyebrow: 'Datenanalyse-Projekt',
+      title: 'Analyse der Kreditzuverlässigkeit',
+      description:
+        'Eine explorative Analyse von Kreditnehmerdaten – Bereinigung, Kategorisierung und Korrelation demografischer und finanzieller Merkmale mit dem Rückzahlungsverhalten als Grundlage für ein Kreditscoring-Modell.',
       keyFindings: 'Wichtigste Erkenntnisse',
+      findingsLead: 'Was die Kreditnehmerdaten nach Bereinigung und Kategorisierung offenbarten.',
       findings: {
         correlation: {
           title: 'Korrelationsanalyse',
@@ -880,7 +905,6 @@ techSection: {
     },
     skills: {
       heading: 'MEINE FÄHIGKEITEN',
-      categories: { softwareDev: 'Softwareentwicklung', cloudDevops: 'Cloud & DevOps', dataScience: 'Data Science' },
     tooltips: {
       frontendFramework: "Frontend-Framework",
       jsTranspiler: "JS-Transpiler",
@@ -930,6 +954,9 @@ techSection: {
       mlLibrary: "ML-Bibliothek",
       scientificComputing: "Wissenschaftliches Rechnen",
       mlFramework: "ML-Framework",
+      eventStreaming: "Event-Streaming",
+      dataPlatform: "Daten- & KI-Plattform",
+      nodeFramework: "Node.js-Framework",
     }
     },
     projectFooter: {
@@ -1072,13 +1099,16 @@ rights: {
     references: {
       heading: 'Références',
     },
+    categories: {
+      backend: 'Backend & Systèmes Distribués',
+      frontend: 'Frontend & Plateforme Web',
+      mlInfra: 'Cloud & Infrastructure ML',
+    },
     projects: {
       heading: 'Projets',
-      catSoftware: 'Développement logiciel',
-      catCloud: 'Cloud & DevOps',
-      catData: 'Data Science',
       subtitleReact: 'Application React',
       subtitleGo: 'Application Go',
+      subtitleNext: 'Application Next.js',
       inProgress: 'En cours',
       workInProgress: 'En cours de réalisation',
       showMore: 'Voir plus',
@@ -1183,7 +1213,11 @@ techSection: {
     },
     dataAnalysis: {
       heroEyebrow: 'Projet d\'analyse de données',
+      title: 'Analyse de la fiabilité des emprunteurs',
+      description:
+        'Une analyse exploratoire des données d\'emprunteurs — nettoyage, catégorisation et corrélation des attributs démographiques et financiers avec le remboursement des prêts, afin d\'alimenter un modèle de scoring de crédit.',
       keyFindings: 'Résultats clés',
+      findingsLead: 'Ce que les données d\'emprunteurs ont révélé après nettoyage et catégorisation.',
       findings: {
         correlation: {
           title: 'Analyse de corrélation',
@@ -1212,7 +1246,6 @@ techSection: {
     },
     skills: {
       heading: 'MES COMPÉTENCES',
-      categories: { softwareDev: 'Développement Logiciel', cloudDevops: 'Cloud & DevOps', dataScience: 'Science des Données' },
     tooltips: {
       frontendFramework: "Framework Frontend",
       jsTranspiler: "Transpileur JS",
@@ -1262,6 +1295,9 @@ techSection: {
       mlLibrary: "Bibliothèque ML",
       scientificComputing: "Calcul scientifique",
       mlFramework: "Framework ML",
+      eventStreaming: "Streaming d'événements",
+      dataPlatform: "Plateforme data & IA",
+      nodeFramework: "Framework Node.js",
     }
     },
     projectFooter: {

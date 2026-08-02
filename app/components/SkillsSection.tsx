@@ -2,6 +2,7 @@
 
 import React, { useState, forwardRef, ForwardedRef } from 'react';
 import skillsData from "@/app/data/skillsData";
+import { CATEGORY_META } from "@/app/data/categories";
 import { useI18n } from '@/app/i18n/I18nProvider';
 
 const SkillsSection = forwardRef<HTMLDivElement, object>((props, ref: ForwardedRef<HTMLDivElement>) => {
@@ -18,18 +19,16 @@ const SkillsSection = forwardRef<HTMLDivElement, object>((props, ref: ForwardedR
       {/* Category Tabs */}
       <div className="categories-container">
         {skillsData.map((category, index) => {
-          let catKey = 'softwareDev';
-          if (category.category === "Cloud & DevOps") catKey = 'cloudDevops';
-          if (category.category === "Data Science") catKey = 'dataScience';
+          const { icon: TabIcon, labelKey } = CATEGORY_META[category.key];
 
           return (
             <div
-              key={index}
+              key={category.key}
               className={`category ${index === activeCategoryIndex ? "active-category" : ""}`}
               onClick={() => setActiveCategoryIndex(index)}
             >
-              <category.tabIcon />
-              <span>{t(`skills.categories.${catKey}`)}</span>
+              <TabIcon />
+              <span>{t(labelKey)}</span>
             </div>
           );
         })}
